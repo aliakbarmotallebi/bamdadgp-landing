@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import "./globals.css";
+import "@/assets/globals.css";
 import Footer from "@/components/Footer";
 import Fab from "@/components/Fab";
 import Modal from "@/components/Modal";

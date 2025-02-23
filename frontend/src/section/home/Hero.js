@@ -1,15 +1,12 @@
 'use client'
 import react from "react";
-import Modal from "@/components/Modal";
 import useModalStore from "@/stores/modal";
 
 
-
 export default function Hero() {
-    // const [openModal, setOpenModal] = react.useState(null);
 
     const { isOpen, setIsOpen, setContentModal } = useModalStore();
-    
+
     react.useEffect(()=>{
         switch(isOpen){
             case 'modal-service':
