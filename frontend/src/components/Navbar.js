@@ -1,7 +1,7 @@
 import { Routes } from "@/route/routes";
 import Link from "next/link";
 
-export default function Header (){
+export default function Navbar (){
     return(
         <>
         <div className="absolute top-20 right-40 w-1/3 z-[-1] opacity-20">

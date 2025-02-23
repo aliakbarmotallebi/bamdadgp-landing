@@ -16,6 +16,9 @@
 }
 
 @layer base {
+  *{
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-white font-yekanbakh;
   }

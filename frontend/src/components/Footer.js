@@ -1,3 +1,6 @@
+import { Routes } from "@/route/routes";
+import Link from "next/link";
+
 export default function Footer (){
     return(
         <footer className="relative bg-transparent w-full">
@@ -171,42 +174,45 @@ export default function Footer (){
             <div
               className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full"
             >
-              <a href="/" className="text-primary font-weight-bold">صفحه اصلی</a>
+              <Link href={Routes.home} className="text-primary font-weight-bold">
+              صفحه اصلی
+              </Link>
             </div>
             <div
               className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full"
             >
-              <a href="/survey.html" className="text-primary font-weight-bold">
-                نظرسنجی
-              </a>
+              <Link href={Routes.survey} className="text-primary font-weight-bold">
+              نظرسنجی
+              </Link>
             </div>
             <div
               className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full"
             >
-              <a href="/feedback.html" className="text-primary font-weight-bold">
+              <Link href={Routes.feedback} className="text-primary font-weight-bold">
                 انتقادات و پیشنهادات
-              </a>
+              </Link>
             </div>
             <div
               className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full"
             >
-              <a href="/service-centers.html" className="text-primary font-weight-bold">
+              <Link href={Routes.representatives} className="text-primary font-weight-bold">
                 مراکز خدمات بامداد سرویس
-              </a>
+              </Link>
+             
             </div>
             <div
               className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full"
             >
-              <a href="/products.html" className="text-primary font-weight-bold">
+              <Link href={Routes.store} className="text-primary font-weight-bold">
                 فروشگاه
-              </a>
+              </Link>
             </div>
             <div
               className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full"
             >
-              <a href="/about.html" className="text-primary font-weight-bold">
+              <Link href={Routes.contact} className="text-primary font-weight-bold">
                 تماس با ما
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -227,7 +233,7 @@ export default function Footer (){
               <span className="text-primary-500"> گروه تجاری بامداد </span>
               است.
             </div>
-            <a href="#body" className="flex items-center gap-2">
+            <a href="#anchor" className="flex items-center gap-2">
               <span className="block size-6">
                 <svg
                   viewBox="0 0 24 24"

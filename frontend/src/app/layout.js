@@ -1,6 +1,8 @@
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import Fab from "@/components/Fab";
+import Modal from "@/components/Modal";
 
 export const metadata = {
   title: "Create Next App",
@@ -10,9 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="overflow-x-hidden relative mx-auto" >
-        <Header />
+      <body id="anchor" className="overflow-x-hidden relative mx-auto" >
+        <Navbar />
+        <Fab />
         {children}
+        <Modal />
         <Footer />
       </body>
     </html>

@@ -1,24 +1,9 @@
+import Hero from "@/section/about/Hero";
+
 export default function About(){
     return(
         <>
-        <section className="pb-8 antialiased md:pb-16 pt-32">
-            <div className="mx-auto grid max-w-screen-xl px-4 pb-8 md:grid-cols-12 lg:gap-12 lg:pb-16 xl:gap-0">
-                <div className="content-center justify-self-start md:col-span-7 md:text-start">
-                <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:max-w-2xl md:text-5xl xl:text-6xl">
-                    درباره گروه تجاری بامداد
-                    <div>
-                    بامداد سرویس - بامداد گالری
-                    </div>
-                </h1>
-                <p className="mb-4 max-w-2xl text-gray-500 md:mb-12 md:text-lg lg:mb-5 lg:text-xl">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت 
-                </p>
-                </div>
-                <div className="hidden md:col-span-5 md:mt-0 md:flex">
-                <img src="/assets/images/about.svg" className="w-full h-full" />
-                </div>
-            </div>
-        </section>
+        <Hero />
         <section className="relative pt-12 pb-5">
         <div className="mb-10 mx-auto max-w-7xl text-lg text-justify space-y-5 space-y-reverse">
             <h3 className="text-3xl font-bold mb-5">
