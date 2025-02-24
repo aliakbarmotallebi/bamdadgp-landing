@@ -580,6 +580,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     product_image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     product_price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    product_slug: Schema.Attribute.String & Schema.Attribute.Unique;
     product_stock: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;

@@ -49,6 +49,11 @@
       "relation": "oneToMany",
       "target": "api::order-item.order-item",
       "mappedBy": "product"
+    },
+    "product_slug": {
+      "type": "string",
+      "unique": true,
+      "required": false
     }
   }
 }
