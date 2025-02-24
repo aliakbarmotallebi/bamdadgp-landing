@@ -4,7 +4,7 @@ import Hero from "@/section/store/Hero";
 import Product from "@/section/store/Product";
 
 export default async function Store({ searchParams }) {
-    const page = parseInt(searchParams.page) || 0;
+    const page = parseInt(searchParams.page) || 1;
     const limit = 2;
     const offset = (page - 1) * limit;
     const products = await getProducts(limit,offset)

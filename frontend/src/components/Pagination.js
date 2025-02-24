@@ -7,7 +7,7 @@ export default function Pagination({currentPage,totalPage}){
     const handlePageChange = (newPage)=>{
       router.push(`?page=${newPage}`,{scroll:false})
     }
-
+    console.log(currentPage)
     return (
         <div className="mt-16">
           <ul className="flex items-center gap-2 w-fit mx-auto">
@@ -30,6 +30,7 @@ export default function Pagination({currentPage,totalPage}){
             </li>
 
             {
+              
               [...Array(totalPage)].map((_,index)=>(
               <li
                 key={index}
