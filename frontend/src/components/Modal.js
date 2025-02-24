@@ -3,7 +3,7 @@ import useModalStore from "@/stores/modal";
 import react from "react";
 import { createPortal } from "react-dom";
 export default function Modal(){
-    const { isOpen, setIsOpen, onClose, contentModal } = useModalStore();
+    const { isOpen, onClose, contentModal } = useModalStore();
     const [mounted, setMounted] = react.useState(false);
 
     react.useEffect(() => {
