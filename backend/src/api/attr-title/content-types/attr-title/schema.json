@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attr_titles",
+  "info": {
+    "singularName": "attr-title",
+    "pluralName": "attr-titles",
+    "displayName": "Attr-title",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "attr_values": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attr-value.attr-value",
+      "mappedBy": "attr_title"
+    },
+    "speces": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::spece.spece",
+      "mappedBy": "attr_title"
+    }
+  }
+}

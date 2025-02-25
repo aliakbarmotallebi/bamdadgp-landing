@@ -1,4 +1,11 @@
-export default function Details(){
+export default function Details({data}){
+    const { 
+        product_title,
+        product_price,
+        product_stock,
+        product_category,
+        product_image
+    } = data;
     return (
         <>
         <article className="pt-6">
@@ -10,7 +17,7 @@ export default function Details(){
                         className="flex items-center justify-center p-3 md:w-[466px] md:h-[466px] bg-white shadow-md hover:shadow-sm transition-all duration-200 lg:border border-gray-200 rounded-xl"
                         >
                         <img
-                            src="/assets/images/product4.png"
+                            src={process.env.NEXT_PUBLIC_BASE_URL+product_image.url}
                             className="object-cover w-full"
                         />
                         </div>
@@ -20,11 +27,10 @@ export default function Details(){
                 <section className="space-y-4 mt-5">
                     <div className="text-neutral-600 text-lg font-normal">
                     <span className="after:content-[':']">دسته بندی</span>
-                    <a href="./category.html"> لبتاپ </a>
+                    <a href="./category.html"> {product_category.cat_title} </a>
                     </div>
                     <h2 className="text-xl font-bold">
-                    هدفون بی سیم اپل مدل AirPods Pro 2nd Generation همراه با محفظه
-                    شارژ
+                        {product_title}
                     </h2>
                     <div className="border-y border-gray-200 py-4">
                     <div className="inline-flex items-center">
@@ -76,6 +82,13 @@ export default function Details(){
                         >به من اطلاع بده</label
                         >
                     </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <span className="font-semibold text-lg text-gray-800">قیمت:</span>
+                        <div className="flex gap-1 text-xl text-orange-600">
+                            <strong>{Number(product_price).toLocaleString()}</strong>
+                            <strong>تومان</strong>
+                        </div>
                     </div>
                     <div className="flex items-center">
                     <div className="mr-auto">

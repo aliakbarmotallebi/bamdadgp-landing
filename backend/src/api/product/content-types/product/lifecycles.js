@@ -9,7 +9,7 @@ function generatePersianSlug(text) {
 module.exports = {
   async beforeCreate(event) {
     const { data } = event.params;
-    if ("product_slug" in data && data.product_title) {
+    if (data.product_title) {
       if (!data.product_slug || data.product_slug == null) {
         data.product_slug = generatePersianSlug(data.product_title);
       }
@@ -17,7 +17,8 @@ module.exports = {
   },
   async beforeUpdate(event) {
     const { data } = event.params;
-    if ("product_slug" in data && data.product_title) {
+    console.log(data);
+    if (data.product_title) {
       if (
         !data.product_slug ||
         data.product_slug != data.product_title ||

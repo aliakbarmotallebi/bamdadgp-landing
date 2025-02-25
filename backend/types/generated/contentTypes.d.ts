@@ -372,7 +372,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
   collectionName: 'addresses';
   info: {
-    displayName: 'address';
+    description: '';
+    displayName: 'Address';
     pluralName: 'addresses';
     singularName: 'address';
   };
@@ -405,10 +406,79 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAttrTitleAttrTitle extends Struct.CollectionTypeSchema {
+  collectionName: 'attr_titles';
+  info: {
+    description: '';
+    displayName: 'Attr-title';
+    pluralName: 'attr-titles';
+    singularName: 'attr-title';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    attr_values: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::attr-value.attr-value'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::attr-title.attr-title'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    speces: Schema.Attribute.Relation<'oneToMany', 'api::spece.spece'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAttrValueAttrValue extends Struct.CollectionTypeSchema {
+  collectionName: 'attr_values';
+  info: {
+    description: '';
+    displayName: 'Attr-value';
+    pluralName: 'attr-values';
+    singularName: 'attr-value';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    attr_title: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::attr-title.attr-title'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::attr-value.attr-value'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    speces: Schema.Attribute.Relation<'oneToMany', 'api::spece.spece'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'category';
+    description: '';
+    displayName: 'Category';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -438,10 +508,43 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCommentComment extends Struct.CollectionTypeSchema {
+  collectionName: 'comments';
+  info: {
+    description: '';
+    displayName: 'Comment';
+    pluralName: 'comments';
+    singularName: 'comment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    comment_body: Schema.Attribute.Text & Schema.Attribute.Required;
+    comment_full_name: Schema.Attribute.String & Schema.Attribute.Required;
+    comment_subject: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comment.comment'
+    > &
+      Schema.Attribute.Private;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrderItemOrderItem extends Struct.CollectionTypeSchema {
   collectionName: 'order_items';
   info: {
-    displayName: 'order-item';
+    description: '';
+    displayName: 'Order-item';
     pluralName: 'order-items';
     singularName: 'order-item';
   };
@@ -477,7 +580,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   collectionName: 'orders';
   info: {
     description: '';
-    displayName: 'order';
+    displayName: 'Order';
     pluralName: 'orders';
     singularName: 'order';
   };
@@ -515,7 +618,8 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
 export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
   collectionName: 'payments';
   info: {
-    displayName: 'payment';
+    description: '';
+    displayName: 'Payment';
     pluralName: 'payments';
     singularName: 'payment';
   };
@@ -551,7 +655,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
     description: '';
-    displayName: 'product';
+    displayName: 'Product';
     pluralName: 'products';
     singularName: 'product';
   };
@@ -559,6 +663,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -576,7 +681,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::category.category'
     >;
-    product_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    product_description: Schema.Attribute.RichText & Schema.Attribute.Required;
     product_image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     product_price: Schema.Attribute.BigInteger & Schema.Attribute.Required;
@@ -587,6 +692,41 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     product_title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    speces: Schema.Attribute.Relation<'oneToMany', 'api::spece.spece'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSpeceSpece extends Struct.CollectionTypeSchema {
+  collectionName: 'speces';
+  info: {
+    description: '';
+    displayName: 'Spece';
+    pluralName: 'speces';
+    singularName: 'spece';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    attr_title: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::attr-title.attr-title'
+    >;
+    attr_value: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::attr-value.attr-value'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::spece.spece'> &
+      Schema.Attribute.Private;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1107,11 +1247,15 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::address.address': ApiAddressAddress;
+      'api::attr-title.attr-title': ApiAttrTitleAttrTitle;
+      'api::attr-value.attr-value': ApiAttrValueAttrValue;
       'api::category.category': ApiCategoryCategory;
+      'api::comment.comment': ApiCommentComment;
       'api::order-item.order-item': ApiOrderItemOrderItem;
       'api::order.order': ApiOrderOrder;
       'api::payment.payment': ApiPaymentPayment;
       'api::product.product': ApiProductProduct;
+      'api::spece.spece': ApiSpeceSpece;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

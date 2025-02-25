@@ -1,7 +1,7 @@
 import { getProducts } from "@/api/products";
 import Pagination from "@/components/Pagination";
 import Hero from "@/section/store/Hero";
-import Product from "@/section/store/Product";
+import ProductItem from "@/section/store/ProductItem";
 
 export default async function Store({ searchParams }) {
     const page = parseInt(searchParams.page) || 1;
@@ -9,8 +9,6 @@ export default async function Store({ searchParams }) {
     const offset = (page - 1) * limit;
     const products = await getProducts(limit,offset)
     const total = products.meta.pagination.total / limit
-    console.log(products);
-
     return(
         <>
         <Hero />
@@ -24,7 +22,7 @@ export default async function Store({ searchParams }) {
           {
             products.data.length > 0?
             products.data.map((product,index)=>(
-              <Product key={index} productItem={product} />
+              <ProductItem key={index} productItem={product} />
             ))
             :
             <div className="h-32 col-span-1 sm:col-span-2 lg:col-span-4 bg-slate-50 flex justify-center items-center">

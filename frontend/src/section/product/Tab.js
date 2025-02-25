@@ -23,21 +23,13 @@ export default function Tab(){
                                     onClick={()=>changeTab(2)}
                                     className={`${activeTab === 2?'text-orange-600 !border-orange-600':'text-gray-500'} hover:border-orange-600 border-b-2 border-transparent hover:text-orange-600 pb-4 transition-all duration-200`}
                                     >
-                                    بررسی تخصصی
+                                    مشخصات
                                     </button>
                                 </li>
                                 <li>
                                     <button
                                     onClick={()=>changeTab(3)}
                                     className={`${activeTab === 3?'text-orange-600 !border-orange-600':'text-gray-500'} hover:border-orange-600 border-b-2 border-transparent hover:text-orange-600 pb-4 transition-all duration-200`}
-                                    >
-                                    مشخصات
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                    onClick={()=>changeTab(4)}
-                                    className={`${activeTab === 4?'text-orange-600 !border-orange-600':'text-gray-500'} hover:border-orange-600 border-b-2 border-transparent hover:text-orange-600 pb-4 transition-all duration-200`}
                                     >
                                     دیدگاه ها
                                     </button>

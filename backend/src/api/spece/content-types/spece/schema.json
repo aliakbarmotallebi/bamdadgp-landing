@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speces",
+  "info": {
+    "singularName": "spece",
+    "pluralName": "speces",
+    "displayName": "Spece",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "attr_title": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::attr-title.attr-title",
+      "inversedBy": "speces"
+    },
+    "attr_value": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::attr-value.attr-value",
+      "inversedBy": "speces"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "speces"
+    }
+  }
+}

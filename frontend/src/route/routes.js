@@ -6,5 +6,6 @@ export const Routes = {
     contact:'/contact',
     survey:'/survey',
     representatives:'/representatives',
-    feedback:'/feedback'
+    feedback:'/feedback',
+    product:'/product'
 }

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product",
+    "displayName": "Product",
     "description": ""
   },
   "options": {
@@ -15,10 +15,6 @@
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "product_description": {
-      "type": "text",
-      "required": true
     },
     "product_category": {
       "type": "relation",
@@ -54,6 +50,22 @@
       "type": "string",
       "unique": true,
       "required": false
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "product"
+    },
+    "product_description": {
+      "type": "richtext",
+      "required": true
+    },
+    "speces": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::spece.spece",
+      "mappedBy": "product"
     }
   }
 }

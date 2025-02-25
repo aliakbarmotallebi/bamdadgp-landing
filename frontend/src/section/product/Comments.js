@@ -1,10 +1,18 @@
 'use client';
 import useProductStore from "@/stores/product";
+import moment from "moment";
+import 'moment/locale/fa';
 
-export default function Comments(){
+moment.locale('fa');
+export default function Comments({data}){
     const {activeTab} = useProductStore();
+    
+    const timeAgo = (dateTime)=>{
+        return moment(dateTime).fromNow();
+    }
+
     return (
-        <div className={activeTab == 4 ? 'block' : 'hidden'} >
+        <div className={activeTab == 3 ? 'block' : 'hidden'} >
             <section className="mt-6">
                     <div className="flex justify-between">
                     <div className="pt-4 text-orange-900 font-semibold text-base">
@@ -17,114 +25,46 @@ export default function Comments(){
                     <div
                     className="pt-6 flex flex-col gap-12 mt-3 border-t border-gray-200"
                     >
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-3">
-                        <div
-                            className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full"
-                        >
-                            <svg
-                            className="absolute w-12 h-12 text-gray-400 -left-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path
-                                fillRule="evenodd"
-                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clipRule="evenodd"
-                            ></path>
-                            </svg>
-                        </div>
+                    
+                    {
+                        data.map((item,index)=>(
+                        
+                            <div key={index} className="flex flex-col gap-1">
+                                <div className="flex items-center gap-3">
+                                <div
+                                    className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full"
+                                >
+                                    <svg
+                                    className="absolute w-12 h-12 text-gray-400 -left-1"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                        clipRule="evenodd"
+                                    ></path>
+                                    </svg>
+                                </div>
 
-                        <h2 className="text-gray-500 text-sm font-normal">
-                            نرگس احمدی
-                            <span className="text-base mx-2 before:content-['-']">
-                            5 ثانیه پیش
-                            </span>
-                        </h2>
-                        </div>
-                        <div className="pr-8">
-                        <p className="text-gray-900 text-sm font-normal">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                            چاپ، و با استفاده از طراحان گرافیک است. لورم ایپسوم متن
-                            ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
-                            از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                            در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
-                            تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود
-                            ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد
-                            گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می
-                            طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
-                            رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
-                            فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام
-                        </p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-3">
-                        <div
-                            className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full"
-                        >
-                            <svg
-                            className="absolute w-12 h-12 text-gray-400 -left-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path
-                                fillRule="evenodd"
-                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clipRule="evenodd"
-                            ></path>
-                            </svg>
-                        </div>
+                                <h2 className="text-gray-500 text-sm font-normal">
+                                    {item.comment_full_name}
+                                    <span className="text-base mx-2 before:content-['-']">
+                                    {timeAgo(item.createdAt)}
+                                    </span>
+                                </h2>
+                                </div>
+                                <div className="pr-8">
+                                <p className="text-gray-900 text-sm font-normal">
+                                 {item.comment_body}
+                                </p>
+                                </div>
+                            </div>
+                            
+                        ))
+                    }
 
-                        <h2 className="text-gray-500 text-sm font-normal">
-                            نرگس احمدی
-                            <span className="text-xs mx-2 before:content-['-']">
-                            5 ثانیه پیش
-                            </span>
-                        </h2>
-                        </div>
-                        <div className="pr-8">
-                        <p className="text-gray-900 text-sm font-normal">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                            چاپ، و با استفاده از طراحان گرافیک است.
-                        </p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-3">
-                        <div
-                            className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full"
-                        >
-                            <svg
-                            className="absolute w-12 h-12 text-gray-400 -left-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path
-                                fillRule="evenodd"
-                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clipRule="evenodd"
-                            ></path>
-                            </svg>
-                        </div>
-
-                        <h2 className="text-gray-500 text-sm font-normal">
-                            نرگس احمدی
-                            <span className="text-xs mx-2 before:content-['-']">
-                            5 ثانیه پیش
-                            </span>
-                        </h2>
-                        </div>
-                        <div className="pr-8">
-                        <p className="text-gray-900 text-sm font-normal">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                            چاپ، و با استفاده از طراحان گرافیک است.
-                        </p>
-                        </div>
-                    </div>
                     </div>
                 </section>
                 <section className="pt-12">
