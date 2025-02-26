@@ -29,4 +29,35 @@ const getSpecesProduct = async(id)=>{
     }
 }
 
-export {getProducts,getSingleProduct,getSpecesProduct};
+const getCommentsProduct = async (id)=>{
+    try{
+        const response = await axios.get(`${API_URL}/products?populate[comments][filters][comment_status]=publish&filters[id]=${id}`)
+        return handleApiResponse(response,'product');
+    }catch (error){
+        throw error;
+    }
+}
+
+const getRelatedProducts = async (catId)=>{
+    try{
+        const response = await axios.get(`${API_URL}/products?populate[product_image][fields]=*&fields[0]=product_title&fields[1]=product_price&filters[product_category][id]=${catId}&pagination[limit]=10`)
+        return handleApiResponse(response,'product')
+    }catch(error){
+        throw error;
+    }
+}
+
+const setCommentProduct = async (form) =>{
+    try{
+        const response = await axios.post(`${API_URL}/comments`,{data:form},{
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        return handleApiResponse(response,'comment')
+    }catch(error){
+        throw error;
+    }
+}
+
+export {getProducts,getSingleProduct,getSpecesProduct,getCommentsProduct,getRelatedProducts,setCommentProduct};

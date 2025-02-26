@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "comment_full_name": {
@@ -28,6 +28,15 @@
       "relation": "manyToOne",
       "target": "api::product.product",
       "inversedBy": "comments"
+    },
+    "comment_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "publish",
+        "reject"
+      ],
+      "default": "pending"
     }
   }
 }

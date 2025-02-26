@@ -517,11 +517,15 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
     singularName: 'comment';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     comment_body: Schema.Attribute.Text & Schema.Attribute.Required;
     comment_full_name: Schema.Attribute.String & Schema.Attribute.Required;
+    comment_status: Schema.Attribute.Enumeration<
+      ['pending', 'publish', 'reject']
+    > &
+      Schema.Attribute.DefaultTo<'pending'>;
     comment_subject: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

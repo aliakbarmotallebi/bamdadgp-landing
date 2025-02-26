@@ -4,11 +4,16 @@ import Hero from "@/section/store/Hero";
 import ProductItem from "@/section/store/ProductItem";
 
 export default async function Store({ searchParams }) {
-    const page = parseInt(searchParams.page) || 1;
+    const params = await searchParams;
+    const currentPage = parseInt(params.page) || 1;
     const limit = 2;
-    const offset = (page - 1) * limit;
+    const offset = (currentPage - 1) * limit;
     const products = await getProducts(limit,offset)
     const total = products.meta.pagination.total / limit
+
+    
+
+
     return(
         <>
         <Hero />
@@ -33,7 +38,7 @@ export default async function Store({ searchParams }) {
 
           </div>
         </div>
-        <Pagination currentPage={page} totalPage={total} />
+        <Pagination currentPage={currentPage} totalPage={total} />
         </section>
         </>
     )

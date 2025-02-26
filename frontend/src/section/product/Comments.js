@@ -2,9 +2,10 @@
 import useProductStore from "@/stores/product";
 import moment from "moment";
 import 'moment/locale/fa';
+import CommentForm from "./CommentForm";
 
 moment.locale('fa');
-export default function Comments({data}){
+export default function Comments({data,productId}){
     const {activeTab} = useProductStore();
     
     const timeAgo = (dateTime)=>{
@@ -67,50 +68,7 @@ export default function Comments({data}){
 
                     </div>
                 </section>
-                <section className="pt-12">
-                    <div>
-                    <div>
-                        <form action="">
-                        <div className="grid grid-cols-2 gap-4 py-6">
-                            <div>
-                            <input
-                                type="text"
-                                name="fullname"
-                                placeholder="نام و نام خانوادگی"
-                                className="bg-gray-50 text-gray-600 outline-none border-2 border-gray-200 focus:border-gray-500 transition-all duration-200 placeholder:text-grounded-lgy-400 placeholder:text-sm placeholder:font-normal text-sm font-normal w-full px-3 py-3 rounded-md"
-                            />
-                            </div>
-                            <div>
-                            <input
-                                type="text"
-                                n=""
-                                placeholder="عنوان دیدگاه"
-                                className="bg-gray-50 text-gray-600 outline-none border-2 border-gray-200 focus:border-gray-500 transition-all duration-200 placeholder:text-grounded-lgy-400 placeholder:text-sm placeholder:font-normal text-sm font-normal w-full px-3 py-3 rounded-md"
-                            />
-                            </div>
-                            <div className="col-span-2">
-                            <textarea
-                                name="content"
-                                id=""
-                                cols="10"
-                                rows="5"
-                                placeholder="متن دیدگاه"
-                                className="bg-gray-50 text-gray-600 outline-none border-2 border-gray-200 focus:border-gray-500 transition-all duration-200 placeholder:text-gray-400 placeholder:text-sm placeholder:font-normal text-sm font-normal w-full px-3 py-3 rounded-md"
-                            ></textarea>
-                            </div>
-                            <div className="col-span-2 justify-self-end">
-                            <button
-                                type="button"
-                                className="text-white bg-stone-800 ring-2 ring-transparent focus:outline-none hover:opacity-40 focus:!ring-stone-400 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2"
-                            >
-                                ارسال دیدگاه
-                            </button>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-                    </div>
-                </section>
+                <CommentForm productId={productId} />
         </div>
     )
 }
