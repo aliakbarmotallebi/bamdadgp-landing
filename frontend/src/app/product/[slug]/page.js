@@ -16,7 +16,7 @@ export default async function Product({params}){
     if (product.data.length > 0) {
         relatedProducts = await getRelatedProducts(product.data[0].product_category.id);
     }
-    console.log(speces);
+    console.log(comments);
     return(
         <>
         <section
@@ -24,17 +24,17 @@ export default async function Product({params}){
         >
          <div className="mx-4 lg:mx-0 w-full">
             
-            <Details data={product.data[0]} />
+            <Details data={product?.data[0]} />
        
             <section className="mt-12 text-justify">
                 <Tab />
-                <Introduction data={product.data[0].product_description} />
-                {/* <Specs data={speces.data[0]} /> */}
-                {/* <Comments data={comments.data[0]['comments']} productId={product.data[0].id} /> */}
+                <Introduction data={product?.data[0]?.product_description} />
+                <Specs data={speces?.data[0]} />
+                <Comments data={comments.data[0]['comments']} productId={product.data[0].id} />
               
             </section>
             <div className="py-12 w-full">
-                {/* <Swiper title={'محصولات مرتبط'} data={relatedProducts.data} /> */}
+                <Swiper title={'محصولات مرتبط'} data={relatedProducts.data} />
             </div>
          </div>
         </section>

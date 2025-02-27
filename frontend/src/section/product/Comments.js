@@ -5,7 +5,7 @@ import 'moment/locale/fa';
 import CommentForm from "./CommentForm";
 
 moment.locale('fa');
-export default function Comments({data,productId}){
+export default function Comments({data = [],productId}){
     const {activeTab} = useProductStore();
     
     const timeAgo = (dateTime)=>{
@@ -15,12 +15,12 @@ export default function Comments({data,productId}){
     return (
         <div className={activeTab == 3 ? 'block' : 'hidden'} >
             <section className="mt-6">
-                    <div className="flex justify-between">
-                    <div className="pt-4 text-orange-900 font-semibold text-base">
+                    <div className="flex justify-between items-center">
+                    <div className="text-orange-900 font-semibold text-base">
                         <h2>دیدگاه ها</h2>
                     </div>
                     <div className="text-gray-700 text-base font-normal">
-                        <h2>23 دیدگاه</h2>
+                        <h2>{data.length} دیدگاه</h2>
                     </div>
                     </div>
                     <div
@@ -28,6 +28,7 @@ export default function Comments({data,productId}){
                     >
                     
                     {
+                        data &&
                         data.map((item,index)=>(
                         
                             <div key={index} className="flex flex-col gap-1">

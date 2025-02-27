@@ -17,8 +17,8 @@ module.exports = {
   },
   async beforeUpdate(event) {
     const { data, where } = event.params;
-    
     if (!where || !where.id) {
+      console.log('Product ID is not set');
       return;
     }
 
@@ -28,14 +28,15 @@ module.exports = {
     );
 
     if (!existingProduct) {
+      console.log('Product is not exist');
       return;
     }
+   
 
     if (data.product_title) {
       if (
-        data.product_title &&
         data.product_title !== existingProduct.product_title &&
-        (!data.product_slug || data.product_slug == null)
+        (!data.product_slug || data.product_slug == null || data.product_slug !== data.product_title)
       ) {
         data.product_slug = generatePersianSlug(data.product_title);
       }
