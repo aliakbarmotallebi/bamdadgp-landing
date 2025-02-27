@@ -378,7 +378,7 @@ export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
     singularName: 'address';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     address_full_address: Schema.Attribute.Text & Schema.Attribute.Required;
@@ -415,7 +415,7 @@ export interface ApiAttrTitleAttrTitle extends Struct.CollectionTypeSchema {
     singularName: 'attr-title';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     attr_values: Schema.Attribute.Relation<
@@ -449,7 +449,7 @@ export interface ApiAttrValueAttrValue extends Struct.CollectionTypeSchema {
     singularName: 'attr-value';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     attr_title: Schema.Attribute.Relation<
@@ -483,7 +483,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     singularName: 'category';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     cat_description: Schema.Attribute.Text &
@@ -553,7 +553,7 @@ export interface ApiOrderItemOrderItem extends Struct.CollectionTypeSchema {
     singularName: 'order-item';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -589,7 +589,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     singularName: 'order';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -628,7 +628,7 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
     singularName: 'payment';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -664,7 +664,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     singularName: 'product';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
@@ -713,7 +713,7 @@ export interface ApiSpeceSpece extends Struct.CollectionTypeSchema {
     singularName: 'spece';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     attr_title: Schema.Attribute.Relation<

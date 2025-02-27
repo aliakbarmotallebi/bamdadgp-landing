@@ -17,7 +17,7 @@ export default function Details({data}){
                         className="flex items-center justify-center p-3 md:w-[466px] md:h-[466px] bg-white shadow-md hover:shadow-sm transition-all duration-200 lg:border border-gray-200 rounded-xl"
                         >
                         <img
-                            src={process.env.NEXT_PUBLIC_BASE_URL+product_image.url}
+                            src={process.env.NEXT_PUBLIC_BASE_URL+product_image?.url}
                             className="object-cover w-full"
                         />
                         </div>

@@ -9,7 +9,7 @@ export default async function Store({ searchParams }) {
     const limit = 2;
     const offset = (currentPage - 1) * limit;
     const products = await getProducts(limit,offset)
-    const total = products.meta.pagination.total / limit
+    const total = Math.ceil(products.meta.pagination.total / limit)
 
     
 
@@ -25,7 +25,7 @@ export default async function Store({ searchParams }) {
             className="grid grid-cols-1 gap-y-3 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 px-1 rounded-2xl py-5"
           >
           {
-            products.data.length > 0?
+            products.data?.length > 0?
             products.data.map((product,index)=>(
               <ProductItem key={index} productItem={product} />
             ))
@@ -38,6 +38,7 @@ export default async function Store({ searchParams }) {
 
           </div>
         </div>
+        
         <Pagination currentPage={currentPage} totalPage={total} />
         </section>
         </>

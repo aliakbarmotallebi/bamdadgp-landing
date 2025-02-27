@@ -12,8 +12,8 @@ export default function ProductItem({productItem}){
               >
                 <img
                   className="h-full rounded-md"
-                  src={process.env.NEXT_PUBLIC_BASE_URL+productItem.product_image.formats.small.url}
-                  alt={productItem.product_image.formats.small.url}
+                  src={process.env.NEXT_PUBLIC_BASE_URL+productItem.product_image?.formats.small.url}
+                  alt={productItem.product_title}
                   
                 />
               </div>

@@ -7,9 +7,6 @@
     "displayName": "Category",
     "description": ""
   },
-  "options": {
-    "draftAndPublish": true
-  },
   "attributes": {
     "cat_title": {
       "type": "string"

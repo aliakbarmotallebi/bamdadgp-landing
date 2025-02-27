@@ -16,13 +16,26 @@ module.exports = {
     }
   },
   async beforeUpdate(event) {
-    const { data } = event.params;
-    console.log(data);
+    const { data, where } = event.params;
+    
+    if (!where || !where.id) {
+      return;
+    }
+
+    const existingProduct = await strapi.entityService.findOne(
+      "api::product.product",
+      where.id
+    );
+
+    if (!existingProduct) {
+      return;
+    }
+
     if (data.product_title) {
       if (
-        !data.product_slug ||
-        data.product_slug != data.product_title ||
-        data.product_slug == null
+        data.product_title &&
+        data.product_title !== existingProduct.product_title &&
+        (!data.product_slug || data.product_slug == null)
       ) {
         data.product_slug = generatePersianSlug(data.product_title);
       }
