@@ -1,0 +1,18 @@
+# Use Node.js base image
+FROM node:18
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY package.json yarn.lock ./
+RUN yarn install
+
+# Copy the project files
+COPY . .
+
+# Build Strapi admin panel
+RUN yarn build
+
+# Start the Strapi server
+CMD ["yarn", "develop"]
