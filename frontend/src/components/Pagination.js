@@ -1,14 +1,23 @@
 "use client"
 import { useRouter } from "next/navigation"
+import React from "react";
 
 export default function Pagination({currentPage,totalPage}){
     const  router = useRouter();
+    const [isPaginate,setIsPaginate] =  React.useState(false)
+    React.useEffect(() => {
+      totalPage > 1?
+        setIsPaginate(true)
+      :
+        setIsPaginate(false)
+    }, [totalPage])
 
+    
     const handlePageChange = (newPage)=>{
       router.push(`?page=${newPage}`,{scroll:false})
     }
     return (
-        <div className="mt-16">
+        <div className={`${isPaginate?'block':'hidden'} mt-16`}>
           <ul className="flex items-center gap-2 w-fit mx-auto">
             <li
                 onClick={()=>handlePageChange(currentPage > 1 ? currentPage - 1: currentPage)}
