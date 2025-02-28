@@ -22,6 +22,7 @@ services:
     depends_on:
       - postgres
     environment:
+      NODE_OPTIONS: "--max-old-space-size=4096" 
       DATABASE_CLIENT: postgres
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
@@ -32,6 +33,8 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
+    command: >
+      sh -c "yarn install && yarn build"  
 
   frontend:
     build: ./frontend
