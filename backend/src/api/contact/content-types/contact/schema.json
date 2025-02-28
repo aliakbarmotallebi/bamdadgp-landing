@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "contact_title": {
+      "type": "string",
+      "required": true
+    },
+    "contact_slug": {
+      "type": "string"
+    },
+    "contact_working_hours": {
+      "type": "richtext"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_address": {
+      "type": "richtext"
+    },
+    "contact_telephone": {
+      "type": "string"
+    },
+    "contact_whatsapp": {
+      "type": "string"
+    },
+    "contact_telegram": {
+      "type": "string"
+    },
+    "contact_instagram": {
+      "type": "string"
+    },
+    "contact_postal_code": {
+      "type": "string"
+    }
+  }
+}

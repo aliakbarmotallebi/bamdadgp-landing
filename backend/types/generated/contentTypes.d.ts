@@ -573,6 +573,44 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiContactContact extends Struct.SingleTypeSchema {
+  collectionName: 'contacts';
+  info: {
+    description: '';
+    displayName: 'contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    contact_address: Schema.Attribute.RichText;
+    contact_email: Schema.Attribute.String;
+    contact_instagram: Schema.Attribute.String;
+    contact_postal_code: Schema.Attribute.String;
+    contact_slug: Schema.Attribute.String;
+    contact_telegram: Schema.Attribute.String;
+    contact_telephone: Schema.Attribute.String;
+    contact_title: Schema.Attribute.String & Schema.Attribute.Required;
+    contact_whatsapp: Schema.Attribute.String;
+    contact_working_hours: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact.contact'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrderItemOrderItem extends Struct.CollectionTypeSchema {
   collectionName: 'order_items';
   info: {
@@ -1285,6 +1323,7 @@ declare module '@strapi/strapi' {
       'api::attr-value.attr-value': ApiAttrValueAttrValue;
       'api::category.category': ApiCategoryCategory;
       'api::comment.comment': ApiCommentComment;
+      'api::contact.contact': ApiContactContact;
       'api::order-item.order-item': ApiOrderItemOrderItem;
       'api::order.order': ApiOrderOrder;
       'api::payment.payment': ApiPaymentPayment;
