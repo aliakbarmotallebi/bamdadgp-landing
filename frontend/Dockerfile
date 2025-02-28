@@ -12,8 +12,5 @@ RUN yarn install
 # Copy the project files
 COPY . .
 
-# Build the Next.js app
-RUN yarn build
-
 # Start the Next.js server
 CMD ["yarn", "dev"]

@@ -11,8 +11,5 @@ RUN yarn install
 # Copy the project files
 COPY . .
 
-# Build Strapi admin panel
-RUN yarn build
-
 # Start the Strapi server
 CMD ["yarn", "develop"]

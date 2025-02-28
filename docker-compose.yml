@@ -33,8 +33,7 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-    command: >
-      sh -c "yarn install && yarn build"  
+    command: ["yarn", "develop"] 
 
   frontend:
     build: ./frontend
@@ -49,6 +48,7 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    command: ["yarn", "dev"]
 
   pgadmin:
     image: dpage/pgadmin4
