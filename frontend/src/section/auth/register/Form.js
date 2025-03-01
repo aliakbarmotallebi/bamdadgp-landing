@@ -1,12 +1,12 @@
 'use client'
 
 import React from 'react'
-import { toast } from 'react-toastify'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { registerValidation } from '@/utils/validator/registerValidation'
+import { registerApi } from '@/api/auth'
 
-export default function Form() {
+export default function Form({ onSubmit }) {
   const usernameInput = React.useRef(null)
   const {
     register,
@@ -14,11 +14,10 @@ export default function Form() {
     formState: { errors },
   } = useForm({ resolver: zodResolver(registerValidation) })
 
-  const onSubmit = data => {
-    if (data.password === repeatPassword) {
-    } else {
-      toast('رمز عبور یکسان نمی باشد')
-    }
+  const onSubmit = async data => {
+    delete data.confirmPassword
+    const response = await registerApi(data)
+    console.log(response)
   }
 
   return (
@@ -36,7 +35,7 @@ export default function Form() {
           {...register('username')}
           type="text"
           className={`${
-            errors.username?.message ? '!border-red-500' : ''
+            errors.username?.message ? '!border-red-300' : ''
           } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder="نام کاربری را وارد کنید"
         />
@@ -58,7 +57,7 @@ export default function Form() {
           id="emailInput"
           type="text"
           className={`${
-            errors.email?.message ? '!border-red-500' : ''
+            errors.email?.message ? '!border-red-300' : ''
           } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder="ایمیل خود را وارد کنید"
         />
@@ -79,7 +78,7 @@ export default function Form() {
           {...register('password')}
           dir="ltr"
           className={`${
-            errors.password?.message ? '!border-red-500' : ''
+            errors.password?.message ? '!border-red-300' : ''
           } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder=""
         />
@@ -103,7 +102,7 @@ export default function Form() {
           type="password"
           dir="ltr"
           className={`${
-            errors.confirmPassword?.message ? '!border-red-500' : ''
+            errors.confirmPassword?.message ? '!border-red-300' : ''
           } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder=""
         />
