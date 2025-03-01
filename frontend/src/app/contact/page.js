@@ -5,7 +5,6 @@ import MessageForm from "@/section/contact/MessageForm";
 
 export default async function Contact() {
   const { data } = await getContactus();
-  console.log(data);
   return (
     <>
       <Hero data={data} />
