@@ -35,7 +35,9 @@ export default function Form() {
           ref={usernameInput}
           {...register('username')}
           type="text"
-          className="p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+          className={`${
+            errors.username?.message ? '!border-red-500' : ''
+          } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder="نام کاربری را وارد کنید"
         />
         {errors.username && (
@@ -55,7 +57,9 @@ export default function Form() {
           {...register('email')}
           id="emailInput"
           type="text"
-          className="p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+          className={`${
+            errors.email?.message ? '!border-red-500' : ''
+          } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder="ایمیل خود را وارد کنید"
         />
         {errors.email && (
@@ -67,14 +71,16 @@ export default function Form() {
           className="text-stone-600 font-medium text-sm mb-1 cursor-pointer"
           htmlFor="passInput"
         >
-          رمز عبور (حداقل 6 کاراکتر)
+          رمز عبور
         </label>
         <input
           id="passInput"
           type="password"
           {...register('password')}
           dir="ltr"
-          className="p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+          className={`${
+            errors.password?.message ? '!border-red-500' : ''
+          } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder=""
         />
         {errors.password && (
@@ -96,7 +102,9 @@ export default function Form() {
           id="confirmPassInput"
           type="password"
           dir="ltr"
-          className="p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+          className={`${
+            errors.confirmPassword?.message ? '!border-red-500' : ''
+          } p-1.5 font-medium rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200`}
           placeholder=""
         />
         {errors.confirmPassword && (
