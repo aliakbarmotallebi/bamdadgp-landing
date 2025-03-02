@@ -5,9 +5,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { registerValidation } from '@/utils/validator/registerValidation'
 import axios from 'axios'
+import useAuthStore from '@/stores/auth'
 const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Form() {
+  const { setUser } = useAuthStore()
   const usernameInput = React.useRef(null)
   const {
     register,
@@ -29,7 +31,9 @@ export default function Form() {
           },
         }
       )
-      console.log(response.data)
+      const user = response.data.user
+
+      setUser({ id: user.documentId, username: user.username })
     } catch (error) {
       console.error('Error fetching register:', error)
     }
