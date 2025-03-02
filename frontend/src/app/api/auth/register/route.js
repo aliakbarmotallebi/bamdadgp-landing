@@ -6,15 +6,24 @@ export async function POST(Request) {
   try {
     const body = await Request.json()
     const response = await axios.post(
-      `${API_URL}/comments`,
-      { data: body.data },
+      `${API_URL}/auth/local/register`,
+      body.data,
       {
         headers: {
           'Content-Type': 'application/json',
         },
       }
     )
-    return NextResponse.json(response.data, { status: 201 })
+    const { jwt, user } = response.data
+    const result = NextResponse.json({ user }, { status: 201 })
+    result.cookies.set('token', jwt, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 2,
+    })
+    return result
   } catch (error) {
     throw NextResponse.json(
       { error: 'مشکلی در ارتباط با API پیش آمد' },

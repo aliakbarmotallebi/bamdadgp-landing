@@ -4,8 +4,8 @@ import React from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { registerValidation } from '@/utils/validator/registerValidation'
-import { registerApi } from '@/app/api/auth'
 import axios from 'axios'
+const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Form() {
   const usernameInput = React.useRef(null)
@@ -17,14 +17,22 @@ export default function Form() {
 
   const onSubmit = async data => {
     delete data.confirmPassword
-    const response = await axios.post('/api/auth/registerApi')
-    const response = await fetch('/api/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identifier, password }),
-      credentials: 'include',
-    })
-    console.log(response)
+    try {
+      const response = await axios.post(
+        `${LOCAL_API_URL}/auth/register`,
+        {
+          data,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      console.log(response.data)
+    } catch (error) {
+      console.error('Error fetching register:', error)
+    }
   }
 
   return (

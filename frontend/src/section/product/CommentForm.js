@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios'
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function CommentForm({ productId, slug }) {
@@ -36,7 +36,7 @@ export default function CommentForm({ productId, slug }) {
         }))
       }
     } catch (error) {
-      console.error('Error fetching products:', error)
+      console.error('Error fetching comment:', error)
     }
 
     setIsLoading(false)
