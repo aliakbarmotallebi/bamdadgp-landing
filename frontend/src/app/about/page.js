@@ -1,13 +1,24 @@
-import { getAboutus } from '@/app/api/about'
 import Content from '@/section/about/Content'
 import Hero from '@/section/about/Hero'
+import axios from 'axios'
+const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 
 export default async function About() {
-  const { data } = await getAboutus()
+  let about = null
+  try {
+    const response = await axios.get(`${LOCAL_API_URL}/about/`)
+    about = response.data
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  }
+
   return (
     <>
-      <Hero aboutTitle={data.about_title} aboutSlug={data.about_slug} />
-      <Content aboutUs={data.about_us} whyUs={data.why_us} />
+      <Hero
+        aboutTitle={about.data.about_title}
+        aboutSlug={about.data.about_slug}
+      />
+      <Content aboutUs={about.data.about_us} whyUs={about.data.why_us} />
     </>
   )
 }
