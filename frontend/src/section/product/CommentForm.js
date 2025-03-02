@@ -1,8 +1,10 @@
-import { setCommentProduct } from '@/api/products'
+'use client'
+import axios from 'axios'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
+const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
-export default function CommentForm({ productId }) {
+export default function CommentForm({ productId, slug }) {
   const [isLoading, setIsLoading] = useState(false)
   const [data, setData] = useState({
     comment_full_name: '',
@@ -12,16 +14,31 @@ export default function CommentForm({ productId }) {
   })
   const handleSendComment = async () => {
     setIsLoading(true)
-    const response = await setCommentProduct(data)
-    if (response) {
-      toast('دیدگاه شما با موفقیت ارسال شد!')
-      setData(prevState => ({
-        ...prevState,
-        comment_full_name: '',
-        comment_subject: '',
-        comment_body: '',
-      }))
+
+    try {
+      const response = await axios.post(
+        `${LOCAL_API_URL}/comments`,
+        { data },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
+      if (response.status === 201) {
+        toast('دیدگاه شما با موفقیت ارسال شد!')
+        setData(prevState => ({
+          ...prevState,
+          comment_full_name: '',
+          comment_subject: '',
+          comment_body: '',
+        }))
+      }
+    } catch (error) {
+      console.error('Error fetching products:', error)
     }
+
     setIsLoading(false)
   }
   return (

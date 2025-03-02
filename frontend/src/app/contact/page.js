@@ -1,10 +1,10 @@
-import { getContactus } from "@/api/contact";
-import Hero from "@/section/contact/Hero";
-import Info from "@/section/contact/Info";
-import MessageForm from "@/section/contact/MessageForm";
+import { getContactus } from '@/app/api/contact'
+import Hero from '@/section/contact/Hero'
+import Info from '@/section/contact/Info'
+import MessageForm from '@/section/contact/MessageForm'
 
 export default async function Contact() {
-  const { data } = await getContactus();
+  const { data } = await getContactus()
   return (
     <>
       <Hero data={data} />
@@ -21,5 +21,5 @@ export default async function Contact() {
         </div>
       </section>
     </>
-  );
+  )
 }

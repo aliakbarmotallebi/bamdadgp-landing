@@ -4,9 +4,10 @@ import React from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { registerValidation } from '@/utils/validator/registerValidation'
-import { registerApi } from '@/api/auth'
+import { registerApi } from '@/app/api/auth'
+import axios from 'axios'
 
-export default function Form({ onSubmit }) {
+export default function Form() {
   const usernameInput = React.useRef(null)
   const {
     register,
@@ -16,7 +17,13 @@ export default function Form({ onSubmit }) {
 
   const onSubmit = async data => {
     delete data.confirmPassword
-    const response = await registerApi(data)
+    const response = await axios.post('/api/auth/registerApi')
+    const response = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ identifier, password }),
+      credentials: 'include',
+    })
     console.log(response)
   }
 

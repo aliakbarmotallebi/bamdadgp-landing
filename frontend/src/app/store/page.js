@@ -1,17 +1,28 @@
-import { getProducts } from "@/api/products";
-import Pagination from "@/components/Pagination";
-import Hero from "@/section/store/Hero";
-import ProductItem from "@/section/store/ProductItem";
-import { paginationHandler } from "@/utils/paginationHandler";
+import Pagination from '@/components/Pagination'
+import Hero from '@/section/store/Hero'
+import ProductItem from '@/section/store/ProductItem'
+import { paginationHandler } from '@/utils/paginationHandler'
+import axios from 'axios'
+const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 
 export default async function Store({ searchParams }) {
-  const params = await searchParams;
-  const currentPage = parseInt(params.page) || 1;
-  const limit = 20;
-  const offset = (currentPage - 1) * limit;
-  const products = await getProducts(limit, offset);
-  const total = Math.ceil(products.meta.pagination.total / limit);
-  paginationHandler(params.page, total);
+  const params = await searchParams
+  const currentPage = parseInt(params.page) || 1
+  const limit = 20
+  const offset = (currentPage - 1) * limit
+  let products = null
+  let total = null
+
+  try {
+    const response = await axios.get(
+      `${LOCAL_API_URL}/products?limit=${limit}&page=${offset}`
+    )
+    products = response.data
+    total = Math.ceil(products.meta.pagination.total / limit)
+    paginationHandler(params.page, total)
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  }
 
   return (
     <>
@@ -36,5 +47,5 @@ export default async function Store({ searchParams }) {
         <Pagination currentPage={currentPage} totalPage={total} />
       </section>
     </>
-  );
+  )
 }
