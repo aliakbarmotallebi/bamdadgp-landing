@@ -1,19 +1,26 @@
-import { getContactus } from '@/app/api/contact'
 import Hero from '@/section/contact/Hero'
 import Info from '@/section/contact/Info'
 import MessageForm from '@/section/contact/MessageForm'
+import axios from 'axios'
+const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 
 export default async function Contact() {
-  const { data } = await getContactus()
+  let result = null
+  try {
+    const response = await axios.get(`${LOCAL_API_URL}/contact`)
+    result = response.data
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  }
   return (
     <>
-      <Hero data={data} />
+      <Hero data={result.data} />
       <section id="plans" className="bg-primary-50 pb-16">
         <div className="flex md:flex-row flex-col items-center mb-10 pt-10 mx-auto max-w-7xl">
           <section>
             <div className="content">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Info data={data} />
+                <Info data={result.data} />
                 <MessageForm />
               </div>
             </div>
