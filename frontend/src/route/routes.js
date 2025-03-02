@@ -9,5 +9,5 @@ export const Routes = {
   feedback: '/feedback',
   product: '/product',
   login: 'auth/login',
-  login: 'auth/register',
+  register: 'auth/register',
 }
