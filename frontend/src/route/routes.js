@@ -8,6 +8,6 @@ export const Routes = {
   representatives: '/representatives',
   feedback: '/feedback',
   product: '/product',
-  login: 'auth/login',
-  register: 'auth/register',
+  login: '/auth/login',
+  register: '/auth/register',
 }

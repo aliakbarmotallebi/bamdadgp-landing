@@ -6,6 +6,10 @@ import { useForm } from 'react-hook-form'
 import { registerValidation } from '@/utils/validator/registerValidation'
 import axios from 'axios'
 import useAuthStore from '@/stores/auth'
+import Link from 'next/link'
+import { Routes } from '@/route/routes'
+import { toast } from 'react-toastify'
+import { redirect } from 'next/navigation'
 const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Form() {
@@ -16,7 +20,6 @@ export default function Form() {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(registerValidation) })
-
   const onSubmit = async data => {
     delete data.confirmPassword
     try {
@@ -31,11 +34,19 @@ export default function Form() {
           },
         }
       )
-      const user = response.data.user
-
-      setUser({ id: user.documentId, username: user.username })
+      if (response.status === 201) {
+        const user = response.data.user
+        setUser({ id: user.documentId, username: user.username })
+        toast.success('حساب کاربری شما با موفقیت ایجاد شد!', {
+          theme: 'colored',
+        })
+        setTimeout(() => {
+          redirect(Routes.home)
+        }, 500)
+      }
     } catch (error) {
       console.error('Error fetching register:', error)
+      toast.error('عملیات با خطا مواجه شد، لطفا دوباره تلاش کنید')
     }
   }
 
@@ -146,12 +157,12 @@ export default function Form() {
 
         <div className="pt-3 text-sm font-medium text-stone-600">
           حساب کاربری دارید؟
-          <a
-            href=""
+          <Link
+            href={Routes.login}
             className="text-yellow-600 hover:text-yellow-800 transition-all duration-200 ms-1"
           >
             وارد شوید.
-          </a>
+          </Link>
         </div>
       </div>
     </form>

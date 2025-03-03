@@ -37,6 +37,7 @@ export default function CommentForm({ productId, slug }) {
       }
     } catch (error) {
       console.error('Error fetching comment:', error)
+      toast.error('عملیات با خطا مواجه شد، لطفا دوباره تلاش کنید')
     }
 
     setIsLoading(false)
