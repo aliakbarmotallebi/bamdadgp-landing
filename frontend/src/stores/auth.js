@@ -4,7 +4,9 @@ const useAuthStore = create(
   persist(
     set => ({
       auth: { id: '', username: '' },
+      isAuth: false,
       setUser: val => set({ auth: val }),
+      setIsAuth: val => set({ isAuth: val }),
     }),
     {
       name: 'auth',
