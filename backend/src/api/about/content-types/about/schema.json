@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "about_title": {
+      "type": "string",
+      "required": true
+    },
+    "about_slug": {
+      "type": "string"
+    },
+    "about_us": {
+      "type": "richtext",
+      "required": true
+    },
+    "why_us": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,44 +1,59 @@
-import { getCommentsProduct, getRelatedProducts, getSingleProduct, getSpecesProduct } from "@/api/products";
-import Swiper from "@/components/Swiper";
-import Comments from "@/section/product/Comments";
-import Details from "@/section/product/Details";
-import Introduction from "@/section/product/Introduction";
-import Specs from "@/section/product/Specs";
-import Tab from "@/section/product/Tab";
+import Swiper from '@/components/Swiper'
+import Comments from '@/section/product/Comments'
+import Details from '@/section/product/Details'
+import Introduction from '@/section/product/Introduction'
+import Specs from '@/section/product/Specs'
+import Tab from '@/section/product/Tab'
+import axios from 'axios'
+const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 
-export default async function Product({params}){
-    const urlParams = await params;
-    const product = await getSingleProduct(urlParams.slug);
-    const speces = await getSpecesProduct(product.data[0].id)
-    const comments = await getCommentsProduct(product.data[0].id)
+export default async function Product({ params }) {
+  const urlParams = await params
+  let product = null
 
-    let relatedProducts = [];
-    if (product.data.length > 0) {
-        relatedProducts = await getRelatedProducts(product.data[0].product_category.id);
-    }
-    console.log(comments);
-    return(
-        <>
-        <section
-        className="pb-8 antialiased md:pb-16 pt-8 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto"
-        >
-         <div className="mx-4 lg:mx-0 w-full">
-            
-            <Details data={product?.data[0]} />
-       
-            <section className="mt-12 text-justify">
-                <Tab />
-                <Introduction data={product?.data[0]?.product_description} />
-                <Specs data={speces?.data[0]} />
-                <Comments data={comments.data[0]['comments']} productId={product.data[0].id} />
-              
-            </section>
-            <div className="py-12 w-full">
-                <Swiper title={'محصولات مرتبط'} data={relatedProducts.data} />
-            </div>
-         </div>
-        </section>
-        </>
+  try {
+    const response = await axios.get(
+      `${LOCAL_API_URL}/products/${urlParams.slug}`
     )
+    product = response.data
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  }
 
+  let relatedProducts = []
+  if (product.data.length > 0) {
+    try {
+      const catId = product.data[0].product_category.id
+      const response = await axios.get(
+        `${LOCAL_API_URL}/products/${urlParams.slug}/related?cat_id=${catId}`
+      )
+      relatedProducts = response.data
+    } catch (error) {
+      console.error('Error fetching products:', error)
+    }
+  }
+
+  return (
+    <>
+      <section className="pb-8 antialiased md:pb-16 pt-8 max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+        <div className="mx-4 lg:mx-0 w-full">
+          <Details data={product?.data[0]} />
+
+          <section className="mt-12 text-justify">
+            <Tab />
+            <Introduction data={product?.data[0]?.product_description} />
+            <Specs data={product?.data[0]?.speces} />
+            <Comments
+              data={product?.data[0].comments}
+              productId={product.data[0].id}
+              slug={product.data[0].product_slug}
+            />
+          </section>
+          <div className="py-12 w-full">
+            <Swiper title={'محصولات مرتبط'} data={relatedProducts.data} />
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
