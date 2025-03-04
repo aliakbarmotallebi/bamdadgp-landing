@@ -6,9 +6,9 @@ services:
     container_name: postgres
     restart: always
     environment:
-      POSTGRES_DB: strapi
-      POSTGRES_USER: strapi
-      POSTGRES_PASSWORD: strapi
+      POSTGRES_DB: bamdad_store_db
+      POSTGRES_USER: bamdad_store_db_user
+      POSTGRES_PASSWORD: :=pi.8?n>-zETn~
     networks:
       - app_network
     ports:
@@ -24,11 +24,11 @@ services:
       - postgres
     environment:
       DATABASE_CLIENT: postgres
-      DATABASE_HOST: postgres
+      DATABASE_HOST: bamdadgp
       DATABASE_PORT: 5432
-      DATABASE_NAME: strapi
-      DATABASE_USERNAME: strapi
-      DATABASE_PASSWORD: strapi
+      DATABASE_NAME: bamdad_store_db
+      DATABASE_USERNAME: bamdad_store_db_user
+      DATABASE_PASSWORD: :=pi.8?n>-zETn~
       NODE_ENV: development
     networks:
       - app_network
