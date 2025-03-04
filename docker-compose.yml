@@ -1,15 +1,18 @@
+version: '3'
 
 services:
   postgres:
     image: postgres:15
     container_name: postgres
     restart: always
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_DB: strapi
       POSTGRES_USER: strapi
       POSTGRES_PASSWORD: strapi
+    networks:
+      - app_network
+    ports:
+      - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
 
@@ -17,12 +20,9 @@ services:
     build: ./backend
     container_name: strapi
     restart: always
-    ports:
-      - "1337:1337"
     depends_on:
       - postgres
     environment:
-      NODE_OPTIONS: "--max-old-space-size=4096" 
       DATABASE_CLIENT: postgres
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
@@ -30,21 +30,27 @@ services:
       DATABASE_USERNAME: strapi
       DATABASE_PASSWORD: strapi
       NODE_ENV: development
+    networks:
+      - app_network
+    ports:
+      - "1337:1337"
     volumes:
       - ./backend:/app
       - /app/node_modules
-    command: ["yarn", "develop"] 
+    command: ["yarn", "develop"]
 
   frontend:
     build: ./frontend
     container_name: nextjs
     restart: always
-    ports:
-      - "3000:3000"
     depends_on:
       - backend
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:1337
+    networks:
+      - app_network
+    ports:
+      - "3000:3000"
     volumes:
       - ./frontend:/app
       - /app/node_modules
@@ -54,15 +60,21 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin
     restart: always
-    ports:
-      - "5050:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: info@bamdadgp.com
       PGADMIN_DEFAULT_PASSWORD: admin
+    networks:
+      - app_network
+    ports:
+      - "5050:80"
     depends_on:
       - postgres
     volumes:
       - pgadmin_data:/var/lib/pgadmin
+
+networks:
+  app_network:
+    driver: bridge
 
 volumes:
   pg_data:
