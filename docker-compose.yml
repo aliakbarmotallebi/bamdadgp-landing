@@ -24,7 +24,7 @@ services:
       - postgres
     environment:
       DATABASE_CLIENT: postgres
-      DATABASE_HOST: bamdadgp
+      DATABASE_HOST: postgres
       DATABASE_PORT: 5432
       DATABASE_NAME: bamdad_store_db
       DATABASE_USERNAME: bamdad_store_db_user
