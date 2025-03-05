@@ -117,7 +117,7 @@ export default function Swiper({ title, data }) {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-right pt-4 w-full">
-                        {item.product_title} تومان
+                        {item.product_price} تومان
                       </h3>
                     </div>
                     <a
