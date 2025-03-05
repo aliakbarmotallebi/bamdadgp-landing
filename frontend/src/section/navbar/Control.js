@@ -4,22 +4,22 @@ import { useAuthCheck } from '@/utils/authCheck'
 import Link from 'next/link'
 
 export default function Control() {
-  const { isAuth } = useAuthStore()
+  const { isAuth, auth } = useAuthStore()
   useAuthCheck()
   return (
     <>
-      {isAuth && isAuth ? (
+      {isAuth ? (
         <h3 className="text-xs underline underline-offset-4 text-stone-600 font-medium">
-          حمید کامیاب، عزیز خوش آمدید
+          {auth.username}، عزیز خوش آمدید
         </h3>
       ) : (
         <Link
-          className="relative px-4 py-3 text-xs font-medium text-stone-800 bg-yellow-300 hover:bg-yellow-400 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full transition-all duration-300 after:contents-[' '] after:block after:w-0 after:transition-all after:duration-300 hover:after:w-[30%] after:h-[3px] after:opacity-0 hover:after:opacity-100 after:bg-yellow-400 after:absolute after:-bottom-1.5 after:rounded-xl after:left-1/2 after:-translate-x-1/2"
+          className="relative group py-1 text-sm font-medium text-stone-600 hover:text-stone-950 border-b border-b-transparent hover:border-b-stone-800 transition-all duration-300"
           href={Routes.login}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 mx-1 inline-block stroke-stone-800"
+            className="w-5 h-5 mx-1 inline-block stroke-stone-600 group-hover:stroke-stone-950 transition-all duration-300"
             viewBox="0 0 24 24"
           >
             <rect fill="none" />

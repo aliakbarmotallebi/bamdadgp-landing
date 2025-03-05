@@ -17,3 +17,6 @@ export const registerValidation = z
     message: 'پسورد یکسان نمی باشد',
     path: ['confirmPassword'],
   })
+
+
+  
