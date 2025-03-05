@@ -34,6 +34,7 @@ services:
       - app_network
     ports:
       - "1337:1337"
+      - "5173:5173"
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -46,7 +47,7 @@ services:
     depends_on:
       - backend
     environment:
-      NEXT_PUBLIC_BASE_URL: http://185.58.241.214::1337
+      NEXT_PUBLIC_BASE_URL: http://185.58.241.214:1337
       NEXT_PUBLIC_LOCAL_API_BASE_URL: http://localhost:3000/api
       LOCAL_API_BASE_URL: http://localhost:3000/api
       API_BASE_URL: http://185.58.241.214:1337/api
