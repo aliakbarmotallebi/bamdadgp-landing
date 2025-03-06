@@ -36,6 +36,7 @@ export default function Form() {
       if (response.status === 201) {
         const user = response.data.user
         setUser({ id: user.documentId, username: user.username })
+        setIsAuth(true)
         toast.success('حساب کاربری شما با موفقیت ایجاد شد!', {
           theme: 'colored',
         })

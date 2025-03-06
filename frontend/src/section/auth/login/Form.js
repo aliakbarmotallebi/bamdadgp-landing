@@ -35,7 +35,7 @@ export default function Form() {
         const user = response.data
         setUser({ id: user.documentId, username: user.username })
         setIsAuth(true)
-        toast.success('حساب کاربری شما با موفقیت ایجاد شد!', {
+        toast.success('وارد حساب کاربری خود شدید!', {
           theme: 'colored',
         })
         setTimeout(() => {
