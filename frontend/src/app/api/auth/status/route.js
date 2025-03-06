@@ -4,14 +4,15 @@ import { NextResponse } from 'next/server'
 export async function GET(Request) {
   const cookie = await cookies()
   const status = cookie.has('token')
+  console.log(status)
+  return NextResponse.json({ isAuth: 'Yes' })
+  // if (!status) {
+  //   return NextResponse.json({ isAuth: status })
+  // }
 
-  if (!status) {
-    return NextResponse.json({ isAuth: status })
-  }
-
-  try {
-    return NextResponse.json({ isAuth: status })
-  } catch (error) {
-    return NextResponse.json({ isAuth: false, error })
-  }
+  // try {
+  //   return NextResponse.json({ isAuth: status })
+  // } catch (error) {
+  //   return NextResponse.json({ isAuth: false, error })
+  // }
 }
