@@ -17,7 +17,7 @@ export default function CommentForm({ productId, slug }) {
 
     try {
       const response = await axios.post(
-        `${LOCAL_API_URL}/comments`,
+        `/api/comments`,
         { data },
         {
           headers: {

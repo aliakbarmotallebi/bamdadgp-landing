@@ -10,7 +10,6 @@ import Link from 'next/link'
 import { Routes } from '@/route/routes'
 import { toast } from 'react-toastify'
 import { redirect } from 'next/navigation'
-const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Form() {
   const { setUser } = useAuthStore()
@@ -24,7 +23,7 @@ export default function Form() {
     delete data.confirmPassword
     try {
       const response = await axios.post(
-        `${LOCAL_API_URL}/auth/register`,
+        `/api/auth/register`,
         {
           data,
         },

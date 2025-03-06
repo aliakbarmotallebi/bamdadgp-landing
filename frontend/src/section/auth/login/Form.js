@@ -10,7 +10,6 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-// const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Form() {
   const { setUser } = useAuthStore()

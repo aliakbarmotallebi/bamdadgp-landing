@@ -2,13 +2,17 @@ import { Routes } from '@/route/routes'
 import useAuthStore from '@/stores/auth'
 import { useAuthCheck } from '@/utils/authCheck'
 import Link from 'next/link'
+import React from 'react'
 
 export default function Control() {
   const { isAuth, auth } = useAuthStore()
-  useAuthCheck()
+  const [showUser, setShowUser] = React.useState(false)
+  React.useEffect(() => {
+    setShowUser(isAuth)
+  }, [isAuth])
   return (
     <>
-      {isAuth ? (
+      {showUser ? (
         <h3 className="text-xs underline underline-offset-4 text-stone-600 font-medium">
           {auth.username}، عزیز خوش آمدید
         </h3>
