@@ -10,7 +10,7 @@ import { redirect } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
+// const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Form() {
   const { setUser } = useAuthStore()
@@ -22,7 +22,7 @@ export default function Form() {
   const onSubmit = async data => {
     try {
       const response = await axios.post(
-        `${LOCAL_API_URL}/auth/login`,
+        `/api/auth/login`,
         {
           data,
         },
