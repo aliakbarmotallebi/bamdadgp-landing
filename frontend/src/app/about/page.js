@@ -9,16 +9,16 @@ export default async function About() {
     const response = await axios.get(`${LOCAL_API_URL}/about/`)
     about = response.data
   } catch (error) {
-    console.error('Error fetching products:', error)
+    console.error('Error fetching about:', error)
   }
 
   return (
     <>
       <Hero
-        aboutTitle={about.data.about_title}
-        aboutSlug={about.data.about_slug}
+        aboutTitle={about?.data.about_title}
+        aboutSlug={about?.data.about_slug}
       />
-      <Content aboutUs={about.data.about_us} whyUs={about.data.why_us} />
+      <Content aboutUs={about?.data.about_us} whyUs={about?.data.why_us} />
     </>
   )
 }

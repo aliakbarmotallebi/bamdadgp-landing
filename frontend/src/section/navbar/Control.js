@@ -19,7 +19,6 @@ export default function Control() {
   const handleLogout = async () => {
     try {
       const resposne = await axios.get('/api/auth/logout')
-      console.log(resposne.data)
       if (resposne.data.logout) {
         toast.info('از حساب کاربری خود خارج شدید!')
         setIsAuth(false)

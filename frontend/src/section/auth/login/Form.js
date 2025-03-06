@@ -53,12 +53,12 @@ export default function Form() {
       <div className="flex flex-col">
         <label
           className="text-stone-600 font-medium text-sm mb-1 cursor-pointer"
-          htmlFor="usernameInput"
+          htmlFor="identifierInput"
         >
           نام کاربری یا ایمیل
         </label>
         <input
-          id="usernameInput"
+          id="identifierInput"
           type="text"
           {...register('identifier')}
           className={`${

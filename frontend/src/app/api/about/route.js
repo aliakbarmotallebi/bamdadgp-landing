@@ -9,7 +9,7 @@ export async function GET() {
   } catch (error) {
     throw NextResponse.json(
       { error: 'مشکلی در ارتباط با API پیش آمد' },
-      { status: 500 }
+      { status: error.status }
     )
   }
 }
