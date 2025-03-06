@@ -16,7 +16,7 @@ export const useAuthCheck = () => {
   React.useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get(`${LOCAL_API_URL}/auth/status`)
+        const response = await axios.get(`/api/auth/status`)
         console.log(response.data)
         // setIsAuth(response.data.isAuth)
       } catch (error) {
