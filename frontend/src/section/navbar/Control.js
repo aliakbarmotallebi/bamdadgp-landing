@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 export default function Control() {
   const { isAuth, auth } = useAuthStore()
   const [showUser, setShowUser] = React.useState(false)
+  const [showAccountMenu, setShowAccountMenu] = React.useState(false)
   useAuthCheck()
   React.useEffect(() => {
     setShowUser(isAuth)
@@ -17,7 +18,7 @@ export default function Control() {
 
   const handleLogout = async () => {
     try {
-      const resposne = await axios.get('/api/logout')
+      const resposne = await axios.get('/api/auth/logout')
       if (resposne.data.logout) {
         toast.info('از حساب کاربری خود خارج شدید!')
         redirect(Routes.home)
@@ -31,7 +32,10 @@ export default function Control() {
     <>
       {showUser ? (
         <div className="relative">
-          <h3 className="text-xs underline underline-offset-4 text-stone-600 font-medium">
+          <h3
+            onClick={() => setShowAccountMenu(!showAccountMenu)}
+            className="text-xs underline underline-offset-4 text-stone-600 font-medium"
+          >
             {auth.username}، عزیز خوش آمدید
           </h3>
 
