@@ -7,6 +7,7 @@ import React from 'react'
 export default function Control() {
   const { isAuth, auth } = useAuthStore()
   const [showUser, setShowUser] = React.useState(false)
+  useAuthCheck()
   React.useEffect(() => {
     setShowUser(isAuth)
   }, [isAuth])
