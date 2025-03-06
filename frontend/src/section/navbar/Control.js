@@ -1,8 +1,11 @@
 import { Routes } from '@/route/routes'
 import useAuthStore from '@/stores/auth'
 import { useAuthCheck } from '@/utils/authCheck'
+import axios from 'axios'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import React from 'react'
+import { toast } from 'react-toastify'
 
 export default function Control() {
   const { isAuth, auth } = useAuthStore()
@@ -11,12 +14,87 @@ export default function Control() {
   React.useEffect(() => {
     setShowUser(isAuth)
   }, [isAuth])
+
+  const handleLogout = async () => {
+    try {
+      const resposne = await axios.get('/api/logout')
+      if (resposne.data.logout) {
+        toast.info('از حساب کاربری خود خارج شدید!')
+        redirect(Routes.home)
+      }
+    } catch (error) {
+      toast.error('عملیات با خطا مواجه شد!')
+    }
+  }
+
   return (
     <>
       {showUser ? (
-        <h3 className="text-xs underline underline-offset-4 text-stone-600 font-medium">
-          {auth.username}، عزیز خوش آمدید
-        </h3>
+        <div className="relative">
+          <h3 className="text-xs underline underline-offset-4 text-stone-600 font-medium">
+            {auth.username}، عزیز خوش آمدید
+          </h3>
+
+          <div className="absolute top-full mt-2 bg-white min-w-32 z-10 w-full shadow-md rounded-md border border-stone-300">
+            <ul>
+              <li className="p-1 cursor-pointer hover:bg-yellow-300 transition-all duration-200 pt-2 ">
+                <Link
+                  className="flex justify-start items-center gap-1"
+                  href={'#'}
+                >
+                  <span className="block size-5 p-0.5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-full"
+                      viewBox="0 0 48 48"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinejoin="round"
+                        strokeWidth="3"
+                      >
+                        <rect width="30" height="36" x="9" y="8" rx="2" />
+                        <path
+                          strokeLinecap="round"
+                          d="M18 4v6m12-6v6m-14 9h16m-16 8h12m-12 8h8"
+                        />
+                      </g>
+                    </svg>
+                  </span>
+                  <span className="pt-1 text-sm font-medium text-stone-800">
+                    سفارشات
+                  </span>
+                </Link>
+              </li>
+              <li
+                onClick={handleLogout}
+                className="p-1 cursor-pointer hover:bg-yellow-300 transition-all duration-200 pb-2 flex justify-start items-center gap-1"
+              >
+                <span className="block size-5 p-0.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="size-full"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M7.023 5.5a9 9 0 1 0 9.953 0M12 2v8"
+                      color="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span className="pt-1 text-sm font-medium text-stone-800">
+                  خروج
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       ) : (
         <Link
           className="relative group py-1 text-sm font-medium text-stone-600 hover:text-stone-950 border-b border-b-transparent hover:border-b-stone-800 transition-all duration-300"

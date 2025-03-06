@@ -1,10 +1,8 @@
 import axios from 'axios'
-// import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 const API_URL = process.env.API_BASE_URL
 
 export async function POST(Request) {
-  // const cookieStore = await cookies()
   try {
     const body = await Request.json()
     const response = await axios.post(`${API_URL}/auth/local`, body.data, {
