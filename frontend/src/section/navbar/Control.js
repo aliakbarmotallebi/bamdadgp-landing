@@ -8,7 +8,7 @@ import React from 'react'
 import { toast } from 'react-toastify'
 
 export default function Control() {
-  const { isAuth, auth } = useAuthStore()
+  const { setIsAuth, isAuth, auth } = useAuthStore()
   const [showUser, setShowUser] = React.useState(false)
   const [showAccountMenu, setShowAccountMenu] = React.useState(false)
   useAuthCheck()
@@ -19,9 +19,14 @@ export default function Control() {
   const handleLogout = async () => {
     try {
       const resposne = await axios.get('/api/auth/logout')
+      console.log(resposne.data)
       if (resposne.data.logout) {
         toast.info('از حساب کاربری خود خارج شدید!')
-        redirect(Routes.home)
+        setIsAuth(false)
+        setShowAccountMenu(false)
+        setTimeout(() => {
+          redirect(Routes.home)
+        }, 500)
       }
     } catch (error) {
       toast.error('عملیات با خطا مواجه شد!')
@@ -34,12 +39,16 @@ export default function Control() {
         <div className="relative">
           <h3
             onClick={() => setShowAccountMenu(!showAccountMenu)}
-            className="text-xs underline underline-offset-4 text-stone-600 font-medium"
+            className="text-xs underline underline-offset-4 text-stone-600 font-medium cursor-pointer"
           >
             {auth.username}، عزیز خوش آمدید
           </h3>
 
-          <div className="absolute top-full mt-2 bg-white min-w-32 z-10 w-full shadow-md rounded-md border border-stone-300">
+          <div
+            className={`${
+              showAccountMenu ? 'block' : 'hidden'
+            } absolute top-full mt-2 bg-white min-w-32 z-10 w-full shadow-md rounded-md border border-stone-300`}
+          >
             <ul>
               <li className="p-1 cursor-pointer hover:bg-yellow-300 transition-all duration-200 pt-2 ">
                 <Link
