@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 export default function Form() {
-  const { setUser } = useAuthStore()
+  const { setIsAuth, setUser } = useAuthStore()
   const {
     register,
     handleSubmit,
@@ -34,6 +34,7 @@ export default function Form() {
       if (response.status === 201) {
         const user = response.data
         setUser({ id: user.documentId, username: user.username })
+        setIsAuth(true)
         toast.success('حساب کاربری شما با موفقیت ایجاد شد!', {
           theme: 'colored',
         })

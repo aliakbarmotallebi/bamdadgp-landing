@@ -10,7 +10,6 @@ export const useAuthCheck = () => {
     const checkAuth = async () => {
       try {
         const response = await axios.get(`/api/auth/status`)
-        console.log(response.data)
         setIsAuth(response.data.isAuth)
       } catch (error) {
         console.error('خطا در اعتبار سنجی:', error)
