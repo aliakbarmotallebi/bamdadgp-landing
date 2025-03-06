@@ -12,7 +12,7 @@ import { toast } from 'react-toastify'
 import { redirect } from 'next/navigation'
 
 export default function Form() {
-  const { setUser } = useAuthStore()
+  const { setUser, setIsAuth } = useAuthStore()
   const usernameInput = React.useRef(null)
   const {
     register,
