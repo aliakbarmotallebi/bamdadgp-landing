@@ -5,7 +5,6 @@ export async function GET(Request) {
   try {
     const cookie = await cookies()
     const status = cookie.has('token')
-
     if (!status) {
       return NextResponse.json({ isAuth: status })
     }
