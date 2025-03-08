@@ -1,11 +1,11 @@
-import Hero from "@/section/representatives/Hero";
-import Plans from "@/section/representatives/Plans";
+import Hero from '@/components/section/representatives/Hero'
+import Plans from '@/components/section/representatives/Plans'
 
-export default function Representatives(){
-    return(
-        <>
-            <Hero />
-            <Plans />        
-        </>
-    )
+export default function Representatives() {
+  return (
+    <>
+      <Hero />
+      <Plans />
+    </>
+  )
 }

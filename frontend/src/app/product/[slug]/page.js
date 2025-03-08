@@ -1,9 +1,9 @@
 import Swiper from '@/components/Swiper'
-import Comments from '@/section/product/Comments'
-import Details from '@/section/product/Details'
-import Introduction from '@/section/product/Introduction'
-import Specs from '@/section/product/Specs'
-import Tab from '@/section/product/Tab'
+import Comments from '@/components/section/product/Comments'
+import Details from '@/components/section/product/Details'
+import Introduction from '@/components/section/product/Introduction'
+import Specs from '@/components/section/product/Specs'
+import Tab from '@/components/section/product/Tab'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 

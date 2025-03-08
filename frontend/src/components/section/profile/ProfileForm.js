@@ -56,7 +56,7 @@ export default function ProfileForm({ userInfo }) {
                     fullname: e.target.value,
                   }))
                 }
-                className="text-gray-60 max-w-64 flex-1 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+                className="text-gray-60 bg-white max-w-64 flex-1 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
               />
             </div>
             <div className="flex items-center justify-start gap-6">
@@ -73,7 +73,7 @@ export default function ProfileForm({ userInfo }) {
                     email: e.target.value,
                   }))
                 }
-                className="text-gray-60 max-w-64 flex-1 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+                className="text-gray-60  bg-white max-w-64 flex-1 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
               />
             </div>
             <div className="flex items-center justify-start gap-6">
@@ -90,7 +90,7 @@ export default function ProfileForm({ userInfo }) {
                     telephone: e.target.value,
                   }))
                 }
-                className="text-gray-60 max-w-64 flex-1 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+                className="text-gray-60 max-w-64  bg-white flex-1 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
               />
             </div>
           </div>
@@ -123,7 +123,7 @@ export default function ProfileForm({ userInfo }) {
               <label className="text-gray-600 font-medium block w-32">
                 تاریخ تولد
               </label>
-              <div className="flex items-center rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200 p-3">
+              <div className="flex items-center rounded-md  bg-white outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200 p-3">
                 <DatePicker
                   locale={persian_fa}
                   calendar={jalali}
@@ -152,7 +152,7 @@ export default function ProfileForm({ userInfo }) {
                     mobile: e.target.value,
                   }))
                 }
-                className="text-gray-600 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+                className="text-gray-600 font-medium py-2 px-3  bg-white rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
               />
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function ProfileForm({ userInfo }) {
                     address: e.target.value,
                   }))
                 }
-                className="text-gray-600 resize-none w-1/2 mt-6 font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
+                className="text-gray-600 resize-none w-1/2 mt-6  bg-white font-medium py-2 px-3 rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200"
               ></textarea>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import Content from '@/section/about/Content'
-import Hero from '@/section/about/Hero'
+import Content from '@/components/section/about/Content'
+import Hero from '@/components/section/about/Hero'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 

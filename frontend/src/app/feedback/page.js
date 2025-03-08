@@ -1,12 +1,11 @@
-import Hero from "@/section/feedback/Hero";
-import Plans from "@/section/feedback/Plans";
+import Hero from '@/components/section/feedback/Hero'
+import Plans from '@/components/section/feedback/Plans'
 
-export default function Feedback(){
-    return (
-        <>
-        <Hero />
-        <Plans />
-        
-        </>
-    )
+export default function Feedback() {
+  return (
+    <>
+      <Hero />
+      <Plans />
+    </>
+  )
 }

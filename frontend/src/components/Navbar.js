@@ -1,8 +1,8 @@
 'use client'
 
-import Control from '@/section/navbar/Control'
-import Logo from '@/section/navbar/Logo'
-import Menu from '@/section/navbar/Menu'
+import Control from '@/components/section/navbar/Control'
+import Logo from '@/components/section/navbar/Logo'
+import Menu from '@/components/section/navbar/Menu'
 import React from 'react'
 export default function Navbar() {
   return (

@@ -1,11 +1,22 @@
+'use client'
+import useCartStore from '@/stores/cart'
+import { toast } from 'react-toastify'
+
 export default function Details({ data }) {
   const {
+    id,
     product_title,
     product_price,
     product_stock,
     product_category,
     product_image,
   } = data
+  const { addCart } = useCartStore()
+
+  const handleAddCart = id => {
+    addCart({ id, qty: 1 })
+    toast.success('با موفقیت به سبد خرید افزوده شد')
+  }
   return (
     <>
       <article className="pt-6">
@@ -93,9 +104,30 @@ export default function Details({ data }) {
               <div className="mr-auto">
                 <button
                   type="submit"
-                  className="w-auto block bg-neutral-700 rounded-md text-sm font-semibold text-white text-center border-b-4 hover:opacity-40 border-neutral-900 py-2 px-2.5"
+                  onClick={() => handleAddCart(id)}
+                  className="w-auto flex items-center justify-center gap-2 bg-neutral-700 rounded-md text-sm font-semibold text-white text-center border-b-4 hover:opacity-40 border-neutral-900 py-2 px-2.5"
                 >
-                  جهت خرید تماس بگیرید
+                  <span className="size-6 block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-full"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.6"
+                        color="currentColor"
+                      >
+                        <path d="M8 16h7.263c4.488 0 5.17-2.82 5.998-6.93c.239-1.187.358-1.78.071-2.175c-.229-.315-.624-.379-1.332-.392M9 6.5h8m-4 4v-8M8 16L5.379 3.515A2 2 0 0 0 3.439 2H2.5m6.38 14h-.411C7.105 16 6 17.151 6 18.571a.42.42 0 0 0 .411.429H17.5" />
+                        <circle cx="10.5" cy="20.5" r="1.5" />
+                        <circle cx="17.5" cy="20.5" r="1.5" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span>افزودن به سبد خرید</span>
                 </button>
               </div>
             </div>

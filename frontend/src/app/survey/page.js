@@ -1,11 +1,11 @@
-import Hero from "@/section/survey/Hero";
-import Plans from "@/section/survey/Plans";
+import Hero from '@/components/section/survey/Hero'
+import Plans from '@/components/section/survey/Plans'
 
-export default function Survey(){
-    return(
-        <>
-        <Hero />
-        <Plans />
-        </>
-    )
+export default function Survey() {
+  return (
+    <>
+      <Hero />
+      <Plans />
+    </>
+  )
 }

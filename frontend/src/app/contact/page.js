@@ -1,6 +1,6 @@
-import Hero from '@/section/contact/Hero'
-import Info from '@/section/contact/Info'
-import MessageForm from '@/section/contact/MessageForm'
+import Hero from '@/components/section/contact/Hero'
+import Info from '@/components/section/contact/Info'
+import MessageForm from '@/components/section/contact/MessageForm'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 

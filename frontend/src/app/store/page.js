@@ -1,6 +1,6 @@
 import Pagination from '@/components/Pagination'
-import Hero from '@/section/store/Hero'
-import ProductItem from '@/section/store/ProductItem'
+import Hero from '@/components/section/store/Hero'
+import ProductItem from '@/components/section/store/ProductItem'
 import { paginationHandler } from '@/utils/paginationHandler'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL

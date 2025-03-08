@@ -1,5 +1,5 @@
 'use client'
-import ProfileTab from '@/section/profile/ProfileTab'
+import ProfileTab from '@/components/section/profile/ProfileTab'
 import { usePathname } from 'next/navigation'
 
 export default function Orders() {

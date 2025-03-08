@@ -1,6 +1,15 @@
+'use client'
 import { Routes } from '@/route/routes'
+import useCartStore from '@/stores/cart'
+import { toast } from 'react-toastify'
 
 export default function ProductItem({ productItem }) {
+  const { addCart } = useCartStore()
+
+  const handleAddCart = id => {
+    addCart({ id, qty: 1 })
+    toast.success('با موفقیت به سبد خرید افزوده شد')
+  }
   return (
     <article className="group hover:bg-orange-100 transition-all delay-200 relative bg-white rounded-lg flex flex-col px-6 py-5 justify-around gap-3 border border-gray-200">
       <span className="absolute z-10 top-4 group-hover:bg-orange-100 transition-all delay-200 left-0 inline-flex items-center rounded-md -rotate-[40deg] bg-white px-2 py-1 text-xs font-medium text-gray-600">
@@ -31,12 +40,32 @@ export default function ProductItem({ productItem }) {
           {Number(productItem.product_price)?.toLocaleString('fa-IR')} تومان
         </h3>
       </div>
-      <a
-        href={Routes.product + '/' + productItem.product_slug}
-        className="mt-8 block w-full bg-neutral-800 rounded-md py-2 text-sm font-semibold text-white text-center border-b-4 border-neutral-900 hover:opacity-40"
+      <button
+        onClick={() => handleAddCart(productItem.id)}
+        className="mt-8 w-full bg-neutral-800 flex relative z-10 justify-center items-center gap-2 rounded-md py-2 text-sm font-semibold text-white text-center border-b-4 border-neutral-900 hover:opacity-90"
       >
-        جهت خرید تماس بگیرید
-      </a>
+        <span className="size-6 block">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="size-full"
+            viewBox="0 0 24 24"
+          >
+            <g
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.6"
+              color="currentColor"
+            >
+              <path d="M8 16h7.263c4.488 0 5.17-2.82 5.998-6.93c.239-1.187.358-1.78.071-2.175c-.229-.315-.624-.379-1.332-.392M9 6.5h8m-4 4v-8M8 16L5.379 3.515A2 2 0 0 0 3.439 2H2.5m6.38 14h-.411C7.105 16 6 17.151 6 18.571a.42.42 0 0 0 .411.429H17.5" />
+              <circle cx="10.5" cy="20.5" r="1.5" />
+              <circle cx="17.5" cy="20.5" r="1.5" />
+            </g>
+          </svg>
+        </span>
+        <span className="pt-1">افزودن به سبد خرید</span>
+      </button>
     </article>
   )
 }

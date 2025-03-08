@@ -1,4 +1,4 @@
-import Form from '@/section/auth/register/Form'
+import Form from '@/components/section/auth/register/Form'
 
 export default async function Register() {
   return (

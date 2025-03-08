@@ -1,4 +1,4 @@
-import Form from "@/section/auth/login/Form";
+import Form from '@/components/section/auth/login/Form'
 
 export default async function Login() {
   return (
