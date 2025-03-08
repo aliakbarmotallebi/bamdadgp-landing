@@ -1,9 +1,18 @@
 'use client'
 import React from 'react'
 import moment from 'moment-jalaali'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default function ProfileForm({ userInfo }) {
-  const currentDate = moment().format('jYYYY/jMM/jDD')
+  const [selectedDate, setSelectedDate] = React.useState(
+    moment().format('jYYYY/jMM/jDD')
+  )
+
+  const handleChange = date => {
+    setSelectedDate(date)
+  }
+
   const [user, setUser] = React.useState({
     fullname: userInfo.fullname,
     email: userInfo.email,
@@ -70,27 +79,15 @@ export default function ProfileForm({ userInfo }) {
             <div className="flex items-center justify-start gap-6">
               <label className="text-gray-600 font-medium block w-32">
                 تاریخ تولد
-                {currentDate}
               </label>
               <div className="flex items-center rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200 p-3">
-                <select className="text-gray-600 font-medium">
-                  <option value="بیست و دوم">روز</option>
-                  <option value="یکم">1</option>
-                  <option value="دوم">2</option>
-                  <option value="سوم">3</option>
-                </select>
-                <select className="text-gray-600 font-medium pr-3 text-center">
-                  <option value="خرداد">ماه</option>
-                  <option value="فروردین">فروردین</option>
-                  <option value="اردیبهشت">اردیبهشت</option>
-                  <option value="خرداد">خرداد</option>
-                </select>
-                <select className="text-gray-600 font-medium pr-3">
-                  <option value="1402">سال</option>
-                  <option value="1400">1400</option>
-                  <option value="1401">1401</option>
-                  <option value="1402">1402</option>
-                </select>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={handleChange}
+                  dateFormat="yyyy/MM/dd"
+                  calendarStartDay={6} // شروع هفته از شنبه
+                  locale="fa" // برای تقویم فارسی
+                />
               </div>
             </div>
             <div className="flex items-center justify-start gap-6">
