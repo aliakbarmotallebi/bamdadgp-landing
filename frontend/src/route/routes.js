@@ -10,4 +10,7 @@ export const Routes = {
   product: '/product',
   login: '/auth/login',
   register: '/auth/register',
+  profile: '/profile',
+  profileOrders: '/profile/orders',
+  profilePayments: '/profile/payments',
 }

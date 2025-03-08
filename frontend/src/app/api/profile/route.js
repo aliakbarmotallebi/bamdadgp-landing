@@ -20,3 +20,22 @@ export async function GET(Request) {
     )
   }
 }
+
+export async function PUT(Request) {
+  const body = await Request.json()
+  try {
+    const cookie = await cookies()
+    const token = cookie.get('token')
+    const response = await axios.put(`${API_URL}/users/${body.id}`, body, {
+      headers: {
+        Authorization: `Bearer ${token?.value}`,
+      },
+    })
+    return NextResponse.json(response.data)
+  } catch (error) {
+    throw NextResponse.json(
+      { error: 'مشکلی در ارتباط با API پیش آمد' },
+      { status: 500 }
+    )
+  }
+}

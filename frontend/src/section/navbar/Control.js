@@ -46,9 +46,34 @@ export default function Control() {
           <div
             className={`${
               showAccountMenu ? 'block' : 'hidden'
-            } absolute top-full mt-2 bg-white min-w-32 z-10 w-full shadow-md rounded-md border border-stone-300`}
+            } absolute top-full mt-4 bg-white min-w-32 z-10 w-full shadow-md rounded-md border border-stone-300`}
           >
-            <ul>
+            <ul onClick={() => setShowAccountMenu(false)}>
+              <li className="p-1 cursor-pointer hover:bg-yellow-300 transition-all duration-200 pt-2 ">
+                <Link
+                  className="flex justify-start items-center gap-1"
+                  href={Routes.profile}
+                >
+                  <span className="block size-5 p-0.5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="size-full fill-stone-800 stroke-stone-800"
+                      viewBox="0 0 24 24"
+                    >
+                      <rect fill="none" />
+                      <path
+                        fill="current"
+                        d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19M12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4"
+                        strokeWidth="0.5"
+                        stroke="#current"
+                      />
+                    </svg>
+                  </span>
+                  <span className="pt-1 text-sm font-medium text-stone-800">
+                    پروفایل
+                  </span>
+                </Link>
+              </li>
               <li className="p-1 cursor-pointer hover:bg-yellow-300 transition-all duration-200 pt-2 ">
                 <Link
                   className="flex justify-start items-center gap-1"
@@ -94,7 +119,7 @@ export default function Control() {
                       stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="1.5"
+                      strokeWidth="1.8"
                       d="M7.023 5.5a9 9 0 1 0 9.953 0M12 2v8"
                       color="currentColor"
                     />
