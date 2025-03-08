@@ -1,7 +1,9 @@
 'use client'
 import React from 'react'
+import moment from 'moment-jalaali'
 
 export default function ProfileForm({ userInfo }) {
+  const currentDate = moment().format('jYYYY/jMM/jDD')
   const [user, setUser] = React.useState({
     fullname: userInfo.fullname,
     email: userInfo.email,
@@ -68,6 +70,7 @@ export default function ProfileForm({ userInfo }) {
             <div className="flex items-center justify-start gap-6">
               <label className="text-gray-600 font-medium block w-32">
                 تاریخ تولد
+                {currentDate}
               </label>
               <div className="flex items-center rounded-md outline-none border border-gray-200 focus:border-gray-500 transition-all duration-200 p-3">
                 <select className="text-gray-600 font-medium">
