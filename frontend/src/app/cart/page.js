@@ -14,7 +14,7 @@ export default function Cart() {
       if (cart.length > 0) {
         let Ids = cart.map(item => item.id)
 
-        const response = await axios.post(`${PUBLIC_LOCAL_API_URL}/cart`, {
+        const response = await axios.post(`/api/cart`, {
           Ids,
         })
         setProducts(response.data)
