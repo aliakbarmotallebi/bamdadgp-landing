@@ -57,7 +57,7 @@ export default function Cart() {
 
   return (
     <>
-      <main className="bg-green-900">
+      <main className="bg-red-600">
         <section className="container mx-auto mt-12 2xl:mt-16 mb-36 2xl:mb-52">
           {products.length > 0 ? (
             <>
