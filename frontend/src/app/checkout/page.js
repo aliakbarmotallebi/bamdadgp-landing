@@ -2,7 +2,6 @@
 
 import Form from '@/components/section/checkout/Form'
 import Info from '@/components/section/checkout/Info'
-import useCartStore from '@/stores/cart'
 import useUserStore from '@/stores/user'
 import axios from 'axios'
 import React from 'react'
