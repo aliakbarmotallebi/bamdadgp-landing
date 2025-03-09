@@ -4,7 +4,10 @@ import { persist } from 'zustand/middleware'
 const useCartStore = create(
   persist(
     set => ({
+      totalPrice: 0,
       cart: [],
+      setTotalPrice: val => set({ totalPrice: val }),
+
       addCart: val =>
         set(state => {
           const existingItemIndex = state.cart.findIndex(

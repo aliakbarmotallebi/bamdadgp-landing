@@ -14,4 +14,5 @@ export const Routes = {
   profileOrders: '/profile/orders',
   profilePayments: '/profile/payments',
   cart: '/cart',
+  checkout: '/checkout',
 }

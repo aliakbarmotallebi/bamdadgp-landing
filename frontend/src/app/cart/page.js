@@ -1,14 +1,17 @@
 'use client'
+import { Routes } from '@/route/routes'
 import useCartStore from '@/stores/cart'
 import axios from 'axios'
+import Link from 'next/link'
 import React from 'react'
 const PUBLIC_LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 const PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 export default function Cart() {
-  const { cart, increaseCart, decreaseCart } = useCartStore()
+  const { cart, increaseCart, decreaseCart, totalPrice, setTotalPrice } =
+    useCartStore()
   const [products, setProducts] = React.useState([])
-  const [totalPrice, setTotalPrice] = React.useState(0)
+
   const getCartList = async () => {
     try {
       if (cart.length > 0) {
@@ -202,11 +205,11 @@ export default function Cart() {
                   </p>
                 </div>
               </div>
-              <a href="./checkout.html">
+              <Link href={Routes.checkout}>
                 <button className="mt-6 w-full rounded-md bg-green-700 py-1.5 font-medium text-blue-50 hover:opacity-40">
                   تسویه حساب
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
