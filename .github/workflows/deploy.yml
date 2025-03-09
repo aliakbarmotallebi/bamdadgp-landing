@@ -31,7 +31,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd
             git pull origin main
             docker compose pull
             docker compose up -d --force-recreate
