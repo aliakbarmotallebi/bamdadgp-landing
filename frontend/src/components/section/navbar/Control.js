@@ -136,31 +136,6 @@ export default function Control() {
               </ul>
             </div>
           </div>
-          <span className="h-8 w-px bg-stone-300 mx-1 block"></span>
-
-          <Link href={Routes.cart}>
-            <div className="size-8 relative">
-              <span
-                className={`${
-                  cart.length > 0 ? 'inline-flex' : 'hidden'
-                } absolute  items-center justify-center size-4 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -start-1 dark:border-gray-900`}
-              ></span>
-
-              <span className="block size-full text-stone-600 p-0.5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-full"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M2.316 3.25a.75.75 0 1 0 0 1.5h1.181a.75.75 0 0 1 .743.646l1.254 8.917a2.25 2.25 0 0 0 2.228 1.937h10.344a.75.75 0 0 0 0-1.5H7.722a.75.75 0 0 1-.743-.646l-.12-.853h10.852a2.25 2.25 0 0 0 2.15-1.583l1.921-6.188a.75.75 0 0 0-.716-.972H5.516A2.25 2.25 0 0 0 3.498 3.25zm3.525 2.758h14.207l-1.62 5.215a.75.75 0 0 1-.717.527H6.648zM7.784 17.75a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5m6.786 1.75a1.75 1.75 0 1 1 3.5 0a1.75 1.75 0 0 1-3.5 0"
-                  />
-                </svg>
-              </span>
-            </div>
-          </Link>
         </div>
       ) : (
         <Link
@@ -185,6 +160,31 @@ export default function Control() {
           ورود به فروشگاه
         </Link>
       )}
+      <span className="h-8 w-px bg-stone-300 mx-1 block"></span>
+
+      <Link href={Routes.cart}>
+        <div className="size-8 relative">
+          <span
+            className={`${
+              cart.length > 0 ? 'inline-flex' : 'hidden'
+            } absolute  items-center justify-center size-4 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -start-1 dark:border-gray-900`}
+          ></span>
+
+          <span className="block size-full text-stone-600 p-0.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-full"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                fill="currentColor"
+                d="M2.316 3.25a.75.75 0 1 0 0 1.5h1.181a.75.75 0 0 1 .743.646l1.254 8.917a2.25 2.25 0 0 0 2.228 1.937h10.344a.75.75 0 0 0 0-1.5H7.722a.75.75 0 0 1-.743-.646l-.12-.853h10.852a2.25 2.25 0 0 0 2.15-1.583l1.921-6.188a.75.75 0 0 0-.716-.972H5.516A2.25 2.25 0 0 0 3.498 3.25zm3.525 2.758h14.207l-1.62 5.215a.75.75 0 0 1-.717.527H6.648zM7.784 17.75a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 0 0 0-3.5m6.786 1.75a1.75 1.75 0 1 1 3.5 0a1.75 1.75 0 0 1-3.5 0"
+              />
+            </svg>
+          </span>
+        </div>
+      </Link>
       <span className="h-8 w-px bg-stone-300 mx-1 block"></span>
       <a
         className="relative px-4 py-3 text-xs font-light text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full transition-all duration-300 after:contents-[' '] after:block after:w-0 after:transition-all after:duration-300 hover:after:w-[30%] after:h-[3px] after:opacity-0 hover:after:opacity-100 after:bg-gray-900 after:absolute after:-bottom-1.5 after:rounded-xl after:left-1/2 after:-translate-x-1/2"
