@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { Routes } from '@/route/routes'
 
-const protectedRoutes = []
+const protectedRoutes = [Routes.checkout]
 
 const authRoutes = [Routes.login, Routes.register]
 

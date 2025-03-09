@@ -13,7 +13,6 @@ export default function Profile() {
   const getProfile = async () => {
     try {
       const response = await axios.get(`/api/profile`)
-      console.log(response.data)
       setUser(() => ({
         ...response.data,
       }))
