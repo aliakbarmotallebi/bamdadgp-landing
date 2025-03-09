@@ -398,43 +398,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiAddressAddress extends Struct.CollectionTypeSchema {
-  collectionName: 'addresses';
-  info: {
-    description: '';
-    displayName: 'Address';
-    pluralName: 'addresses';
-    singularName: 'address';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    address_full_address: Schema.Attribute.Text & Schema.Attribute.Required;
-    address_phone: Schema.Attribute.BigInteger;
-    address_postal_code: Schema.Attribute.BigInteger &
-      Schema.Attribute.Required;
-    address_title: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::address.address'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-  };
-}
-
 export interface ApiAttrTitleAttrTitle extends Struct.CollectionTypeSchema {
   collectionName: 'attr_titles';
   info: {
@@ -1260,10 +1223,10 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
-    addresses: Schema.Attribute.Relation<'oneToMany', 'api::address.address'>;
+    address: Schema.Attribute.Text;
+    birthday: Schema.Attribute.BigInteger;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1275,12 +1238,16 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    fullname: Schema.Attribute.String;
+    gender: Schema.Attribute.Enumeration<['male', 'female']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    mobile: Schema.Attribute.String & Schema.Attribute.Unique;
+    national_code: Schema.Attribute.String & Schema.Attribute.Unique;
     orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
@@ -1289,12 +1256,14 @@ export interface PluginUsersPermissionsUser
       }>;
     payments: Schema.Attribute.Relation<'oneToMany', 'api::payment.payment'>;
     provider: Schema.Attribute.String;
+    province: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
     role: Schema.Attribute.Relation<
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    telephone: Schema.Attribute.String & Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1304,6 +1273,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
+    zip_code: Schema.Attribute.String;
   };
 }
 
@@ -1318,7 +1288,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::address.address': ApiAddressAddress;
       'api::attr-title.attr-title': ApiAttrTitleAttrTitle;
       'api::attr-value.attr-value': ApiAttrValueAttrValue;
       'api::category.category': ApiCategoryCategory;

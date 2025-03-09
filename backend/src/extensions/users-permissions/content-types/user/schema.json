@@ -9,7 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -71,17 +71,45 @@
       "target": "api::order.order",
       "mappedBy": "order_user"
     },
-    "addresses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::address.address",
-      "mappedBy": "user"
-    },
     "payments": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::payment.payment",
       "mappedBy": "user"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "fullname": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string",
+      "unique": true
+    },
+    "telephone": {
+      "type": "string",
+      "unique": true
+    },
+    "birthday": {
+      "type": "biginteger"
+    },
+    "address": {
+      "type": "text"
+    },
+    "province": {
+      "type": "string"
+    },
+    "zip_code": {
+      "type": "string"
+    },
+    "national_code": {
+      "type": "string",
+      "unique": true
     }
   }
 }
