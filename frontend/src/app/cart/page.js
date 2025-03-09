@@ -67,7 +67,7 @@ export default function Cart() {
               <div className="mx-auto justify-center px-6 md:flex md:space-x-6 md:space-x-reverse xl:px-0">
                 <div className="shadow border border-gray-50 border-b-0 rounded-lg overflow-hidden w-full bg-white">
                   <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead className="hidden md:table-header-group text-xs text-gray-700 border-b">
+                    <thead className="hidden md:table-header-group text-base text-gray-700 border-b">
                       <tr>
                         <th scope="col" className="px-16 py-3">
                           تصویر
