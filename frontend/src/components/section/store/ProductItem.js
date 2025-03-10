@@ -1,6 +1,7 @@
 'use client'
 import { Routes } from '@/route/routes'
 import useCartStore from '@/stores/cart'
+import Link from 'next/link'
 import { toast } from 'react-toastify'
 const PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export default function ProductItem({ productItem }) {
@@ -38,8 +39,8 @@ export default function ProductItem({ productItem }) {
         </h3>
       </div>
       <div className="flex items-center justify-center gap-3">
-        <button
-          onClick={() => handleAddCart(productItem.id)}
+        <Link
+          href={Routes.product + '/' + productItem.product_slug}
           className="mt-8 flex-1 bg-neutral-800 flex relative z-10 justify-center items-center gap-2 rounded-md py-2 text-sm font-semibold text-white text-center hover:opacity-90"
         >
           <span className="size-6 block">
@@ -60,7 +61,7 @@ export default function ProductItem({ productItem }) {
             </svg>
           </span>
           <span className="pt-1">مشاهده محصول</span>
-        </button>
+        </Link>
         <button
           onClick={() => handleAddCart(productItem.id)}
           className="mt-8 p-2 bg-yellow-400 flex relative z-10 justify-center items-center gap-2 rounded-md text-sm font-semibold text-stone-800 text-center  hover:opacity-90"
