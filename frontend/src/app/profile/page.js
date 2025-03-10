@@ -27,13 +27,13 @@ export default function Profile() {
   return (
     <>
       <main>
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-12 mb-36">
           <div className="mx-4 lg:mx-0">
             <ProfileHeader />
             <div className="w-full flex">
               <div className="w-full border pb-6 rounded-xl">
                 <ProfileTab path={path} />
-                <div className="px-5 mt-4 w-full gap-10 flex flex-col">
+                <div className="px-5 pt-4 w-full gap-10 flex flex-col bg-white">
                   <div className="flex flex-col gap-2">
                     <p className="text-xl text-green-900 font-bold">
                       اطلاعات شخصی

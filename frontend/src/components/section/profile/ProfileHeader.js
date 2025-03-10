@@ -1,3 +1,6 @@
+import { Routes } from '@/route/routes'
+import Link from 'next/link'
+
 export default function ProfileHeader() {
   return (
     <div className="flex justify-between py-4 items-center my-4">
@@ -17,10 +20,14 @@ export default function ProfileHeader() {
         </div>
       </div>
       <div>
-        <button className="px-4 h-10 justify-center hover:text-green-900 items-center flex gap-3 border text-slate-600 rounded">
+        <Link
+          href={Routes.home}
+          className="px-4 h-10 justify-center hover:text-green-900 items-center flex gap-1.5 border text-slate-600 rounded"
+        >
+          <p className="font-bold text-sm">بازگشت</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="inline stroke-current"
+            className="inline stroke-current rotate-180"
             width="20"
             height="20"
             fill="none"
@@ -33,8 +40,7 @@ export default function ProfileHeader() {
               d="m10 16 4-4-4-4"
             ></path>
           </svg>
-          <p className="font-bold text-sm">بازگشت</p>
-        </button>
+        </Link>
       </div>
     </div>
   )

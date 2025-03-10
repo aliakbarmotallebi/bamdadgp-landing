@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function ProfileTab({ path }) {
   return (
-    <div className="border-b flex justify-between items-center px-5">
+    <div className="border-b flex justify-between items-center px-5 bg-white">
       <ul className="md:flex flex-row items-stretch lg:items-center gap-5 w-full">
         <li className="">
           <Link
