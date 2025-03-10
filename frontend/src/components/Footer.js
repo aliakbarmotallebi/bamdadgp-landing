@@ -12,9 +12,8 @@ export default function Footer() {
   const [contact, setContact] = React.useState(null)
   const getContact = async () => {
     try {
-      const response = await axios.get(`${LOCAL_API_URL}/contact`)
+      const response = await axios.get(`/api/contact`)
       setContact(response.data)
-      console.log(response.data)
     } catch (error) {
       console.error('Error fetching products:', error)
     }
