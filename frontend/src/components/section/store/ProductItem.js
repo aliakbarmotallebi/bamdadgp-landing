@@ -18,7 +18,7 @@ export default function ProductItem({ productItem }) {
       </span>
       <div className="w-full flex items-center justify-center relative">
         <figure className="w-full h-44 overflow-hidden rounded-md relative flex justify-center items-center bg-stone-100">
-          {productItem.product_image ? (
+          {productItem?.product_image?.formats?.small ? (
             <img
               className="min-h-full object-cover rounded-md"
               src={
