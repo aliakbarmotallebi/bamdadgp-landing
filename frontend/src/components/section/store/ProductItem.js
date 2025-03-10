@@ -2,7 +2,7 @@
 import { Routes } from '@/route/routes'
 import useCartStore from '@/stores/cart'
 import { toast } from 'react-toastify'
-
+const PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export default function ProductItem({ productItem }) {
   const { addCart } = useCartStore()
 
@@ -16,13 +16,10 @@ export default function ProductItem({ productItem }) {
         {productItem.product_category.cat_title}
       </span>
       <div className="w-full flex items-center justify-center relative">
-        <figure className="w-full h-44 overflow-hidden relative">
+        <figure className="w-full h-44 overflow-hidden rounded-md relative">
           <img
-            className="min-h-full rounded-md"
-            src={
-              process.env.NEXT_PUBLIC_BASE_URL +
-              productItem.product_image?.formats.small.url
-            }
+            className="min-h-full object-cover rounded-md"
+            src={PUBLIC_BASE_URL + productItem.product_image?.formats.small.url}
             alt={productItem.product_title}
           />
         </figure>
@@ -40,32 +37,56 @@ export default function ProductItem({ productItem }) {
           {Number(productItem.product_price)?.toLocaleString('fa-IR')} تومان
         </h3>
       </div>
-      <button
-        onClick={() => handleAddCart(productItem.id)}
-        className="mt-8 w-full bg-neutral-800 flex relative z-10 justify-center items-center gap-2 rounded-md py-2 text-sm font-semibold text-white text-center border-b-4 border-neutral-900 hover:opacity-90"
-      >
-        <span className="size-6 block">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-full"
-            viewBox="0 0 24 24"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.6"
-              color="currentColor"
+      <div className="flex items-center justify-center gap-3">
+        <button
+          onClick={() => handleAddCart(productItem.id)}
+          className="mt-8 flex-1 bg-neutral-800 flex relative z-10 justify-center items-center gap-2 rounded-md py-2 text-sm font-semibold text-white text-center hover:opacity-90"
+        >
+          <span className="size-6 block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-full"
+              viewBox="0 0 24 24"
             >
-              <path d="M8 16h7.263c4.488 0 5.17-2.82 5.998-6.93c.239-1.187.358-1.78.071-2.175c-.229-.315-.624-.379-1.332-.392M9 6.5h8m-4 4v-8M8 16L5.379 3.515A2 2 0 0 0 3.439 2H2.5m6.38 14h-.411C7.105 16 6 17.151 6 18.571a.42.42 0 0 0 .411.429H17.5" />
-              <circle cx="10.5" cy="20.5" r="1.5" />
-              <circle cx="17.5" cy="20.5" r="1.5" />
-            </g>
-          </svg>
-        </span>
-        <span className="pt-1">افزودن به سبد خرید</span>
-      </button>
+              <g
+                fill="none"
+                stroke="currentColor"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+              >
+                <path d="M3.182 12.808C4.233 14.613 7.195 18.81 12 18.81c4.813 0 7.77-4.199 8.82-6.002a1.6 1.6 0 0 0-.001-1.615C19.769 9.389 16.809 5.19 12 5.19s-7.768 4.197-8.818 6.001a1.6 1.6 0 0 0 0 1.617Z" />
+                <path d="M12 14.625a2.625 2.625 0 1 0 0-5.25a2.625 2.625 0 0 0 0 5.25Z" />
+              </g>
+            </svg>
+          </span>
+          <span className="pt-1">مشاهده محصول</span>
+        </button>
+        <button
+          onClick={() => handleAddCart(productItem.id)}
+          className="mt-8 p-2 bg-yellow-400 flex relative z-10 justify-center items-center gap-2 rounded-md text-sm font-semibold text-stone-800 text-center  hover:opacity-90"
+        >
+          <span className="size-6 block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-full"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.6"
+                color="currentColor"
+              >
+                <path d="M8 16h7.263c4.488 0 5.17-2.82 5.998-6.93c.239-1.187.358-1.78.071-2.175c-.229-.315-.624-.379-1.332-.392M9 6.5h8m-4 4v-8M8 16L5.379 3.515A2 2 0 0 0 3.439 2H2.5m6.38 14h-.411C7.105 16 6 17.151 6 18.571a.42.42 0 0 0 .411.429H17.5" />
+                <circle cx="10.5" cy="20.5" r="1.5" />
+                <circle cx="17.5" cy="20.5" r="1.5" />
+              </g>
+            </svg>
+          </span>
+        </button>
+      </div>
     </article>
   )
 }

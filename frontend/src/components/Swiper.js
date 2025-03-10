@@ -1,4 +1,6 @@
 'use client'
+import { Routes } from '@/route/routes'
+import Link from 'next/link'
 import React from 'react'
 const PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export default function Swiper({ title, data }) {
@@ -102,7 +104,7 @@ export default function Swiper({ title, data }) {
                 >
                   <div className="h-full hover:bg-orange-100 p-3 hover:shadow-md transition-all delay-200 bg-white flex flex-col justify-around gap-3 border border-gray-200 rounded-lg">
                     <div className="w-full relative">
-                      <figure className="w-full h-44 overflow-hidden bg-blue-400">
+                      <figure className="w-full h-44 overflow-hidden bg-stone-800 rounded-md">
                         <img
                           className="min-h-full"
                           src={PUBLIC_BASE_URL + item.product_image?.url}
@@ -111,19 +113,21 @@ export default function Swiper({ title, data }) {
                       </figure>
                     </div>
                     <div className="text-sm font-medium text-gray-500 text-justify">
-                      <h3>{item.product_title}</h3>
+                      <Link href={Routes.product + '/' + item.product_slug}>
+                        <h3>{item.product_title}</h3>
+                      </Link>
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-right pt-4 w-full">
                         {item.product_price} تومان
                       </h3>
                     </div>
-                    <a
-                      href="./single-product.html"
-                      className="mt-8 block w-full bg-neutral-800 rounded-md py-2 text-sm font-semibold text-white text-center border-b-4 border-neutral-900 hover:opacity-40"
+                    <Link
+                      href={Routes.product + '/' + item.product_slug}
+                      className="mt-8 block w-full bg-neutral-800 rounded-md pb-2 pt-2.5 text-sm font-semibold text-white text-center border-b-4 border-neutral-900 hover:opacity-90"
                     >
-                      خرید محصول
-                    </a>
+                      مشاهده محصول
+                    </Link>
                   </div>
                 </article>
               ))}
