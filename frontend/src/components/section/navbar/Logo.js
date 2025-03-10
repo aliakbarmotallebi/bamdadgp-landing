@@ -1,7 +1,7 @@
 import { Routes } from '@/route/routes'
 import Link from 'next/link'
 
-export default function Logo({ h }) {
+export default function Logo({ h = 20 }) {
   return (
     <Link
       className="inline-flex items-center space-x-3 rtl:space-x-reverse"
