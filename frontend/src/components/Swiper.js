@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+const PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 export default function Swiper({ title, data }) {
   const [w, setW] = React.useState(0)
   const [swip, setSwip] = React.useState(1)
@@ -104,10 +105,7 @@ export default function Swiper({ title, data }) {
                       <figure className="w-full h-44 overflow-hidden bg-blue-400">
                         <img
                           className="min-h-full"
-                          src={
-                            process.env.NEXT_PUBLIC_BASE_URL +
-                            item?.product_image?.url
-                          }
+                          src={PUBLIC_BASE_URL + item.product_image?.url}
                           alt="./assets/images/product4.png"
                         />
                       </figure>
