@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar'
 import '@/assets/globals.css'
 import Footer from '@/components/Footer'
 import Fab from '@/components/Fab'
-import Modal from '@/components/Modal'
 import MobileMenu from '@/components/MobileMenu'
 
 export const metadata = {
@@ -18,8 +17,8 @@ export default function RootLayout({ children }) {
         <MobileMenu />
         <Fab />
         {children}
-        <Modal />
         <Footer />
+        <div id="modal-root"></div>
       </body>
     </html>
   )

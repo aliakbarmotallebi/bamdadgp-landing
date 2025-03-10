@@ -1,32 +1,14 @@
 'use client'
-import react from 'react'
-import useModalStore from '@/stores/modal'
+import react, { useState } from 'react'
+// import useModalStore from '@/stores/modal'
+import Link from 'next/link'
+import Modal from '@/components/Modal'
 
 export default function Hero() {
-  const { isOpen, setIsOpen, setContentModal } = useModalStore()
-
-  react.useEffect(() => {
-    switch (isOpen) {
-      case 'modal-service':
-        setContentModal(`<p>
-                گروه بامداد سعی داشته از پشتیبانی تلفنی و آنلاین تا تعمیرات و تأمین قطعات یدکی، همواره در کنار شما باشد...
-                </p>`)
-        break
-      case 'modal-gallery':
-        setContentModal(`<p>
-                شرکت ما در زمینه توزیع زیورآلات طلا با هدف ارائه محصولات باکیفیت و طراحی‌های منحصر به فرد فعالیت می‌کند...
-                </p>`)
-        break
-      case 'modal-lucky':
-        setContentModal(`<p >
-                شرکت ما به پاس قدردانی از حمایت‌های بی‌نظیر شما مشتریان عزیز، هر ماه یک قرعه‌کشی هیجان‌انگیز برگزار می‌کند...
-                </p>`)
-        break
-      default:
-        setContentModal(null)
-        break
-    }
-  }, [isOpen])
+  const [showModal, setShowModal] = useState(false)
+  const toggleModal = () => {
+    setShowModal(!showModal)
+  }
 
   return (
     <>
@@ -84,12 +66,23 @@ export default function Hero() {
                     </div>
                     <div className="mt-auto">
                       <button
-                        onClick={() => setIsOpen('modal-service')}
+                        onClick={toggleModal}
                         type="button"
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full text-xs px-5 py-4"
                       >
                         مشاهده بیشتر
                       </button>
+                      {showModal && (
+                        <Modal isOpen={showModal} setIsOpen={setShowModal}>
+                          <div className="modal-content">
+                            <p>
+                              گروه بامداد سعی داشته از پشتیبانی تلفنی و آنلاین
+                              تا تعمیرات و تأمین قطعات یدکی، همواره در کنار شما
+                              باشد..
+                            </p>
+                          </div>
+                        </Modal>
+                      )}
                     </div>
                   </div>
                   <div className="relative w-1/3 -left-2 -bottom-4 bg-white h-full">
@@ -116,12 +109,23 @@ export default function Hero() {
                     </div>
                     <div className="mt-auto">
                       <button
-                        onClick={() => setIsOpen('modal-gallery')}
+                        onClick={toggleModal}
                         type="button"
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full text-xs px-5 py-4"
                       >
                         مشاهده بیشتر
                       </button>
+                      {showModal && (
+                        <Modal isOpen={showModal} setIsOpen={setShowModal}>
+                          <div className="modal-content">
+                            <p>
+                              شرکت ما در زمینه توزیع زیورآلات طلا با هدف ارائه
+                              محصولات باکیفیت و طراحی‌های منحصر به فرد فعالیت
+                              می‌کند.
+                            </p>
+                          </div>
+                        </Modal>
+                      )}
                     </div>
                   </div>
                   <div className="bg-white">
@@ -145,12 +149,26 @@ export default function Hero() {
                     </div>
                     <div className="mt-auto">
                       <button
-                        onClick={() => setIsOpen('modal-lucky')}
+                        onClick={toggleModal}
                         type="button"
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full text-xs px-5 py-4"
                       >
                         مشاهده بیشتر
                       </button>
+                      {showModal && (
+                        <Modal isOpen={showModal} setIsOpen={setShowModal}>
+                          <div className="modal-content">
+                            <p>
+                              شرکت ما به پاس قدردانی از حمایت‌های بی‌نظیر شما
+                              مشتریان عزیز، هر ماه یک قرعه‌کشی هیجان‌انگیز
+                              برگزار می‌کند...
+                            </p>
+                            <a className="text-blue-500 underline pt-1">
+                              صفحه اینستاگرام
+                            </a>
+                          </div>
+                        </Modal>
+                      )}
                     </div>
                   </div>
                   <div className="relative w-1/3 left-0 bottom-0 bg-white h-full">

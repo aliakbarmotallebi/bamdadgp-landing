@@ -1,33 +1,34 @@
 'use client'
-import useModalStore from "@/stores/modal";
-import react from "react";
-import { createPortal } from "react-dom";
-export default function Modal(){
-    const { isOpen, onClose, contentModal } = useModalStore();
-    const [mounted, setMounted] = react.useState(false);
+import useModalStore from '@/stores/modal'
+import react from 'react'
+import { createPortal } from 'react-dom'
 
-    react.useEffect(() => {
-        setMounted(true)
-        const handleEscape = (event) => {
-          if (event.key === "Escape") {
-            handleClose();
-          }
-        };
-        window.addEventListener("keydown", handleEscape);
-        return () => window.removeEventListener("keydown", handleEscape);
-    }, []);
+export default function Modal({ isOpen, setIsOpen, children }) {
+  const [mounted, setMounted] = react.useState(false)
 
-    
-    const handleClose = ()=>{
-        onClose()
+  react.useEffect(() => {
+    setMounted(true)
+    const handleEscape = event => {
+      if (event.key === 'Escape') {
+        handleClose()
+      }
     }
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [])
 
-    if (!mounted) {
-      return (<></>);
-    }
+  const handleClose = () => {
+    setIsOpen(!isOpen)
+  }
 
-    return createPortal(
-      <div className={`${isOpen != false?'flex':'hidden'}  fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-sm items-center justify-center transition-all duration-300 z-50`}>
+  if (!mounted) {
+    return <></>
+  }
+
+  return createPortal(
+    <div
+      className={`flex fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-sm items-center justify-center transition-all duration-300 z-50`}
+    >
       <div className="max-w-sm w-full relative bg-white rounded-3xl transition-all duration-500">
         <div className="relative bg-white rounded-lg shadow-sm">
           <div className="flex items-center justify-between border-b rounded-t border-gray-200 p-4">
@@ -53,7 +54,7 @@ export default function Modal(){
               </svg>
             </button>
           </div>
-          <div className="p-4 md:p-5 space-y-4" dangerouslySetInnerHTML={{__html:contentModal}} ></div>
+          <div className="p-4 md:p-5 space-y-4">{children}</div>
           <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
             <button
               onClick={handleClose}
@@ -66,6 +67,6 @@ export default function Modal(){
         </div>
       </div>
     </div>,
-    document.body
-    )
+    document.getElementById('modal-root')
+  )
 }
