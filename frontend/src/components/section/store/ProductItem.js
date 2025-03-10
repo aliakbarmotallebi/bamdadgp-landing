@@ -22,7 +22,8 @@ export default function ProductItem({ productItem }) {
             <img
               className="min-h-full object-cover rounded-md"
               src={
-                PUBLIC_BASE_URL + productItem?.product_image?.formats?.small.url
+                PUBLIC_BASE_URL +
+                productItem?.product_image?.formats?.small?.url
               }
               alt={productItem.product_title}
             />
