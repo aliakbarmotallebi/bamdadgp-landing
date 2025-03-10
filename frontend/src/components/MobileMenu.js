@@ -3,6 +3,7 @@ import { Routes } from '@/route/routes'
 import useAuthStore from '@/stores/auth'
 import useGeneralStore from '@/stores/general'
 import Link from 'next/link'
+import Logo from './section/navbar/Logo'
 
 export default function MobileMenu() {
   const { openMenu, setOpenMenu } = useGeneralStore()
@@ -18,7 +19,7 @@ export default function MobileMenu() {
       <div
         className={`${
           openMenu ? 'left-0' : '-left-full'
-        } w-1/2 md:w-1/3 top-0 bg-white/90 border-r-4 transition-all duration-300 border-stone-600 backdrop-blur-md fixed h-screen min-h-screen z-40`}
+        } w-1/2 md:w-1/3 py-10 top-0 bg-white/90 border-r-4 transition-all duration-300 border-stone-600 backdrop-blur-md fixed h-screen min-h-screen z-40`}
       >
         <button
           onClick={() => setOpenMenu(false)}
@@ -44,8 +45,11 @@ export default function MobileMenu() {
           </span>
         </button>
 
-        <div className="text-center pt-4 mb-5 pr-10">
-          <span className="font-medium text-stone-800">گروه تجاری بامداد</span>
+        <div className="text-center text-lg pt-4 mb-8 flex items-center justify-center gap-4">
+          <Logo h={14} />
+          <span className="font-semibold text-stone-800">
+            گروه تجاری بامداد
+          </span>
         </div>
 
         {isAuth && (
