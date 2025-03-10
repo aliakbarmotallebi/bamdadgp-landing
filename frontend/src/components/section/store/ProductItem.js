@@ -13,9 +13,6 @@ export default function ProductItem({ productItem }) {
   }
   return (
     <article className="group hover:bg-orange-100 transition-all delay-200 relative bg-white rounded-lg flex flex-col px-6 py-5 justify-around gap-3 border border-gray-200">
-      <span className="absolute z-10 top-4 group-hover:bg-orange-100 transition-all delay-200 left-0 inline-flex items-center rounded-md -rotate-[40deg] bg-white px-2 py-1 text-xs font-medium text-gray-600">
-        {productItem.product_category.cat_title}
-      </span>
       <div className="w-full flex items-center justify-center relative">
         <figure className="w-full h-44 overflow-hidden rounded-md relative flex justify-center items-center bg-stone-100">
           {productItem?.product_image?.formats?.small ? (
@@ -50,6 +47,9 @@ export default function ProductItem({ productItem }) {
         >
           <h3>{productItem.product_title}</h3>
         </a>
+      </div>
+      <div class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm">
+        {productItem.product_category.cat_title}
       </div>
       <div>
         <h3 className="text-base font-semibold text-left pt-2 w-full">

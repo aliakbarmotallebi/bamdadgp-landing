@@ -102,7 +102,9 @@ export default function Footer() {
                 </span>
                 <p className="ps-4">
                   <span>کدپستی:</span>
-                  <span>{contact?.data.contact_postal_code}</span>
+                  <span className="ps-1">
+                    {contact?.data.contact_postal_code}
+                  </span>
                 </p>
               </li>
 
