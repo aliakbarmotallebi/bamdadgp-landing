@@ -106,7 +106,7 @@ export default function Swiper({ title, data }) {
                           className="min-h-full"
                           src={
                             process.env.NEXT_PUBLIC_BASE_URL +
-                            item.product_image.url
+                            item.product_image?.url
                           }
                           alt="./assets/images/product4.png"
                         />

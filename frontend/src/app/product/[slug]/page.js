@@ -45,12 +45,12 @@ export default async function Product({ params }) {
             <Specs data={product?.data[0]?.speces} />
             <Comments
               data={product?.data[0].comments}
-              productId={product.data[0].id}
-              slug={product.data[0].product_slug}
+              productId={product?.data[0].id}
+              slug={product?.data[0].product_slug}
             />
           </section>
           <div className="py-12 w-full">
-            <Swiper title={'محصولات مرتبط'} data={relatedProducts.data} />
+            <Swiper title={'محصولات مرتبط'} data={relatedProducts?.data} />
           </div>
         </div>
       </section>
