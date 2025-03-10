@@ -106,7 +106,7 @@ export default function Hero() {
                   <div className="flex flex-col gap-8 h-full">
                     <div className="px-4">
                       <h2 className="my-3 text-2xl text-gray-800 font-bold">
-                        بامداد گالری
+                        بامداد گلد گالری
                       </h2>
                       <div className="flex flex-row items-center justify-between w-full mb-2">
                         <div className="text-gray-800 font-medium text-sm">
