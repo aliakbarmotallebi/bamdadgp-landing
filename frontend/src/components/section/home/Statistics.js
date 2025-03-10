@@ -1,13 +1,9 @@
-export default function Statistics(){
-    return(
-        <>
-            
-      
+export default function Statistics() {
+  return (
+    <>
       <section id="statistics-section">
         <div className="relative w-full flex justify-center items-start py-12 px-4">
-          <div
-            className="absolute right-60 top-1/2 -translate-y-1/2 w-[55%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(255,255,50,0.2)_0%,rgba(255,255,0,0)_90%)] z-[-1] blur-xl"
-          ></div>
+          <div className="absolute right-60 top-1/2 -translate-y-1/2 w-[55%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(255,255,50,0.2)_0%,rgba(255,255,0,0)_90%)] z-[-1] blur-xl"></div>
           <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
             <div className="flex flex-col gap-3 mb-6">
               <h2 className="text-xl font-bold">
@@ -21,84 +17,50 @@ export default function Statistics(){
 
             <div className="grid grid-cols-3 gap-8">
               <div className="flex flex-col gap-8">
-                <div
-                  className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 overflow-hidden space-y-4"
-                >
+                <div className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 overflow-hidden space-y-4">
                   <div className="absolute inset-0 pointer-events-none flex z-20">
-                    <div
-                      className="w-1/2 bg-gradient-to-l from-[#fefefe] to-transparent"
-                    ></div>
+                    <div className="w-1/2 bg-gradient-to-l from-[#fefefe] to-transparent"></div>
                     <div className="flex-1"></div>
-                    <div
-                      className="w-1/2 bg-gradient-to-r from-[#fefefe] to-transparent"
-                    ></div>
+                    <div className="w-1/2 bg-gradient-to-r from-[#fefefe] to-transparent"></div>
                   </div>
                   <div className="overflow-x-hidden max-w-[405px] w-full flex">
-                    <ul
-                      className="inline-flex gap-4 *:[mr-4] min-w-full items-center animate-marquee-left"
-                    >
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                    <ul className="inline-flex gap-4 *:[mr-4] min-w-full items-center animate-marquee-left">
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         طلا آب شده
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         سکه
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         شمش
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         گردنبند الماس
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         حلقه ازدواج
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         دستبند چرمی
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         گوشواره
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         مدال
                       </li>
-                      <li
-                        className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]"
-                      >
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
                         پابند
                       </li>
                     </ul>
                   </div>
                 </div>
 
-                <article
-                  className="bg-[#fefefe] w-full border border-orange-900/10 py-12 rounded-3xl"
-                >
+                <article className="bg-[#fefefe] w-full border border-orange-900/10 py-12 rounded-3xl">
                   <div className="w-full flex gap-2 relative">
-                    <div
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[100%] rounded-full bg-[radial-gradient(circle,rgba(100,100,100,0.15)_0%,rgba(255,255,0,0)_90%)] z-[0] blur-xl"
-                    ></div>
-                    <div
-                      className="w-1/4 bg-white/20 backdrop-blur-lg border-2 border-orange-700/10 border-r-0 rounded-l-2xl relative z-10"
-                    ></div>
-                    <div
-                      className="w-2/4 bg-white backdrop-blur-lg py-20 border-2 border-orange-700/10 rounded-2xl flex justify-center relative z-10"
-                    >
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[100%] rounded-full bg-[radial-gradient(circle,rgba(100,100,100,0.15)_0%,rgba(255,255,0,0)_90%)] z-[0] blur-xl"></div>
+                    <div className="w-1/4 bg-white/20 backdrop-blur-lg border-2 border-orange-700/10 border-r-0 rounded-l-2xl relative z-10"></div>
+                    <div className="w-2/4 bg-white backdrop-blur-lg py-20 border-2 border-orange-700/10 rounded-2xl flex justify-center relative z-10">
                       <div className="size-24 flex justify-center items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -124,9 +86,7 @@ export default function Statistics(){
                         </svg>
                       </div>
                     </div>
-                    <div
-                      className="w-1/4 bg-white/20 backdrop-blur-lg border-2 border-orange-700/10 border-l-0 rounded-r-2xl relative z-10"
-                    ></div>
+                    <div className="w-1/4 bg-white/20 backdrop-blur-lg border-2 border-orange-700/10 border-l-0 rounded-r-2xl relative z-10"></div>
                   </div>
                   <div className="mt-8 px-16 flex flex-col gap-4">
                     <h2 className="text-center font-semibold text-neutral-800">
@@ -147,9 +107,7 @@ export default function Statistics(){
                   </div>
                 </article>
 
-                <article
-                  className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10"
-                >
+                <article className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10">
                   <div>
                     <h2 className="font-semibold">تخفیفات روزانه طلا و سکه</h2>
                     <div className="relative flex justify-center p-8">
@@ -268,12 +226,8 @@ export default function Statistics(){
                   </div>
                 </article>
 
-                <article
-                  className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10 flex justify-center"
-                >
-                  <button
-                    className="px-6 py-4 border rounded-full text-neutral-600 hover:text-neutral-800 hover:border-orange-900/40 transition-all duration-300 border-orange-900/10 font-medium flex items-center gap-4"
-                  >
+                <article className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10 flex justify-center">
+                  <button className="px-6 py-4 border rounded-full text-neutral-600 hover:text-neutral-800 hover:border-orange-900/40 transition-all duration-300 border-orange-900/10 font-medium flex items-center gap-4">
                     پشتیبانی در کنار شماست
                     <span className="block size-8">
                       <svg
@@ -292,19 +246,7 @@ export default function Statistics(){
                           strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
-                          {/* <//style type="text/css">
-                            .st0 {
-                              fill: none;
-                              stroke: #000000;
-                              strokeWidth: 2;
-                              strokeLinecap: round;
-                              strokeLinejoin: round;
-                              stroke-miterlimit: 10;
-                            }
-                          <///style> */}
-                          <path
-                            d="M16,2C9.4,2,4,7.3,4,13.9v3.5c0,0.1,0,0.1,0,0.2c0,0.1,0,0.3,0,0.4c0,2.8,2.2,5,5,5c0.6,0,1-0.4,1-1v-8c0-0.6-0.4-1-1-1 c-1.1,0-2.2,0.4-3,1v-0.2C6,8.4,10.5,4,16,4s10,4.4,10,9.9V14c-0.8-0.6-1.9-1-3-1c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1 c0.7,0,1.4-0.2,2-0.4c-1,2.1-2.8,3.7-5,4.6c0-0.1,0-0.1,0-0.2c0-0.6-0.4-1-1-1h-3c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1 c6.6,0,12-5.2,12-11.6v-1V15v-1.1C28,7.3,22.6,2,16,2z"
-                          ></path>
+                          <path d="M16,2C9.4,2,4,7.3,4,13.9v3.5c0,0.1,0,0.1,0,0.2c0,0.1,0,0.3,0,0.4c0,2.8,2.2,5,5,5c0.6,0,1-0.4,1-1v-8c0-0.6-0.4-1-1-1 c-1.1,0-2.2,0.4-3,1v-0.2C6,8.4,10.5,4,16,4s10,4.4,10,9.9V14c-0.8-0.6-1.9-1-3-1c-0.6,0-1,0.4-1,1v8c0,0.6,0.4,1,1,1 c0.7,0,1.4-0.2,2-0.4c-1,2.1-2.8,3.7-5,4.6c0-0.1,0-0.1,0-0.2c0-0.6-0.4-1-1-1h-3c-0.6,0-1,0.4-1,1v2c0,0.6,0.4,1,1,1 c6.6,0,12-5.2,12-11.6v-1V15v-1.1C28,7.3,22.6,2,16,2z"></path>
                         </g>
                       </svg>
                     </span>
@@ -313,9 +255,7 @@ export default function Statistics(){
               </div>
 
               <div className="flex flex-col gap-8">
-                <article
-                  className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 mt-28"
-                >
+                <article className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 mt-28">
                   <span className="absolute size-8 -top-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -335,9 +275,7 @@ export default function Statistics(){
                     بامداد گالری در اینستا دنبال کنید
                   </h2>
 
-                  <div
-                    className="my-6 px-16 relative flex justify-center items-center"
-                  >
+                  <div className="my-6 px-16 relative flex justify-center items-center">
                     <svg
                       className="w-36 h-36"
                       version="1.1"
@@ -348,58 +286,58 @@ export default function Statistics(){
                       xmlSpace="preserve"
                     >
                       <path
-                        //style="fill: #fde494"
+                        className="fill-[#fde494]"
                         d="M114.759,512h61.103l-96.414-61.793L0.198,403.898C3.659,464.09,53.716,512,114.759,512z"
                       />
                       <path
-                        //style="fill: #fea150"
+                        className="fill-[#fea150]"
                         d="M335.448,476.69l-69.006-17.655H114.759c-34.072,0-61.793-27.721-61.793-61.793v-33.876
                  l-26.483-28.42L0,339.628v57.613c0,2.236,0.072,4.454,0.198,6.657L175.862,512h208.767L335.448,476.69z"
                       />
                       <path
-                        //style="fill: #ff5d4a"
+                        className="fill-[#ff5d4a]"
                         d="M441.655,440.14c-11.244,11.637-26.993,18.894-44.414,18.894H266.442L384.629,512h12.612
                  c41.202,0,77.396-21.829,97.64-54.527l-27.022-16.094L441.655,440.14z"
                       />
                       <path
-                        //style="fill: #e45261"
+                        className="fill-[#e45261]"
                         d="M459.034,326.014v71.228c0,16.652-6.633,31.775-17.379,42.899l53.227,17.333
                  C505.728,439.954,512,419.318,512,397.241v-62.805l-27.396-15.391L459.034,326.014z"
                       />
                       <polygon
-                        //style="fill: #ff4d95"
+                        className="fill-[#ff4d95]"
                         points="512,149.19 483.797,142.474 459.034,157.3 459.034,326.014 512,334.436 "
                       />
                       <path
-                        //style="fill: #cb319c"
+                        className="fill-[#cb319c]"
                         d="M512,114.759c0-57.633-42.708-105.473-98.136-113.55L344.43,30.101l-35.183,22.865h87.994
                  c34.072,0,61.793,27.721,61.793,61.793V157.3L512,149.19V114.759z"
                       />
                       <path
-                        //style="fill: #8a3293"
+                        className="fill-[#8a3293]"
                         d="M317.732,0l-65.682,24.636l-51.805,28.33h109.002L413.864,1.208C408.435,0.417,402.887,0,397.241,0
                  H317.732z"
                       />
                       <path
-                        //style="fill: #ff5d4a"
+                        className="fill-[#ff5d4a]"
                         d="M256,406.069c18.358,0,35.954-3.32,52.226-9.38l-86.02-39.047l-91.178-18.657
                  C157.946,379.39,203.913,406.069,256,406.069z"
                       />
                       <path
-                        //style="fill: #e45261"
+                        className="fill-[#e45261]"
                         d="M329.153,305.358c-15.883,23.465-42.748,38.918-73.153,38.918c-40.273,0-74.308-27.118-84.867-64.046
                  l-23.682-14.801l-40.847,4.538c2.353,25.345,11.014,48.887,24.425,69.017l177.198,57.705c38.303-14.264,69.237-43.757,85.458-81.068
                  l-31.753-16.085L329.153,305.358z"
                       />
                       <g>
                         <path
-                          //style="fill: #ff4d95"
+                          className="fill-[#ff4d95]"
                           d="M167.724,256c0-21.878,8.018-41.907,21.247-57.346l-37.658-5.268l-38.25,16.892
                    c-4.625,14.422-7.132,29.784-7.132,45.722c0,4.712,0.244,9.365,0.671,13.966l64.53,10.262
                    C168.929,272.524,167.724,264.403,167.724,256z"
                         />
                         <path
-                          //style="fill: #ff4d95"
+                          className="fill-[#ff4d95]"
                           d="M406.069,256c0-32.138-10.159-61.946-27.428-86.39l-37.397-5.308l-38.418,16.917
                    c24.873,15.631,41.45,43.298,41.45,74.781c0,18.27-5.58,35.261-15.123,49.358l64.531,10.262
                    C401.634,297.334,406.069,277.18,406.069,256z"
@@ -407,83 +345,73 @@ export default function Statistics(){
                       </g>
                       <g>
                         <path
-                          //style="fill: #cb319c"
+                          className="fill-[#cb319c]"
                           d="M256,167.724c17.194,0,33.242,4.959,46.826,13.495l75.815-11.609
                    c-27.196-38.493-72.03-63.679-122.641-63.679c-66.81,0-123.554,43.889-142.937,104.345l75.908-11.624
                    C205.173,179.742,229.203,167.724,256,167.724z"
                         />
                         <path
-                          //style="fill: #cb319c"
+                          className="fill-[#cb319c]"
                           d="M397.241,150.069c19.47,0,35.31-15.84,35.31-35.31s-15.84-35.31-35.31-35.31
                    c-19.47,0-35.31,15.84-35.31,35.31S377.771,150.069,397.241,150.069z"
                         />
                       </g>
                       <polygon
-                        //style="fill: #ff5d4a"
+                        className="fill-[#ff5d4a]"
                         points="52.966,313.564 27.47,300.847 0,296.316 0,339.629 52.966,363.366 "
                       />
                       <polygon
-                        //style="fill: #e45261"
+                        className="fill-[#e45261]"
                         points="0,253.014 0,296.316 52.966,313.564 52.966,261.437 25.446,251.543 "
                       />
                       <polygon
-                        //style="fill: #ff4d95"
+                        className="fill-[#ff4d95]"
                         points="52.966,219.479 25.749,219.233 0,227.59 0,253.014 52.966,261.437 "
                       />
                       <polygon
-                        //style="fill: #cb319c"
+                        className="fill-[#cb319c]"
                         points="52.966,179.757 24.911,182.603 0,205.962 0,227.59 52.966,219.479 "
                       />
                       <polygon
-                        //style="fill: #8a3293"
+                        className="fill-[#8a3293]"
                         points="0,205.962 52.966,179.757 52.966,119.362 21.9,122.333 0,143.241 "
                       />
                       <path
-                        //style="fill: #523494"
+                        className="fill-[#523494]"
                         d="M205.059,0L84.206,46.481L1.387,96.928C0.477,102.741,0,108.695,0,114.759v28.482l52.966-23.878
                  v-4.605c0-34.072,27.721-61.793,61.793-61.793h85.487L317.732,0H205.059z"
                       />
                       <path
-                        //style="fill: #2d2d87"
+                        className="fill-[#2d2d87]"
                         d="M114.759,0C57.545,0,9.978,42.088,1.387,96.928L205.059,0H114.759z"
                       />
                     </svg>
                   </div>
 
                   <div className="flex justify-center">
-                    <button
+                    <a
+                      href="https://www.instagram.com/bamdadgpgoldgallery"
+                      target="_b"
                       className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold"
                     >
                       دنبال کنید
-                    </button>
+                    </a>
                   </div>
                 </article>
 
-                <article
-                  className="relative bg-[#fefefe] py-24 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4 overflow-hidden"
-                >
-                  <div
-                    className="size-[400px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"
-                  ></div>
-                  <div
-                    className="size-[300px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"
-                  ></div>
-                  <div
-                    className="size-[200px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"
-                  ></div>
-                  <div
-                    className="size-[100px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"
-                  ></div>
+                <article className="relative bg-[#fefefe] py-24 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4 overflow-hidden">
+                  <div className="size-[400px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"></div>
+                  <div className="size-[300px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"></div>
+                  <div className="size-[200px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"></div>
+                  <div className="size-[100px] rounded-full border border-orange-800/10 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[10]"></div>
 
                   <h2 className="font-semibold text-5xl text-center">5,600+</h2>
-                  <span className="text-lg font-semibold text-center"
-                    >تراکنش موفق</span
-                  >
+                  <span className="text-lg font-semibold text-center">
+                    تراکنش موفق
+                  </span>
                 </article>
 
-                <article
-                  className="relative bg-[#fefefe] py-16 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-9"
-                >
+                <article className="relative bg-[#fefefe] py-16 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-9">
                   <div className="px-16 flex justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -492,28 +420,6 @@ export default function Statistics(){
                       viewBox="0 0 255.25 217.69"
                     >
                       <defs>
-                        {/* <//style>
-                          .cls-1 {
-                            fill: #525252;
-                          }
-
-                          .cls-1,
-                          .cls-2 {
-                            strokeWidth: 0px;
-                          }
-
-                          .cls-3 {
-                            isolation: isolate;
-                          }
-
-                          .cls-2 {
-                            fill: none;
-                          }
-
-                          .cls-4 {
-                            clip-path: url(#clippath);
-                          }
-                        <///style> */}
                         <clipPath id="clippath">
                           <polygon
                             className="cls-2"
@@ -626,12 +532,8 @@ export default function Statistics(){
               </div>
 
               <div className="flex flex-col gap-8">
-                <article
-                  className="relative bg-[#fefefe] p-6 w-full flex flex-col gap-8 rounded-3xl border border-orange-900/10 mt-14 overflow-hidden"
-                >
-                  <div
-                    className="absolute left-0 right-0 -translate-x-4 top-1/2 size-80 m-auto border-2 border-orange-900/5 rounded-full"
-                  >
+                <article className="relative bg-[#fefefe] p-6 w-full flex flex-col gap-8 rounded-3xl border border-orange-900/10 mt-14 overflow-hidden">
+                  <div className="absolute left-0 right-0 -translate-x-4 top-1/2 size-80 m-auto border-2 border-orange-900/5 rounded-full">
                     <div className="size-8 absolute top-1 left-16 rotate-12">
                       <svg
                         width="100%"
@@ -674,17 +576,11 @@ export default function Statistics(){
                       </svg>
                     </div>
                   </div>
-                  <div
-                    className="absolute left-0 right-0 top-1/2 size-80 m-auto border-2 border-orange-900/5 rounded-full"
-                  ></div>
+                  <div className="absolute left-0 right-0 top-1/2 size-80 m-auto border-2 border-orange-900/5 rounded-full"></div>
 
                   <div>
-                    <div
-                      className="relative bg-neutral-800 py-2 px-4 rounded-2xl flex items-center gap-6"
-                    >
-                      <div
-                        className="absolute -bottom-2.5 h-12 rounded-2xl w-[92%] bg-neutral-800/10 left-1/2 -translate-x-1/2 -z-[0] shadow-lg"
-                      ></div>
+                    <div className="relative bg-neutral-800 py-2 px-4 rounded-2xl flex items-center gap-6">
+                      <div className="absolute -bottom-2.5 h-12 rounded-2xl w-[92%] bg-neutral-800/10 left-1/2 -translate-x-1/2 -z-[0] shadow-lg"></div>
                       <figure className="size-10 rounded-full overflow-hidden">
                         <img
                           src="https://avatars.githubusercontent.com/u/141553836?v=4"
@@ -693,8 +589,8 @@ export default function Statistics(){
                       </figure>
                       <p className="text-white flex items-center gap-1">
                         از خدمات بامداد راضیم!
-                        <span className="size-6 block"
-                          ><svg
+                        <span className="size-6 block">
+                          <svg
                             viewBox="0 0 24 24"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -732,20 +628,20 @@ export default function Statistics(){
                   </div>
 
                   <div className="flex flex-col mt-6">
-                    <h2 className="font-semibold text-5xl text-center">+1,250</h2>
-                    <p className="text-center font-semibold">مشتری راضی در ماه</p>
+                    <h2 className="font-semibold text-5xl text-center">
+                      +1,250
+                    </h2>
+                    <p className="text-center font-semibold">
+                      مشتری راضی در ماه
+                    </p>
                   </div>
                 </article>
 
-                <article
-                  className="relative bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4"
-                >
+                <article className="relative bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4">
                   <h2 className="text-lg font-semibold text-center">
                     قرعه کشی ماهانه برای مشتریان وفادار
                   </h2>
-                  <div
-                    className="size-32 rounded-full bg-white m-auto flex justify-center items-center shadow-sm"
-                  >
+                  <div className="size-32 rounded-full bg-white m-auto flex justify-center items-center shadow-sm">
                     <div className="size-20">
                       <svg
                         height="100%"
@@ -766,87 +662,87 @@ export default function Statistics(){
                         ></g>
                         <g id="SVGRepo_iconCarrier">
                           <polygon
-                            style={{fill: "#cc8e3550"}}
+                            style={{ fill: '#cc8e3550' }}
                             points="172.046,405.314 53.331,286.601 53.331,118.715 172.046,0 339.924,0 458.638,118.715 458.638,286.601 339.924,405.314 "
                           ></polygon>
                           <path
-                            style={{fill: "#ed5564"}}
+                            style={{ fill: '#ed5564' }}
                             d="M255.988,336.318c0,11.781-9.554,21.326-21.335,21.326s-21.327-9.545-21.327-21.326 s9.546-21.328,21.327-21.328S255.988,324.537,255.988,336.318z"
                           ></path>
                           <path
-                            style={{fill: "#ac92eb"}}
+                            style={{ fill: '#ac92eb' }}
                             d="M213.326,336.318c0,11.781-9.555,21.326-21.336,21.326c-11.78,0-21.335-9.545-21.335-21.326 s9.555-21.328,21.335-21.328C203.771,314.99,213.326,324.537,213.326,336.318z"
                           ></path>
                           <path
-                            style={{fill: "#a0d468"}}
+                            style={{ fill: '#a0d468' }}
                             d="M170.655,336.318c0,11.781-9.547,21.326-21.327,21.326c-11.789,0-21.335-9.545-21.335-21.326 s9.546-21.328,21.335-21.328C161.108,314.99,170.655,324.537,170.655,336.318z"
                           ></path>
                           <path
-                            style={{fill: "#ac92eb"}}
+                            style={{ fill: '#ac92eb' }}
                             d="M298.643,336.318c0,11.781-9.531,21.326-21.312,21.326c-11.797,0-21.344-9.545-21.344-21.326 s9.547-21.328,21.344-21.328C289.112,314.99,298.643,324.537,298.643,336.318z"
                           ></path>
                           <path
-                            style={{fill: "#fc6e51"}}
+                            style={{ fill: '#fc6e51' }}
                             d="M341.329,336.318c0,11.781-9.562,21.326-21.342,21.326c-11.781,0-21.344-9.545-21.344-21.326 s9.562-21.328,21.344-21.328C331.767,314.99,341.329,324.537,341.329,336.318z"
                           ></path>
                           <path
-                            style={{fill: "#48cfad"}}
+                            style={{ fill: '#48cfad' }}
                             d="M383.985,336.318c0,11.781-9.562,21.326-21.344,21.326s-21.312-9.545-21.312-21.326 s9.531-21.328,21.312-21.328S383.985,324.537,383.985,336.318z"
                           ></path>
                           <g>
                             <polygon
-                              style={{fill: "#fffefd"}}
+                              style={{ fill: '#fffefd' }}
                               points="458.638,118.715 450.482,110.544 53.331,275.054 53.331,286.601 61.495,294.771 458.638,130.262 "
                             ></polygon>
                             <polygon
-                              style={{fill: "#fffefd"}}
+                              style={{ fill: '#fffefd' }}
                               points="339.924,0 328.392,0 247.872,194.385 267.574,202.556 348.095,8.157 "
                             ></polygon>
                             <polygon
-                              style={{fill: "#fffefd"}}
+                              style={{ fill: '#fffefd' }}
                               points="163.882,8.157 245.966,206.337 265.676,198.181 183.593,0 172.046,0 "
                             ></polygon>
                             <polygon
-                              style={{fill: "#fffefd"}}
+                              style={{ fill: '#fffefd' }}
                               points="61.495,110.544 53.331,118.715 53.331,130.262 450.482,294.771 458.638,286.601 458.638,275.054 "
                             ></polygon>
                           </g>
                           <path
-                            style={{fill: "#48cfad"}}
+                            style={{ fill: '#48cfad' }}
                             d="M234.653,373.316c0,11.781-9.547,21.328-21.327,21.328c-11.789,0-21.336-9.547-21.336-21.328 s9.547-21.328,21.336-21.328C225.106,351.988,234.653,361.535,234.653,373.316z"
                           ></path>
                           <path
-                            style={{fill: "#fc6e51"}}
+                            style={{ fill: '#fc6e51' }}
                             d="M191.99,373.316c0,11.781-9.554,21.328-21.335,21.328c-11.78,0-21.327-9.547-21.327-21.328 s9.547-21.328,21.327-21.328C182.436,351.988,191.99,361.535,191.99,373.316z"
                           ></path>
                           <path
-                            style={{fill: "#ffce54"}}
+                            style={{ fill: '#ffce54' }}
                             d="M277.332,373.316c0,11.781-9.562,21.328-21.344,21.328c-11.78,0-21.335-9.547-21.335-21.328 s9.555-21.328,21.335-21.328C267.769,351.988,277.332,361.535,277.332,373.316z"
                           ></path>
                           <path
-                            style={{fill: "#5d9cec"}}
+                            style={{ fill: '#5d9cec' }}
                             d="M319.987,373.316c0,11.781-9.562,21.328-21.344,21.328s-21.312-9.547-21.312-21.328 s9.53-21.328,21.312-21.328S319.987,361.535,319.987,373.316z"
                           ></path>
                           <path
-                            style={{fill: "#ed5564"}}
+                            style={{ fill: '#ed5564' }}
                             d="M362.641,373.316c0,11.781-9.531,21.328-21.312,21.328c-11.796,0-21.342-9.547-21.342-21.328 s9.546-21.328,21.342-21.328C353.11,351.988,362.641,361.535,362.641,373.316z"
                           ></path>
                           <g>
                             <path
-                              style={{fill: "#cc8e3550"}}
+                              style={{ fill: '#cc8e3550' }}
                               d="M127.993,469.312h-4.352l150.284-244.459l-35.882-23.062L72.916,469.312h-8.921 c-11.781,0-21.336,9.547-21.336,21.328s9.555,21.344,21.336,21.344h63.998c11.78,0,21.335-9.562,21.335-21.344 S139.773,469.312,127.993,469.312z"
                             ></path>
                             <path
-                              style={{fill: "#cc8e3550"}}
+                              style={{ fill: '#cc8e3550' }}
                               d="M383.985,469.312h4.343L238.044,224.853l35.882-23.062l165.135,267.521h8.921 c11.781,0,21.343,9.547,21.343,21.328s-9.562,21.344-21.343,21.344h-63.997c-11.781,0-21.344-9.562-21.344-21.344 S372.204,469.312,383.985,469.312z"
                             ></path>
                             <path
-                              style={{fill: "#cc8e3550"}}
+                              style={{ fill: '#cc8e3550' }}
                               d="M287.987,202.65c0,17.687-14.327,31.999-31.999,31.999c-17.671,0-31.999-14.312-31.999-31.999 c0-17.671,14.328-31.999,31.999-31.999C273.66,170.651,287.987,184.979,287.987,202.65z"
                             ></path>
                           </g>
                           <path
-                            style={{fill: "#cc8e3550"}}
+                            style={{ fill: '#cc8e3550' }}
                             d="M255.988,245.321c-23.522,0-42.662-19.14-42.662-42.67c0-23.515,19.14-42.655,42.662-42.655 c23.531,0,42.655,19.14,42.655,42.655C298.643,226.181,279.519,245.321,255.988,245.321z M255.988,181.323 c-11.765,0-21.335,9.578-21.335,21.328c0,11.765,9.57,21.343,21.335,21.343c11.766,0,21.344-9.578,21.344-21.343 C277.332,190.901,267.754,181.323,255.988,181.323z"
                           ></path>
                         </g>
@@ -858,17 +754,13 @@ export default function Statistics(){
                       گروه بامداد قصد دارد به پاس قدر دانی از همراهی و اعتماد
                       شما هر ماه جوایز نفیسی به شما عزیزان اهدا کند
                     </p>
-                    <button
-                      className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold"
-                    >
+                    <button className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold">
                       مشاهده بیشتر
                     </button>
                   </div>
                 </article>
 
-                <article
-                  className="relative bg-[#fefefe] pt-12 px-12 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4"
-                >
+                <article className="relative bg-[#fefefe] pt-12 px-12 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4">
                   <h2 className="text-lg font-semibold">انواع زیورآلات طلا</h2>
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-neutral-600 font-medium">
@@ -877,9 +769,7 @@ export default function Statistics(){
                   </div>
                   <div className="w-full h-48 pt-4 relative grid grid-cols-2">
                     <div className="h-full bg-white">
-                      <div
-                        className="size-16 absolute top-8 right-14 p-4 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl"
-                      >
+                      <div className="size-16 absolute top-8 right-14 p-4 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="100%"
@@ -897,12 +787,8 @@ export default function Statistics(){
                       </div>
                     </div>
 
-                    <div
-                      className="h-full bg-gradient-to-l from-[#cc8e3510] to-transparent border-r-4 border-[#cc8e3550]"
-                    >
-                      <div
-                        className="size-14 absolute bottom-5 right-4 p-4 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl"
-                      >
+                    <div className="h-full bg-gradient-to-l from-[#cc8e3510] to-transparent border-r-4 border-[#cc8e3550]">
+                      <div className="size-14 absolute bottom-5 right-4 p-4 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="100%"
@@ -925,9 +811,7 @@ export default function Statistics(){
                         </svg>
                       </div>
 
-                      <div
-                        className="size-16 absolute bottom-5 left-12 p-2 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl"
-                      >
+                      <div className="size-16 absolute bottom-5 left-12 p-2 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="100%"
@@ -951,6 +835,6 @@ export default function Statistics(){
           </div>
         </div>
       </section>
-        </>
-    )
+    </>
+  )
 }

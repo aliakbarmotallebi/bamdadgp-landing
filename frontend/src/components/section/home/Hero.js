@@ -1,13 +1,15 @@
 'use client'
 import react, { useState } from 'react'
-// import useModalStore from '@/stores/modal'
-import Link from 'next/link'
 import Modal from '@/components/Modal'
 
 export default function Hero() {
-  const [showModal, setShowModal] = useState(false)
-  const toggleModal = () => {
-    setShowModal(!showModal)
+  const [modal, setModal] = useState({
+    service: false,
+    gallery: false,
+    lottary: false,
+  })
+  const toggleModal = key => {
+    setModal(prev => ({ ...prev, [key]: !prev[key] }))
   }
 
   return (
@@ -66,14 +68,14 @@ export default function Hero() {
                     </div>
                     <div className="mt-auto">
                       <button
-                        onClick={toggleModal}
+                        onClick={() => toggleModal('service')}
                         type="button"
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full text-xs px-5 py-4"
                       >
                         مشاهده بیشتر
                       </button>
-                      {showModal && (
-                        <Modal isOpen={showModal} setIsOpen={setShowModal}>
+                      {modal.service && (
+                        <Modal isOpen={modal.service} setIsOpen={setModal}>
                           <div className="modal-content">
                             <p>
                               گروه بامداد سعی داشته از پشتیبانی تلفنی و آنلاین
@@ -109,14 +111,14 @@ export default function Hero() {
                     </div>
                     <div className="mt-auto">
                       <button
-                        onClick={toggleModal}
+                        onClick={() => toggleModal('gallery')}
                         type="button"
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full text-xs px-5 py-4"
                       >
                         مشاهده بیشتر
                       </button>
-                      {showModal && (
-                        <Modal isOpen={showModal} setIsOpen={setShowModal}>
+                      {modal.gallery && (
+                        <Modal isOpen={modal.gallery} setIsOpen={setModal}>
                           <div className="modal-content">
                             <p>
                               شرکت ما در زمینه توزیع زیورآلات طلا با هدف ارائه
@@ -149,21 +151,25 @@ export default function Hero() {
                     </div>
                     <div className="mt-auto">
                       <button
-                        onClick={toggleModal}
+                        onClick={() => toggleModal('lottary')}
                         type="button"
                         className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-full text-xs px-5 py-4"
                       >
                         مشاهده بیشتر
                       </button>
-                      {showModal && (
-                        <Modal isOpen={showModal} setIsOpen={setShowModal}>
+                      {modal.lottary && (
+                        <Modal isOpen={modal.lottary} setIsOpen={setModal}>
                           <div className="modal-content">
                             <p>
                               شرکت ما به پاس قدردانی از حمایت‌های بی‌نظیر شما
                               مشتریان عزیز، هر ماه یک قرعه‌کشی هیجان‌انگیز
                               برگزار می‌کند...
                             </p>
-                            <a className="text-blue-500 underline pt-1">
+                            <a
+                              href="https://www.instagram.com/bamdadgpgoldgallery"
+                              target="_blank"
+                              className="text-blue-500 underline pt-1"
+                            >
                               صفحه اینستاگرام
                             </a>
                           </div>

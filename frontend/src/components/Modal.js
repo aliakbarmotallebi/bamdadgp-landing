@@ -1,5 +1,4 @@
 'use client'
-import useModalStore from '@/stores/modal'
 import react from 'react'
 import { createPortal } from 'react-dom'
 
@@ -18,7 +17,7 @@ export default function Modal({ isOpen, setIsOpen, children }) {
   }, [])
 
   const handleClose = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(isOpen)
   }
 
   if (!mounted) {

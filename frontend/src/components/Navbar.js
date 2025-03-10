@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="blur-[106px] h-56 bg-gradient-to-br from-yellow-400 to-orange-50"></div>
         <div className="blur-[106px] h-32 bg-gradient-to-r from-yellow-400 to-orange-50"></div>
       </div>
-      <section className="sticky top-0 z-20 px-4 xl:px-0">
+      <section className="sticky top-0 z-30 px-4 xl:px-0">
         <div className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 -z-10"></div>
         <header className="w-full top-0 z-50">
           <nav className="w-full start-0 top-0 bg-white/30 backdrop-blur-lg">
