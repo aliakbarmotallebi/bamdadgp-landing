@@ -132,8 +132,8 @@ export default function Hero() {
                   </div>
                   <div className="bg-white">
                     <img
-                      src="/assets/images/757982_10.svg"
-                      className="mix-blend-multiply absolute -bottom-14 w-[150px] left-0 min-h-full"
+                      src="/assets/images/gold.png"
+                      className="mix-blend-multiply absolute bottom-4 max-w-[100px] max-h-[100px] left-4"
                       // alt
                       // srcSet=""
                     />
