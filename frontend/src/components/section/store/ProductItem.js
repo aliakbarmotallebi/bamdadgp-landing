@@ -48,7 +48,7 @@ export default function ProductItem({ productItem }) {
           <h3>{productItem.product_title}</h3>
         </a>
       </div>
-      <div class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm">
+      <div class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm inline-block">
         {productItem.product_category.cat_title}
       </div>
       <div>
