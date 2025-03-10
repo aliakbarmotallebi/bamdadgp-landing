@@ -15,4 +15,5 @@ export const Routes = {
   profilePayments: '/profile/payments',
   cart: '/cart',
   checkout: '/checkout',
+  seller: 'https://seller.bamdadgp.com',
 }

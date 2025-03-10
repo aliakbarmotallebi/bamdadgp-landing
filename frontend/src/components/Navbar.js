@@ -17,7 +17,7 @@ export default function Navbar() {
           <nav className="w-full start-0 top-0 bg-white/30 backdrop-blur-lg">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
               <Logo />
-              <div className="flex gap-4 items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+              <div className="flex gap-2 lg:gap-4 items-center md:order-2 rtl:space-x-reverse">
                 <Control />
               </div>
               <div className="hidden lg:block">
