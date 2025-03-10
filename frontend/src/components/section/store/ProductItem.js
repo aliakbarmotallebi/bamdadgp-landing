@@ -12,7 +12,7 @@ export default function ProductItem({ productItem }) {
     toast.success('با موفقیت به سبد خرید افزوده شد')
   }
   return (
-    <article className="group hover:bg-orange-100 transition-all delay-200 relative bg-white rounded-lg flex flex-col px-6 py-5 justify-around gap-3 border border-gray-200">
+    <article className="group transition-all delay-200 relative bg-white rounded-lg flex flex-col px-6 py-5 justify-around gap-3 border border-gray-200 hover:scale-105 shadow-sm">
       <div className="w-full flex items-center justify-center relative">
         <figure className="w-full h-44 overflow-hidden rounded-md relative flex justify-center items-center bg-stone-100">
           {productItem?.product_image?.formats?.small ? (
