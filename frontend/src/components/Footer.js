@@ -1,8 +1,27 @@
+'use client'
 import { Routes } from '@/route/routes'
+import axios from 'axios'
 import Link from 'next/link'
+import React from 'react'
 import { ToastContainer } from 'react-toastify'
+import ReactMarkdown from 'react-markdown'
+
+const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
 
 export default function Footer() {
+  const [contact, setContact] = React.useState(null)
+  const getContact = async () => {
+    try {
+      const response = await axios.get(`${LOCAL_API_URL}/contact`)
+      setContact(response.data)
+      console.log(response.data)
+    } catch (error) {
+      console.error('Error fetching products:', error)
+    }
+  }
+  React.useEffect(() => {
+    getContact()
+  }, [])
   return (
     <footer className="relative bg-transparent w-full">
       <div className="w-full max-w-screen-xl mx-auto p-4 pt-10 pb-0 grid grid-cols-7">
@@ -63,10 +82,7 @@ export default function Footer() {
                     </g>
                   </svg>
                 </span>
-                <p className="ps-4">
-                  تهران - خیابان جمهوری - مابین خیابان فلسطین و ولیعصر - روبروی
-                  بانک سپه - پلاک 962 مرکز خدمات بامداد سرویس (فروشگاه کوشا)
-                </p>
+                <p className="ps-4">{contact?.data.contact_address}</p>
               </li>
 
               <li className="flex items-center">
@@ -87,7 +103,7 @@ export default function Footer() {
                 </span>
                 <p className="ps-4">
                   <span>کدپستی:</span>
-                  <span>1911973571</span>
+                  <span>{contact?.data.contact_postal_code}</span>
                 </p>
               </li>
 
@@ -110,7 +126,9 @@ export default function Footer() {
                   </svg>
                 </span>
                 <p className="ps-4 flex flex-col gap-1">
-                  <a href="tel:982166429535">021-66429535</a>
+                  <a href="tel:982166429535">
+                    {contact?.data.contact_telephone}
+                  </a>
                 </p>
               </li>
 
@@ -132,7 +150,7 @@ export default function Footer() {
                   </svg>
                 </span>
                 <p className="ps-4">
-                  <a href="tel:9821222334">info@bamdad.ir</a>
+                  <a href="tel:9821222334">{contact?.data.contact_email}</a>
                 </p>
               </li>
             </ul>
@@ -144,11 +162,9 @@ export default function Footer() {
             <h2 className="font-bold text-lg text-neutral-950">ساعات کاری</h2>
 
             <div className="mt-4 flex flex-col gap-4">
-              <span>مرکز خدمات از 10 تا 20</span>
-
-              <span> اداری از 9 تا 17 </span>
-
-              <span> تعطیلات رسمی شرکت تعطیل می باشد. </span>
+              <ReactMarkdown>
+                {contact?.data.contact_working_hours}
+              </ReactMarkdown>
             </div>
           </div>
 
