@@ -7,7 +7,7 @@ export default function Statistics() {
           <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
             <div className="flex flex-col gap-3 mb-6">
               <h2 className="text-xl font-bold">
-                بامداد گالری ،پیشرو در ارائه انواع طلا و سکه
+                بامداد گلد گالری ،پیشرو در ارائه انواع طلا و سکه
               </h2>
               <h3 className="font-medium">
                 همراه شماییم برای تجربه شروعی مطمئن در خرید انواع طلا و سکه با
@@ -219,8 +219,8 @@ export default function Statistics() {
                     </div>
                     <div className="pe-10">
                       <p>
-                        جهت اطلاع از تخفیفات روزانه بامداد گالری ما را در اینستا
-                        گرام دنیال کنید و در دیجی کالا خرید کنید
+                        جهت اطلاع از تخفیفات روزانه بامداد گلد گالری ما را در
+                        اینستا گرام دنیال کنید و در دیجی کالا خرید کنید
                       </p>
                     </div>
                   </div>
@@ -272,7 +272,7 @@ export default function Statistics() {
                     </svg>
                   </span>
                   <h2 className="font-semibold text-center">
-                    بامداد گالری در اینستا دنبال کنید
+                    بامداد گلد گالری در اینستا دنبال کنید
                   </h2>
 
                   <div className="my-6 px-16 relative flex justify-center items-center">
@@ -525,7 +525,7 @@ export default function Statistics() {
                   </div>
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-center font-semibold">
-                      بیش از نیم قرن تجربه در خرید و فروش طلا و جواهرات
+                      بامداد گلد گالری
                     </p>
                   </div>
                 </article>
