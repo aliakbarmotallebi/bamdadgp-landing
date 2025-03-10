@@ -25,10 +25,27 @@ export default function Details({ data }) {
             <div className="mx-auto">
               <div className="relative">
                 <div className="flex items-center justify-center p-3 md:w-[466px] md:h-[466px] bg-white shadow-md hover:shadow-sm transition-all duration-200 lg:border border-gray-200 rounded-xl">
-                  <img
-                    src={process.env.NEXT_PUBLIC_BASE_URL + product_image?.url}
-                    className="object-cover w-full"
-                  />
+                  {product_image ? (
+                    <img
+                      src={
+                        process.env.NEXT_PUBLIC_BASE_URL + product_image?.url
+                      }
+                      className="object-cover w-full"
+                    />
+                  ) : (
+                    <span className="block size-24 text-stone-400">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="size-full"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M19.937 14.218V5.564a1.5 1.5 0 0 0-1.5-1.5H7.809a.5.5 0 0 1 0-1h10.628a2.5 2.5 0 0 1 2.5 2.5v10.624a.5.5 0 0 1-1 .001v-.556l-4.583-4.584c-.456-.456.251-1.163.707-.707zm-.121 6.304a2.5 2.5 0 0 1-1.379.415H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564c0-.51.153-.984.414-1.38l-.263-.263c-.456-.456.251-1.163.707-.707l.263.263l16.339 16.338l.263.263c.455.456-.252 1.163-.707.707zM8.712 9.419L6.711 7.418a1.5 1.5 0 0 0 2.001 2.001M5.979 6.686l-1.77-1.77a1.5 1.5 0 0 0-.146.648v10.717l1.926-1.926a1.5 1.5 0 0 1 2.122 0l.555.554a.497.497 0 0 0 .706 0l2.415-2.415l-2.343-2.343a2.5 2.5 0 0 1-3.465-3.465M4.063 17.695v.741a1.5 1.5 0 0 0 1.5 1.5h12.874c.232 0 .451-.052.647-.145l-6.59-6.59l-2.414 2.415a1.5 1.5 0 0 1-2.122 0l-.554-.554a.5.5 0 0 0-.708 0z"
+                        />
+                      </svg>
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

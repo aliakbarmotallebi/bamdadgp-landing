@@ -7,7 +7,7 @@ export async function GET(Request) {
   const catId = url.searchParams.get('cat_id')
   try {
     const response = await axios.get(
-      `${API_URL}/products?populate[product_image][fields]=*&fields[0]=product_title&fields[1]=product_price&filters[product_category][id]=${catId}&pagination[limit]=10`
+      `${API_URL}/products?populate[product_image][fields]=*&fields[0]=product_title&fields[1]=product_price&fields[2]=product_slug&filters[product_category][id]=${catId}&pagination[limit]=10`
     )
     return NextResponse.json(response.data)
   } catch (error) {
