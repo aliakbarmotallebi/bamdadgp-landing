@@ -1,4 +1,17 @@
+'use client'
+import Modal from '@/components/Modal'
+import { Routes } from '@/route/routes'
+import Link from 'next/link'
+import React from 'react'
+
 export default function Statistics() {
+  const [modal, setModal] = React.useState({
+    lottary: false,
+  })
+  const toggleModal = key => {
+    setModal(prev => ({ ...prev, [key]: !prev[key] }))
+  }
+
   return (
     <>
       <section id="statistics-section">
@@ -98,7 +111,7 @@ export default function Statistics() {
                     </p>
                     <div className="text-center">
                       <a
-                        href="#"
+                        href="https://www.digikala.com/seller/E3S3S/"
                         className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold"
                       >
                         الان بخر
@@ -227,7 +240,10 @@ export default function Statistics() {
                 </article>
 
                 <article className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10 flex justify-center">
-                  <button className="px-6 py-4 border rounded-full text-neutral-600 hover:text-neutral-800 hover:border-orange-900/40 transition-all duration-300 border-orange-900/10 font-medium flex items-center gap-4">
+                  <Link
+                    href={Routes.contact}
+                    className="px-6 py-4 border rounded-full text-neutral-600 hover:text-neutral-800 hover:border-orange-900/40 transition-all duration-300 border-orange-900/10 font-medium flex items-center gap-4"
+                  >
                     پشتیبانی در کنار شماست
                     <span className="block size-8">
                       <svg
@@ -250,7 +266,7 @@ export default function Statistics() {
                         </g>
                       </svg>
                     </span>
-                  </button>
+                  </Link>
                 </article>
               </div>
 
@@ -754,10 +770,32 @@ export default function Statistics() {
                       گروه بامداد قصد دارد به پاس قدر دانی از همراهی و اعتماد
                       شما هر ماه جوایز نفیسی به شما عزیزان اهدا کند
                     </p>
-                    <button className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold">
+                    <button
+                      onClick={() => toggleModal('lottary')}
+                      className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold"
+                    >
                       مشاهده بیشتر
                     </button>
                   </div>
+
+                  {modal.lottary && (
+                    <Modal isOpen={modal.lottary} setIsOpen={setModal}>
+                      <div className="modal-content">
+                        <p>
+                          شرکت ما به پاس قدردانی از حمایت‌های بی‌نظیر شما
+                          مشتریان عزیز، هر ماه یک قرعه‌کشی هیجان‌انگیز برگزار
+                          می‌کند...
+                        </p>
+                        <a
+                          href="https://www.instagram.com/bamdadgpgoldgallery"
+                          target="_blank"
+                          className="text-blue-500 underline pt-1"
+                        >
+                          صفحه اینستاگرام
+                        </a>
+                      </div>
+                    </Modal>
+                  )}
                 </article>
 
                 <article className="relative bg-[#fefefe] pt-12 px-12 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4">
