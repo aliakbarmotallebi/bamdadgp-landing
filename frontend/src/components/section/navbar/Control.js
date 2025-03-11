@@ -5,6 +5,7 @@ import useCartStore from '@/stores/cart'
 import useGeneralStore from '@/stores/general'
 import { useAuthCheck } from '@/utils/authCheck'
 import axios from 'axios'
+import Hamburger from 'hamburger-react'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -239,24 +240,10 @@ export default function Control() {
       </Link>
 
       <button
-        onClick={() => setOpenMenu(true)}
-        className="block lg:hidden border-stone-600 text-slate-800 border p-1 rounded-md"
+        onClick={() => setOpenMenu(!openMenu)}
+        className="block lg:hidden  text-slate-800 -ms-2 rounded-md relative"
       >
-        <span className="block size-6">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-full"
-            viewBox="0 0 24 24"
-          >
-            <rect fill="none" />
-            <path
-              fill="currentColor"
-              d="M3.75 6.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75m0 5.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75m0 5.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 0 1.5h-15a.75.75 0 0 1-.75-.75"
-              strokeWidth="0.4"
-              stroke="currentColor"
-            />
-          </svg>
-        </span>
+        <Hamburger size={18} toggled={openMenu} toggle={setOpenMenu} />
       </button>
     </>
   )
