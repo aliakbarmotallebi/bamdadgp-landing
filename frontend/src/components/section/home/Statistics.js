@@ -15,7 +15,7 @@ export default function Statistics() {
   return (
     <>
       <section id="statistics-section">
-        <div className="relative w-full flex justify-center items-start py-12 px-4">
+        <div className="relative w-full flex justify-center items-start py-12 px-4 md:px-8 lg:px-0">
           <div className="absolute right-60 top-1/2 -translate-y-1/2 w-[55%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(255,255,50,0.2)_0%,rgba(255,255,0,0)_90%)] z-[-1] blur-xl"></div>
           <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
             <div className="flex flex-col gap-3 mb-6">
@@ -28,7 +28,7 @@ export default function Statistics() {
               </h3>
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:px-16 md:px-36">
               <div className="flex flex-col gap-8">
                 <div className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 overflow-hidden space-y-4">
                   <div className="absolute inset-0 pointer-events-none flex z-20">
@@ -271,7 +271,7 @@ export default function Statistics() {
               </div>
 
               <div className="flex flex-col gap-8">
-                <article className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 mt-28">
+                <article className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 lg:mt-28">
                   <span className="absolute size-8 -top-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -548,7 +548,7 @@ export default function Statistics() {
               </div>
 
               <div className="flex flex-col gap-8">
-                <article className="relative bg-[#fefefe] p-6 w-full flex flex-col gap-8 rounded-3xl border border-orange-900/10 mt-14 overflow-hidden">
+                <article className="relative bg-[#fefefe] p-6 w-full flex flex-col gap-8 rounded-3xl border border-orange-900/10 lg:mt-14 overflow-hidden">
                   <div className="absolute left-0 right-0 -translate-x-4 top-1/2 size-80 m-auto border-2 border-orange-900/5 rounded-full">
                     <div className="size-8 absolute top-1 left-16 rotate-12">
                       <svg

@@ -17,7 +17,7 @@ export default function Hero() {
       <section id="hero-section" className="lg:min-h-screen">
         <div className="group/hero relative w-full flex justify-center items-start">
           <div className="absolute top-1/4 w-[60%] h-[450px] rounded-full bg-[radial-gradient(circle,rgba(255,255,0,0.2)_0%,rgba(255,255,0,0)_90%)] group-hover/hero:bg-[radial-gradient(circle,rgba(255,255,0,0.3)_0%,rgba(255,255,0,0)_90%)] transition-all duration-500 -translate-x-1/4 z-[-1] blur-xl"></div>
-          <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
+          <div className="max-w-screen-xl px-8 lg:px-0 w-full bg-white/10 backdrop-blur-lg">
             <div className="grid grid-cols-1 lg:grid-cols-2 px-4 pt-16 pb-8 gap-8">
               <div className="flex flex-col items-start gap-8">
                 <h2 className="text-2xl font-semibold text-neutral-800">
