@@ -23,8 +23,8 @@ export default function Footer() {
   }, [])
   return (
     <footer className="relative bg-transparent w-full">
-      <div className="w-full max-w-screen-xl mx-auto p-4 pt-10 pb-0 grid grid-cols-7">
-        <div className="flex flex-col pe-12 col-span-3">
+      <div className="w-full max-w-screen-xl mx-auto lg:p-4 pt-10 pb-0 grid grid-cols-7">
+        <div className="flex flex-col lg:pe-12 px-8 col-span-7 lg:col-span-3">
           <div>
             <a
               href="#"
@@ -35,7 +35,7 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-          <div className="py-2 border-t border-gray-200">
+          <div className="py-6 mb-6 lg:mb-0 lg:py-2 border-t border-gray-200">
             <h2 className="font-bold text-lg text-neutral-950">
               درباره گروه بامداد چه می دانید؟
             </h2>
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col pt-1 pe-12 col-span-2">
+        <div className="flex flex-col pt-1 lg:pe-12 px-8 col-span-7 lg:col-span-2">
           <div>
             <h2 className="font-bold text-lg text-neutral-950">
               با ما در تماس باشید
@@ -158,7 +158,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col pe-12 col-span-2">
+        <div className="flex flex-col py-12 lg:py-0 lg:pe-12 px-8 col-span-7 lg:col-span-2">
           <div>
             <h2 className="font-bold text-lg text-neutral-950">ساعات کاری</h2>
 
@@ -170,14 +170,14 @@ export default function Footer() {
           </div>
 
           <div className="py-6">
-            <ul className="flex items-center gap-4">
-              <li className="size-48">
+            <ul className="flex items-center w-full justify-center lg:justify-start gap-4">
+              <li className="size-32 lg:size-48">
                 <img src="/assets/images/logo-enamad.png" alt="" />
               </li>
-              <li className="size-48">
+              <li className="size-32 lg:size-48">
                 <img src="/assets/images/samandehi.png" alt="" />
               </li>
-              <li className="size-48">
+              <li className="size-32 lg:size-48">
                 <img src="/assets/images/logo-kar.png" alt="" />
               </li>
             </ul>
@@ -232,7 +232,7 @@ export default function Footer() {
         </div>
       </section>
       <div className="border-t border-[#888e3520]">
-        <div className="w-full max-w-screen-xl mx-auto p-4 flex justify-between items-center">
+        <div className="w-full max-w-screen-xl mx-auto p-4 text-xs lg:text-base flex justify-between items-center">
           <div>
             <a
               title="گروه تجاری بامداد"
@@ -246,7 +246,7 @@ export default function Footer() {
             <span className="text-primary-500"> گروه تجاری بامداد </span>
             است.
           </div>
-          <a href="#anchor" className="flex items-center gap-2">
+          <a href="#anchor" className="lg:flex hidden items-center gap-2">
             <span className="block size-6">
               <svg
                 viewBox="0 0 24 24"
@@ -294,7 +294,7 @@ export default function Footer() {
                 </g>
               </svg>
             </span>
-            <span>رفتن به بالای صفحه</span>
+            <span className="">رفتن به بالای صفحه</span>
           </a>
         </div>
       </div>

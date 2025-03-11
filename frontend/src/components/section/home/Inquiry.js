@@ -113,8 +113,8 @@ export default function Inquiry() {
           </div>
         </div>
 
-        <div className="bg-white flex items-center px-12 py-6 rounded-3xl border-2 border-[#cc8e3520]">
-          <h2 className="font-bold text-2xl ml-auto">
+        <div className="bg-white flex flex-wrap gap-4 items-center px-12 py-6 rounded-3xl border-2 border-[#cc8e3520]">
+          <h2 className="font-bold text-lg sm:text-xl lg:text-2xl ml-auto">
             <svg
               className="w-20 h-20 inline-block"
               viewBox="0 0 512 512"
@@ -277,10 +277,10 @@ export default function Inquiry() {
             با شرکت در نظرسنجی ، مارا در ارائه خدمات بهتر یاری کنید.
           </h2>
 
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center flex-1 justify-end">
             <a
               href="/survey.html"
-              className="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center"
+              className="text-white min-w-[182px] bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center"
             >
               فرم ارسال نظرسنجی
               <svg

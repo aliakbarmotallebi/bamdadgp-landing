@@ -23,13 +23,13 @@ export default function Faq({ faqs }) {
 
   return (
     <section id="faq-section">
-      <div className="w-full flex flex-col items-center py-16 bg-orange-50/50">
+      <div className="w-full flex flex-col items-center py-16 px-4 sm:px-8 lg:px-0 bg-orange-50/50">
         <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
           <div className="flex flex-col items-center gap-8">
             <h2 className="font-bold text-3xl text-center text-neutral-800">
               سوالات متداول
             </h2>
-            <ul className="w-2/3">
+            <ul className="w-full lg:w-2/3">
               {faqs.map((faq, index) => {
                 const faqActiveStyle =
                   activeIndex === index
@@ -48,9 +48,9 @@ export default function Faq({ faqs }) {
                         setActiveIndex(activeIndex === index ? null : index)
                       }
                     >
-                      <h3 className="font-bold text-lg">{`${index + 1}.${
-                        faq.question
-                      }`}</h3>
+                      <h3 className="font-semibold text-sm sm:text-base md:font-bold md:text-lg">{`${
+                        index + 1
+                      }.${faq.question}`}</h3>
                       <div className="relative me-2">
                         <span className="p-h h-0.5 w-3.5 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-neutral-800 rounded-full block absolute"></span>
                         <span
@@ -69,7 +69,7 @@ export default function Faq({ faqs }) {
                     >
                       <div className="pb-6 px-2">
                         <div
-                          className="font-semibold pb-3"
+                          className="font-medium md:font-semibold text-sm md:text-base pb-3"
                           dangerouslySetInnerHTML={{ __html: faq.answer }}
                         ></div>
                       </div>
