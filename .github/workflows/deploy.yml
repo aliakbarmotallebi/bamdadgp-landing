@@ -20,6 +20,5 @@ jobs:
           script: |
             cd  /root/bamdad-store
             git pull origin main
-            docker compose pull
-            docker compose up -d --force-recreate
             docker system prune -af
+            docker compose up -d --force-recreate
