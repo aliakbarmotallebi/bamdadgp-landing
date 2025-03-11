@@ -22,7 +22,7 @@ export default function MobileMenu() {
       >
         <div className="w-full px-4 relative left-1/2 overflow-hidden -translate-x-1/2 py-10 bg-white/50 border-b-4 border-stone-600 backdrop-blur-md max-h-[calc(100%-80px)]">
           {isAuth && (
-            <div className="mt-5 px-5 flex items-start text-xs gap-2 text-stone-600 bg-yellow-300 py-4">
+            <div className="mt-5 px-5 flex items-start text-xs gap-2 text-stone-600 bg-yellow-300 py-4 rounded-md">
               <span className="size-5 block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
