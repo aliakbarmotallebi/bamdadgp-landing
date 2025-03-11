@@ -13,14 +13,14 @@ export default function MobileMenu() {
       <div
         className={`${
           openMenu ? 'block' : 'hidden'
-        } fixed w-full h-full bg-stone-600/40 backdrop-blur-[1px] top-0 z-20`}
+        } fixed w-full h-full bg-stone-600/40 backdrop-blur-[1px] top-0 left-0 z-40`}
       ></div>
       <div
         className={`${
           openMenu ? 'h-screen' : 'h-0'
-        } w-full px-4 fixed top-[80px] z-40 overflow-hidden transition-all duration-300`}
+        } w-full px-4 left-1/2 -translate-x-1/2 top-[80px] z-40 absolute overflow-hidden transition-all duration-300`}
       >
-        <div className="w-full px-4 relative left-1/2 overflow-hidden -translate-x-1/2 py-10 bg-white/50 border-b-4 border-stone-600 backdrop-blur-md max-h-[calc(100%-80px)]">
+        <div className="w-full px-4 relative left-1/2 overflow-y-auto -translate-x-1/2 py-10 bg-white/50 border-b-4 border-stone-600 backdrop-blur-md max-h-[calc(100%-80px)]">
           {isAuth && (
             <div className="mt-5 px-5 flex items-start text-xs gap-2 text-stone-600 bg-yellow-300 py-4 rounded-md">
               <span className="size-5 block">
@@ -41,7 +41,7 @@ export default function MobileMenu() {
                 </svg>
               </span>
               <div className="font-semibold flex items-center self-end flex-wrap gap-1">
-                <span>گروه تجاری بامداد</span>
+                <span>{auth.username}</span>
                 <span>عزیز، خوش آمدید</span>
               </div>
             </div>

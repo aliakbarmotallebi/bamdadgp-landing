@@ -14,7 +14,6 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body id="anchor" className="overflow-x-hidden relative mx-auto">
         <Navbar />
-        <MobileMenu />
         <Fab />
         {children}
         <Footer />
