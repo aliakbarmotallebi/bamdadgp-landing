@@ -1,3 +1,6 @@
+import { Routes } from '@/route/routes'
+import Link from 'next/link'
+
 export default function Inquiry() {
   return (
     <section
@@ -58,7 +61,7 @@ export default function Inquiry() {
           </div>
 
           <div className="relative flex justify-start lg:items-center items-center flex-col gap-2">
-            <div className="absolute -top-12 w-32 h-20 -left-32 rotate-90 hidden lg:block">
+            <div className="absolute -top-12 w-24 h-20 -left-24 rotate-90 hidden lg:block">
               <svg
                 fill="#fde047"
                 width="100%"
@@ -106,7 +109,7 @@ export default function Inquiry() {
                   className="w-64 outline-none rounded-md px-2.5 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all duration-200"
                 />
               </div>
-              <button className="bg-yellow-300 w-64 hover:bg-[#bg-yellow-300] transition-all duration-200 hover:text-white hover:bg-yellow-500 text-stone-800 py-2.5 px-3.5 rounded-md">
+              <button className="bg-yellow-300 w-64 lg:w-auto hover:bg-[#bg-yellow-300] transition-all duration-200 hover:text-white hover:bg-yellow-500 text-stone-800 py-2.5 px-3.5 rounded-md">
                 استعلام وفعالسازی گارانتی
               </button>
             </div>
@@ -278,8 +281,8 @@ export default function Inquiry() {
           </h2>
 
           <div className="flex gap-4 items-center flex-1 justify-end">
-            <a
-              href="/survey.html"
+            <Link
+              href={Routes.survey}
               className="text-white min-w-[182px] bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center"
             >
               فرم ارسال نظرسنجی
@@ -293,7 +296,7 @@ export default function Inquiry() {
                   d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"
                 />
               </svg>
-            </a>
+            </Link>
             <p className="font-semibold text-lg whitespace-nowrap"></p>
           </div>
         </div>

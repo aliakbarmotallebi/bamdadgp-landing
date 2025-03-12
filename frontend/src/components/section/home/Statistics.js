@@ -15,16 +15,16 @@ export default function Statistics() {
   return (
     <>
       <section id="statistics-section">
-        <div className="relative w-full flex justify-center items-start py-12 px-4 md:px-8 lg:px-0">
+        <div className="relative w-full flex justify-center items-start pt-12 lg:pt-0 pb-12 px-4 md:px-8 lg:px-0">
           <div className="absolute right-60 top-1/2 -translate-y-1/2 w-[55%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(255,255,50,0.2)_0%,rgba(255,255,0,0)_90%)] z-[-1] blur-xl"></div>
           <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
             <div className="flex flex-col gap-3 mb-6">
               <h2 className="text-xl font-bold">
-                بامداد گلد گالری ،پیشرو در ارائه انواع طلا و سکه
+                بامداد استور، پیشرو در ارائه انواع محصولات برقی و قطعات
               </h2>
               <h3 className="font-medium">
-                همراه شماییم برای تجربه شروعی مطمئن در خرید انواع طلا و سکه با
-                کمترین اجرت جهت سرمایه گذاری آگاهانه
+                همراه شماییم برای تجربه شروعی مطمئن در خرید انواع محصولات با
+                گارانتی معتبر
               </h3>
             </div>
 
@@ -39,31 +39,40 @@ export default function Statistics() {
                   <div className="overflow-x-hidden max-w-[405px] w-full flex">
                     <ul className="inline-flex gap-4 *:[mr-4] min-w-full items-center animate-marquee-left">
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        طلا آب شده
+                        سشوار
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        سکه
+                        سرخ کن
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        شمش
+                        بیگودی
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        گردنبند الماس
+                        مایکرویو
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        حلقه ازدواج
+                        توستر
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        دستبند چرمی
+                        اتو مو
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        گوشواره
+                        ساندویچ ساز
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        مدال
+                        پلو پز
                       </li>
                       <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
-                        پابند
+                        بخار پز
+                      </li>
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
+                        اسپرسو ساز
+                      </li>
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
+                        زود پز
+                      </li>
+                      <li className="bg-stone-100 text-neutral-800 p-3 text-xs font-semibold rounded-full whitespace-nowrap w-[199px]">
+                        آرام پز
                       </li>
                     </ul>
                   </div>
@@ -103,11 +112,11 @@ export default function Statistics() {
                   </div>
                   <div className="mt-8 px-16 flex flex-col gap-4">
                     <h2 className="text-center font-semibold text-neutral-800">
-                      خرید انواع طلا و سکه در دیجی کالا
+                      خرید تا خدمات پس از فروش با گروه بامداد
                     </h2>
                     <p className="text-center text-neutral-600 font-medium">
-                      برای خریدی راحت و مطمئن با نازلترین قیمت از طریق صفحه ما
-                      در دیجی کالا اقدام نمایید
+                      ما در هرقدم از مسیر از انتخاب کالا تا خدمات پس از فروش در
+                      کنار شما هستیم.
                     </p>
                     <div className="text-center">
                       <a
@@ -122,7 +131,7 @@ export default function Statistics() {
 
                 <article className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10">
                   <div>
-                    <h2 className="font-semibold">تخفیفات روزانه طلا و سکه</h2>
+                    <h2 className="font-semibold">تخفیفات روزانه محصولات</h2>
                     <div className="relative flex justify-center p-8">
                       <div className="size-20">
                         <svg
@@ -231,18 +240,15 @@ export default function Statistics() {
                       </div>
                     </div>
                     <div className="pe-10">
-                      <p>
-                        جهت اطلاع از تخفیفات روزانه بامداد گلد گالری ما را در
-                        اینستا گرام دنیال کنید و در دیجی کالا خرید کنید
-                      </p>
+                      <p>جهت اطلاع از تخفیفات روزانه با ما همراه باشید</p>
                     </div>
                   </div>
                 </article>
 
-                <article className="bg-[#fefefe] p-12 w-full rounded-3xl border border-orange-900/10 flex justify-center">
+                <article className="bg-[#fefefe] py-12 px-8 w-full rounded-3xl border border-orange-900/10 flex justify-center">
                   <Link
                     href={Routes.contact}
-                    className="px-6 py-4 border rounded-full text-neutral-600 hover:text-neutral-800 hover:border-orange-900/40 transition-all duration-300 border-orange-900/10 font-medium flex items-center gap-4"
+                    className="px-4 py-4 border rounded-full text-neutral-600 hover:text-neutral-800 hover:border-orange-900/40 transition-all duration-300 border-orange-900/10 font-medium text-sm flex items-center gap-4"
                   >
                     پشتیبانی در کنار شماست
                     <span className="block size-8">
@@ -288,7 +294,7 @@ export default function Statistics() {
                     </svg>
                   </span>
                   <h2 className="font-semibold text-center">
-                    بامداد گلد گالری در اینستا دنبال کنید
+                    بامداد سرویس را در اینستا دنبال کنید
                   </h2>
 
                   <div className="my-6 px-16 relative flex justify-center items-center">
@@ -406,7 +412,7 @@ export default function Statistics() {
 
                   <div className="flex justify-center">
                     <a
-                      href="https://www.instagram.com/bamdadgpgoldgallery"
+                      href="https://www.instagram.com/bamdadgpservices7"
                       target="_b"
                       className="bg-white hover:bg-slate-50 transition-all duration-200 border border-orange-900/10 text-center rounded-full py-3 p-6 font-semibold"
                     >
@@ -540,9 +546,7 @@ export default function Statistics() {
                     </svg>
                   </div>
                   <div className="flex flex-col items-center gap-3">
-                    <p className="text-center font-semibold">
-                      بامداد گلد گالری
-                    </p>
+                    <p className="text-center font-semibold">بامداد استور</p>
                   </div>
                 </article>
               </div>
@@ -799,69 +803,67 @@ export default function Statistics() {
                 </article>
 
                 <article className="relative bg-[#fefefe] pt-12 px-12 w-full rounded-3xl border border-orange-900/10 flex flex-col gap-4">
-                  <h2 className="text-lg font-semibold">انواع زیورآلات طلا</h2>
+                  <h2 className="text-lg font-semibold">
+                    انواع لوازم خانگی آرایش و بهداشتی
+                  </h2>
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-neutral-600 font-medium">
-                      از گوشواره تا پابند و سکه متوانید روی ما حساب کنید
+                      از ماشین اصلاح تا اسپرسوساز روی ما حساب کنید
                     </p>
                   </div>
                   <div className="w-full h-48 pt-4 relative grid grid-cols-2">
                     <div className="h-full bg-white">
-                      <div className="size-16 absolute top-8 right-14 p-4 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl">
+                      <div className="size-16 absolute top-6 right-6 p-4 bg-white/20 border shadow-sm text-[#cc8e3550] shadow-[#cc8e3550] rounded-xl">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="100%"
-                          height="100%"
-                          viewBox="0 0 512 512"
+                          viewBox="0 0 24 24"
                         >
-                          <rect width="512" height="512" fill="none" />
+                          <rect width="24" height="24" fill="none" />
                           <path
-                            fill="#cc8e3550"
-                            d="M369.4 33.6c-12.3.3-25.6 5.1-38.8 15L341.4 63c14.4-10.8 26.5-12.8 35.9-10.7c9.3 2.1 16.6 8.5 20.5 17.2c7.9 17.4 3.4 43.3-33.1 57.9l-5.7 2.3v45.1h18v-33.2c38.7-18.3 48.8-54.1 37.2-79.5c-6.1-13.4-17.8-24-33-27.4c-3.8-.8-7.7-1.2-11.8-1.1m-224 .04c-12.3.32-25.6 5.07-38.8 14.96L117.4 63c14.4-10.81 26.5-12.77 35.9-10.67c9.3 2.1 16.6 8.51 20.5 17.19c7.9 17.37 3.4 43.28-33.1 57.88l-5.7 2.3v45.1h18v-33.2c38.7-18.3 48.8-54.1 37.2-79.52c-6.1-13.32-17.8-23.91-33-27.31c-3.8-.85-7.7-1.24-11.8-1.13M89 192.8v30h110v-30zm224 0v30h110v-30zm-187.7 48l-55.6 69.5L144 496l74.3-185.7l-55.6-69.5zm224 0l-55.6 69.5L368 496l74.3-185.7l-55.6-69.5zM135 257.4v31.4l-31.4 7.8zm18 0l31.3 39.2l-31.3-7.8zm206 0v31.4l-31.4 7.8zm18 0l31.3 39.2l-31.3-7.8zm-242 49.9v117.8L92.2 318zm18 0l42.8 10.7L153 425.1zm206 0v117.8L316.2 318zm18 0l42.8 10.7L377 425.1z"
-                            strokeWidth="13"
-                            stroke="#cc8e3550"
+                            fill="currentColor"
+                            d="M9 21v1H7v-1a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2v1h-2v-1zM7 4v5h10V4zm0 15h10v-8H7zm1-7h2v3H8zm0-6h2v2H8z"
+                            strokeWidth="0.3"
+                            stroke="currentColor"
                           />
                         </svg>
                       </div>
                     </div>
 
                     <div className="h-full bg-gradient-to-l from-[#cc8e3510] to-transparent border-r-4 border-[#cc8e3550]">
-                      <div className="size-14 absolute bottom-5 right-4 p-4 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl">
+                      <div className="size-14 absolute bottom-5 right-4 p-3 bg-white/20 border shadow-sm shadow-[#cc8e3550] text-[#cc8e3550] rounded-xl">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="100%"
-                          height="100%"
-                          viewBox="0 0 64 64"
+                          viewBox="0 0 48 48"
                         >
-                          <rect width="64" height="64" fill="none" />
-                          <path
-                            fill="#cc8e3550"
-                            d="m35.998 19.312l9.695-9.817L41.992 2H22.009l-3.702 7.495l9.696 9.817c-9.833 1.9-17.292 10.653-17.292 21.147C10.711 52.338 20.262 62 32 62s21.289-9.662 21.289-21.541c0-10.494-7.459-19.248-17.291-21.147m-2.617-4.637h-2.778l-1.452-4.402h5.681zm7.408-10.739l2.174 4.402h-5.969l-.717-4.402zm-3.918 6.337h5.334l-4.35 4.402H35.42zm-7.189-6.337h4.634l.717 4.402h-6.08zm-6.471 0h4.51l-.729 4.402h-5.955zm-1.419 6.337h5.321l1.451 4.402h-2.437zM32 60.064c-10.672 0-19.354-8.795-19.354-19.605S21.329 20.853 32 20.853s19.353 8.795 19.353 19.606S42.672 60.064 32 60.064"
-                            strokeWidth="1.5"
-                            stroke="#cc8e3550"
-                          />
-                          <path
-                            fill="#cc8e3550"
-                            d="M32 23.108c-9.457 0-17.152 7.784-17.152 17.351S22.543 57.811 32 57.811s17.152-7.783 17.152-17.352c0-9.567-7.695-17.351-17.152-17.351m0 32.767c-8.391 0-15.217-6.916-15.217-15.416S23.61 25.043 32 25.043s15.216 6.916 15.216 15.416S40.391 55.875 32 55.875"
-                            strokeWidth="1.5"
-                            stroke="#cc8e3550"
-                          />
+                          <rect width="48" height="48" fill="none" />
+                          <g fill="none" stroke="currentColor" strokeWidth="4">
+                            <path d="M26 22.5V10c0-3 2-6 6-6s6 3 6 6v24" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M32.75 34h10.5l.75 6H32zM10 40h15.886c.063 0 .114-.05.114-.114V23.255C26 15.935 20.066 10 12.745 10v0A5.745 5.745 0 0 0 7 15.745V29"
+                            />
+                            <circle cx="10" cy="34" r="6" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M14 10v19"
+                            />
+                          </g>
                         </svg>
                       </div>
 
-                      <div className="size-16 absolute bottom-5 left-12 p-2 bg-white/20 border shadow-sm shadow-[#cc8e3550] rounded-xl">
+                      <div className="size-16 absolute bottom-5 left-4 p-2 bg-white/20 border shadow-sm text-[#cc8e3550] shadow-[#cc8e3550] rounded-xl">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          width="100%"
-                          height="100%"
-                          viewBox="0 0 512 512"
+                          viewBox="0 0 24 24"
                         >
-                          <rect width="512" height="512" fill="none" />
+                          <rect width="24" height="24" fill="none" />
                           <path
-                            fill="#cc8e3550"
-                            d="M396.31 32H264l84.19 112.26zm-280.62 0l48.12 112.26L248 32zM256 74.67L192 160h128zm166.95-23.61L376.26 160H488zm-333.9 0L23 160h112.74zM146.68 192H24l222.8 288h.53zm218.64 0L264.67 480h.53L488 192zm-35.93 0H182.61L256 400z"
-                            strokeWidth="13"
-                            stroke="#cc8e3550"
+                            fill="currentColor"
+                            d="M4.616 19q-.691 0-1.153-.462T3 17.384V6.616q0-.691.463-1.153T4.615 5h14.77q.69 0 1.152.463T21 6.616v10.769q0 .69-.463 1.153T19.385 19zm0-1H15V6H4.616q-.231 0-.424.192T4 6.616v10.769q0 .23.192.423t.423.192m12.693-9.308h1.384V7.308h-1.384zM18 12.77q.31 0 .54-.23t.23-.539t-.23-.54t-.54-.23t-.54.23t-.23.54t.23.54t.54.23m0 4q.31 0 .54-.23t.23-.54t-.23-.54t-.54-.23t-.54.23t-.23.54t.23.54t.54.23m-7.25-1.27q-.484 0-.893-.215q-.409-.216-.695-.397q-.27-.175-.468-.281T8.25 14.5q-.256 0-.502.129t-.429.279l-.732-.708q.275-.223.704-.461q.43-.239.959-.239q.485 0 .865.209q.38.208.666.389q.263.189.505.295t.464.107q.256 0 .502-.129t.429-.279l.733.708q-.275.223-.705.462q-.43.238-.959.238m0-5q-.484 0-.893-.215q-.409-.216-.695-.397q-.27-.175-.468-.281T8.25 9.5q-.256 0-.502.129t-.429.279L6.587 9.2q.275-.223.704-.461q.43-.239.959-.239q.485 0 .865.209q.38.208.666.389q.263.189.505.295t.464.107q.256 0 .502-.129t.429-.279l.733.708q-.275.223-.705.462q-.43.238-.959.238"
+                            strokeWidth="0.5"
+                            stroke="currentColor"
                           />
                         </svg>
                       </div>

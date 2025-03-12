@@ -1,5 +1,4 @@
 'use client'
-import ReactMarkdown from 'react-markdown'
 import react from 'react'
 export default function Faq({ faqs }) {
   const [activeIndex, setActiveIndex] = react.useState(1)

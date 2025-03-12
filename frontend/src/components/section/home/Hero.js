@@ -29,10 +29,11 @@ export default function Hero() {
                   </h1>
                 </div>
                 <p className="w-full text-justify text-lg font-medium text-neutral-800">
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
-                  مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
-                  تکنولوژی مورد نیاز است.
+                  در گروه تجاری بامداد با مجموعه‌ای از بهترین لوازم خانگی، کیفیت
+                  و نوآوری را به خانه شما می‌آوریم. علاوه بر ارائه محصولات
+                  باکیفیت، خدمات پس از فروش حرفه‌ای ما تضمین‌کننده آرامش شماست.
+                  از خرید تا پشتیبانی، همراهتان هستیم تا تجربه‌ای مطمئن و
+                  لذت‌بخش داشته باشید!
                 </p>
               </div>
 
@@ -101,11 +102,11 @@ export default function Hero() {
                   <div className="flex flex-col gap-8 h-full">
                     <div className="px-4">
                       <h2 className="my-3 text-2xl text-gray-800 font-bold">
-                        بامداد گلد گالری
+                        فروشگاه بامداد
                       </h2>
                       <div className="flex flex-row items-center justify-between w-full mb-2">
                         <div className="text-gray-800 font-medium text-sm">
-                          فروش انواع طلا و سکه
+                          فروش انواع محصولات خانگی
                         </div>
                       </div>
                     </div>
@@ -132,8 +133,8 @@ export default function Hero() {
                   </div>
                   <div className="bg-white">
                     <img
-                      src="/assets/images/gold.png"
-                      className="mix-blend-multiply absolute bottom-4 max-w-[100px] max-h-[100px] left-4"
+                      src="/assets/images/product2.png"
+                      className="mix-blend-multiply absolute bottom-4 max-w-[128px] max-h-[128px] left-4"
                       // alt
                       // srcSet=""
                     />

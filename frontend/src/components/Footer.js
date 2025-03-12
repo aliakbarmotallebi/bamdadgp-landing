@@ -46,8 +46,7 @@ export default function Footer() {
                 className="mt-2 h-8 overflow-hidden transition-all duration-300"
               >
                 <p className="text-justify font-medium leading-8 text-neutral-700">
-                  پیشرو در خدمات پس از فروش و ارائه انواع زیور آلات طلا و سکه در
-                  سراسر ایران
+                  پیشرو در خدمات پس از فروش در سراسر ایران
                 </p>
               </div>
             </div>
