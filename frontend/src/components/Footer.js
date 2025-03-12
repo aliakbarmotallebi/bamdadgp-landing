@@ -6,8 +6,6 @@ import React from 'react'
 import { ToastContainer } from 'react-toastify'
 import ReactMarkdown from 'react-markdown'
 
-const LOCAL_API_URL = process.env.NEXT_PUBLIC_LOCAL_API_BASE_URL
-
 export default function Footer() {
   const [contact, setContact] = React.useState(null)
   const getContact = async () => {
