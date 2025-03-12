@@ -16,7 +16,7 @@ export default function Statistics() {
     <>
       <section id="statistics-section">
         <div className="relative w-full flex justify-center items-start pt-12 lg:pt-24 2xl:pt-12 pb-12 px-4 md:px-8 lg:px-0">
-          <div className="absolute right-60 top-1/2 -translate-y-1/2 w-[55%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(255,255,50,0.2)_0%,rgba(255,255,0,0)_90%)] z-[-1] blur-xl"></div>
+          <div className="absolute right-0 left-1/2 lg:left-0 lg:-translate-x-0 -translate-x-1/2 lg:right-60 top-1/2 -translate-y-1/2 w-[55%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(255,255,50,0.2)_0%,rgba(255,255,0,0)_90%)] z-[-1] blur-xl"></div>
           <div className="max-w-screen-xl w-full bg-white/10 backdrop-blur-lg">
             <div className="flex flex-col gap-3 mb-6">
               <h2 className="text-xl font-bold">

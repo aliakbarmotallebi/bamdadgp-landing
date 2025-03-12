@@ -8,7 +8,7 @@ export default function Inquiry() {
       className="services-section scroll-mt-28 px-4 sm:px-8 md:px-16"
     >
       <div className="relative mx-auto max-w-7xl my-16">
-        <div className="absolute left-1/4 top-1/3 w-full lg:w-[800px] h-[550px] rounded-full bg-[radial-gradient(circle,rgba(255,255,0,0.20)_0%,rgba(255,255,0,0)_90%)] -translate-x-1/2 z-[-1] blur-xl"></div>
+        <div className="absolute left-1/4 top-1/3 w-1/2 lg:w-[800px] h-[550px] rounded-full bg-[radial-gradient(circle,rgba(255,255,0,0.20)_0%,rgba(255,255,0,0)_90%)] -translate-x-1/2 z-[-1] blur-xl"></div>
         <div className="relative flex flex-col items-center lg:items-start px-4 py-16 lg:p-16 mb-4 bg-white border border-gray-200 overflow-hidden rounded-3xl shadow-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
