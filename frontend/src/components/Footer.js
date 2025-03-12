@@ -185,21 +185,7 @@ export default function Footer() {
                   />
                 </a>
               </li>
-              <li className="size-32 lg:size-48">
-                <a
-                  referrerPolicy="origin"
-                  target="_blank"
-                  href="https://trustseal.enamad.ir/?id=572853&Code=uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
-                >
-                  <img
-                    referrerPolicy="origin"
-                    src="/assets/images/logo-enamad.png"
-                    alt=""
-                    className="cursor-pointer"
-                    code="uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
-                  />
-                </a>
-              </li>
+
               <li className="size-32 lg:size-48">
                 <img src="/assets/images/samandehi.png" alt="" />
               </li>
