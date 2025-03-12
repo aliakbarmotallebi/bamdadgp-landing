@@ -3,7 +3,10 @@ import Info from '@/components/section/contact/Info'
 import MessageForm from '@/components/section/contact/MessageForm'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
-
+export const metadata = {
+  title: 'تماس با ما | گروه تجاری بامداد',
+  description: 'درباره گروه تجاری بامداد و تاریخچه و خدمات آن.',
+}
 export default async function Contact() {
   let result = null
   try {

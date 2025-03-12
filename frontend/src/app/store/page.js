@@ -5,6 +5,11 @@ import { paginationHandler } from '@/utils/paginationHandler'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 
+export const metadata = {
+  title: 'فروشگاه | گروه تجاری بامداد',
+  description: 'درباره گروه تجاری بامداد و تاریخچه و خدمات آن.',
+}
+
 export default async function Store({ searchParams }) {
   const params = await searchParams
   const currentPage = parseInt(params.page) || 1

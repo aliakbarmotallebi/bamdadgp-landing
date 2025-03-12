@@ -7,14 +7,26 @@ import Tab from '@/components/section/product/Tab'
 import axios from 'axios'
 const LOCAL_API_URL = process.env.LOCAL_API_BASE_URL
 
+export async function generateMetadata({ params, searchParams }) {
+  const { slug } = params
+  let product = null
+  try {
+    const response = await axios.get(`${LOCAL_API_URL}/products/${slug}`)
+    product = response.data
+    return {
+      title: product?.data[0]?.product_title, // عنوان محصول
+    }
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  }
+}
+
 export default async function Product({ params }) {
-  const urlParams = await params
+  const { slug } = params
   let product = null
 
   try {
-    const response = await axios.get(
-      `${LOCAL_API_URL}/products/${urlParams.slug}`
-    )
+    const response = await axios.get(`${LOCAL_API_URL}/products/${slug}`)
     product = response.data
   } catch (error) {
     console.error('Error fetching products:', error)
@@ -25,7 +37,7 @@ export default async function Product({ params }) {
     try {
       const catId = product.data[0].product_category.id
       const response = await axios.get(
-        `${LOCAL_API_URL}/products/${urlParams.slug}/related?cat_id=${catId}`
+        `${LOCAL_API_URL}/products/${slug}/related?cat_id=${catId}`
       )
       relatedProducts = response.data
     } catch (error) {
