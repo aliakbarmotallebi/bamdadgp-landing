@@ -171,7 +171,34 @@ export default function Footer() {
           <div className="py-6">
             <ul className="flex items-center w-full justify-center lg:justify-start gap-4">
               <li className="size-32 lg:size-48">
-                <img src="/assets/images/logo-enamad.png" alt="" />
+                <a
+                  referrerPolicy="origin"
+                  target="_blank"
+                  href="https://trustseal.enamad.ir/?id=572853&Code=uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
+                >
+                  <img
+                    referrerPolicy="origin"
+                    src="https://trustseal.enamad.ir/logo.aspx?id=572853&Code=uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
+                    alt=""
+                    className="cursor-pointer"
+                    code="uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
+                  />
+                </a>
+              </li>
+              <li className="size-32 lg:size-48">
+                <a
+                  referrerPolicy="origin"
+                  target="_blank"
+                  href="https://trustseal.enamad.ir/?id=572853&Code=uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
+                >
+                  <img
+                    referrerPolicy="origin"
+                    src="/assets/images/logo-enamad.png"
+                    alt=""
+                    className="cursor-pointer"
+                    code="uXh6ihCBXAJ1ibSgOryqtDQS7UvKTInp"
+                  />
+                </a>
               </li>
               <li className="size-32 lg:size-48">
                 <img src="/assets/images/samandehi.png" alt="" />
