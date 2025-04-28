@@ -53,7 +53,7 @@ export default function Inquiry() {
             </g>
           </svg>
           <div className="flex items-center flex-row">
-            <div className="py-1">
+            <div className="py-2">
               <p className="text-base my-2 text-right">
                 با استفاده از این بخش می‌توانید گارانتی کالای خود را به‌راحتی
                 استعلام کرده و فعال‌سازی آن را انجام دهید. تنها کافیست فرم زیر
