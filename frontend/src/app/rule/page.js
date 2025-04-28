@@ -10,8 +10,8 @@ export default async function Rule() {
   let rule = null
   try {
     const response = await axios.get(`${LOCAL_API_URL}/rule/`)
-    console.log(response.data)
     rule = response.data
+    console.log(rule.data.body)
   } catch (error) {
     console.error('Error fetching rule:', error)
   }
@@ -32,7 +32,7 @@ export default async function Rule() {
         <meta name="twitter:image" content="لینک به تصویر برای Twitter" />
       </Head>
 
-      <Content rule={rule?.data.body} />
+      <Content body={rule?.data.body} />
     </>
   )
 }

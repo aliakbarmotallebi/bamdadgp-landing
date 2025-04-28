@@ -2,6 +2,7 @@
 import ReactMarkdown from 'react-markdown'
 
 export default function Content({ body }) {
+  console.log(body)
   return (
     <section className="relative pt-12 pb-5">
       <div className="mb-10 mx-auto max-w-7xl text-lg text-justify space-y-5 space-y-reverse">
