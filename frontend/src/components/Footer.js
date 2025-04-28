@@ -227,6 +227,11 @@ export default function Footer() {
             </Link>
           </div>
           <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+            <Link href={Routes.rule} className="text-primary font-weight-bold">
+              قوانین و مقررات
+            </Link>
+          </div>
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
             <Link href={Routes.store} className="text-primary font-weight-bold">
               فروشگاه
             </Link>

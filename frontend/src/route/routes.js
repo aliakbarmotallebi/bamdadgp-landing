@@ -16,4 +16,5 @@ export const Routes = {
   cart: '/cart',
   checkout: '/checkout',
   seller: 'https://seller.bamdadgp.com',
+  rule: '/rule',
 }
