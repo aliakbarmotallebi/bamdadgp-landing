@@ -1,31 +1,45 @@
 'use client'
+
 import axios from 'axios'
 import React from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function Inquiry() {
-  const [fullName, setFullName] = React.useState(null)
-  const [phoneNumber, setPhoneNumber] = React.useState(null)
-  const [serialNumber, setSerialNumber] = React.useState(null)
+  const [fullName, setFullName] = React.useState('')
+  const [phoneNumber, setPhoneNumber] = React.useState('')
+  const [serialNumber, setSerialNumber] = React.useState('')
 
   const onActivation = async () => {
+    if (!fullName || !phoneNumber || !serialNumber) {
+      toast.error('لطفاً همه‌ی فیلدها را پر کنید.')
+      return
+    }
+
     try {
-      // const response = await axios.post(
-      //   'http://seller.bamdadgp.com/api/warranty/verify',
-      //   {
-      //     serialNumber,
-      //     fullName,
-      //     phoneNumber,
-      //   },
-      //   {
-      //     headers: {
-      //       'Content-Type': ' application/json',
-      //       Accept: 'application/json',
-      //     },
-      //   }
-      // )
-      // console.log(response.data)
-    } catch (error) {
+      const response = await axios.post(
+        'http://seller.bamdadgp.com/api/warranty/verify',
+        {
+          serialNumber,
+          fullName,
+          phoneNumber,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        }
+      )
+
+      if (response?.data?.success) {
+        toast.success('گارانتی با موفقیت فعال شد!')
+        console.log('Response:', response.data)
+      } else {
+        toast.error(response?.data?.message || 'مشکلی پیش آمده است!')
+      }
+    } catch (error: any) {
       console.error(error)
+      toast.error(error?.response?.data?.message || 'خطا در ارتباط با سرور')
     }
   }
 
@@ -34,239 +48,48 @@ export default function Inquiry() {
       id="warranty-inquiry"
       className="services-section scroll-mt-28 px-4 sm:px-8 md:px-16"
     >
+      {/* Toaster برای نمایش نوتیفیکیشن‌ها */}
+      <Toaster position="top-center" reverseOrder={false} />
+
       <div className="relative mx-auto max-w-7xl my-16">
-        <div className="absolute left-1/4 top-1/3 w-1/2 lg:w-[800px] h-[550px] rounded-full bg-[radial-gradient(circle,rgba(255,255,0,0.20)_0%,rgba(255,255,0,0)_90%)] -translate-x-1/2 z-[-1] blur-xl"></div>
         <div className="relative flex flex-col items-center lg:items-start px-4 py-16 lg:p-16 mb-4 bg-white border border-gray-200 overflow-hidden rounded-3xl shadow-sm">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="opacity-40 w-48 h-48 absolute z-0 top-0 right-10 lg:right-0 lg:-top-10"
-            viewBox="0 0 20 20"
-          >
-            <g fill="none">
-              <path
-                fill="url(#fluentColorSearchVisual201)"
-                fillRule="evenodd"
-                d="M4.5 4a.5.5 0 0 0-.5.5V7a1 1 0 0 1-2 0V4.5A2.5 2.5 0 0 1 4.5 2H7a1 1 0 0 1 0 2zM12 3a1 1 0 0 1 1-1h2.5A2.5 2.5 0 0 1 18 4.5V7a1 1 0 1 1-2 0V4.5a.5.5 0 0 0-.5-.5H13a1 1 0 0 1-1-1m-9 9a1 1 0 0 1 1 1v2.5a.5.5 0 0 0 .5.5H7a1 1 0 1 1 0 2H4.5A2.5 2.5 0 0 1 2 15.5V13a1 1 0 0 1 1-1m14 0a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 1-2.5 2.5H13a1 1 0 1 1 0-2h2.5a.5.5 0 0 0 .5-.5V13a1 1 0 0 1 1-1"
-                clipRule="evenodd"
-              />
-              <path
-                fill="url(#fluentColorSearchVisual200)"
-                d="M10 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4M7 8a1 1 0 1 0 0-2a1 1 0 0 0 0 2"
-              />
-              <defs>
-                <radialGradient
-                  id="fluentColorSearchVisual200"
-                  cx="0"
-                  cy="0"
-                  r="1"
-                  gradientTransform="matrix(3.375 3.75 -3.2117 2.89053 7.875 7.5)"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#0fafff30" />
-                  <stop offset="1" stopColor="#2052cb30" />
-                </radialGradient>
-                <linearGradient
-                  id="fluentColorSearchVisual201"
-                  x1="1.368"
-                  x2="13.914"
-                  y1=".66"
-                  y2="20.927"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset=".015" stopColor="#3dcbff30" />
-                  <stop offset="1" stopColor="#0094f030" />
-                </linearGradient>
-              </defs>
-            </g>
-          </svg>
-          <div className="flex items-center flex-row">
-            <div className="flex flex-col gap-3 mb-6">
-            <div className="py-2">
-              <p className="text-sm my-2 text-right lg:text-base">
-                با استفاده از این بخش می‌توانید گارانتی کالای خود را به‌راحتی
-                استعلام کرده و فعال‌سازی آن را انجام دهید. تنها کافیست فرم زیر
-                را تکمیل نمایید تا اطلاعات دقیق و تاریخ فعالسازی برای شما نمایش
-                داده شود.
-              </p>
-            </div>
-              <h3 className="font-bold text-xl z-20">
-                لطفا مشخصات خواسته شده را در فرم زیر وارد نمایید.
-              </h3>
-            </div>
+          <div className="flex items-center flex-col gap-6">
+            <p className="text-sm text-center lg:text-base text-stone-700">
+              با استفاده از این بخش می‌توانید گارانتی کالای خود را استعلام و فعال نمایید.
+            </p>
+            <h3 className="font-bold text-xl text-stone-800">
+              لطفاً مشخصات خواسته شده را وارد نمایید
+            </h3>
           </div>
 
-          <div className="relative flex justify-start lg:items-center items-center flex-col gap-2">
-            <div className="absolute -top-12 w-24 h-20 -left-24 rotate-90 hidden lg:block">
-              <svg
-                fill="#fde047"
-                width="100%"
-                height="100%"
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 352.2 352.2"
-                xmlSpace="preserve"
-                stroke="#fde047"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <g>
-                    <path d="M348.232,100.282c-13.464-32.436-35.496-60.588-45.9-94.86c-1.836-5.508-11.016-7.956-13.464-1.836 c-14.688,34.272-36.72,65.484-47.124,101.592c-1.836,6.732,7.344,13.464,12.24,7.344c7.344-9.18,15.912-16.524,24.479-25.092 c-1.224,52.632,0,105.264-9.18,157.284c-4.896,28.152-11.628,59.977-31.824,81.396c-24.479,25.704-55.08,2.448-68.544-21.42 c-11.628-20.809-31.823-110.772-72.215-79.561c-23.868,18.36-29.988,43.452-37.332,70.992c-1.836,7.956-4.896,15.3-8.568,22.032 c-14.076,26.316-32.436-16.524-33.048-26.928c-1.224-20.809,4.896-42.229,9.792-62.424c1.836-6.12-7.344-8.568-9.792-2.448 c-11.016,28.764-26.316,77.724,0,102.815c23.256,21.42,42.84,7.345,52.02-17.748c6.12-16.523,29.376-108.323,56.304-65.483 c17.748,28.151,22.644,61.812,44.064,88.128c15.3,18.359,42.84,22.644,64.26,13.464c25.704-11.628,36.72-45.9,43.452-70.38 c16.523-61.2,16.523-127.296,14.688-190.332c14.688,9.792,31.212,18.972,47.736,25.092 C347.008,113.746,350.681,105.178,348.232,100.282z M268.672,78.25c7.956-17.136,17.748-34.272,26.316-51.408 c9.18,21.42,20.808,40.392,31.824,61.2c-12.853-7.956-25.092-17.136-39.168-18.972c-3.061-0.612-5.509,1.224-6.732,3.672 C276.628,73.354,272.345,75.19,268.672,78.25z"></path>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div className="w-full flex flex-wrap items-center justify-center lg:justify-start gap-4 px-8 lg:px-0">
-              <div>
-                <input
-                  type="text"
-                  placeholder="نام و نام خانوادگی"
-                  onChange={e => setFullName(e.target.value)}
-                  className="w-64 outline-none rounded-md px-2.5 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all duration-200"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="شماره موبایل"
-                  onChange={e => setPhoneNumber(e.target.value)}
-                  className="w-64 outline-none rounded-md px-2.5 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all duration-200"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="شماره گارانتی"
-                  onChange={e => setSerialNumber(e.target.value)}
-                  className="w-64 outline-none rounded-md px-2.5 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all duration-200"
-                />
-              </div>
-              <button
-                onClick={onActivation}
-                className="bg-yellow-300 w-64 lg:w-auto hover:bg-[#bg-yellow-300] transition-all duration-200 hover:text-white hover:bg-yellow-500 text-stone-800 py-2.5 px-3.5 rounded-md"
-              >
-                استعلام وفعالسازی گارانتی
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white p-6 rounded-3xl border-2 border-[#cc8e3520] ">
-          <h1 className="mb-6 text-stone-600 font-bold text-lg text-center py-2">
-            مراحل شرکت در قرعه کشی
-          </h1>
-          <div className="relative grid grid-cols-1 md:grid-cols-2 place-items-center gap-4 md:gap-0 lg:flex lg:justify-center">
-            <div className="size-72 border-t-4 border-yellow-400/60 border-dotted rounded-full text-center relative">
-              <div className="p-8 relative text-center">
-                <strong className="text-2xl xl:text-4xl block text-yellow-500/60">
-                  قدم اول
-                </strong>
-                <span className="size-12 xl:size-16 my-4 inline-block">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-[#cc8e3550] size-full"
-                    viewBox="0 0 512 512"
-                  >
-                    <rect width="512" height="512" fill="none" />
-                    <path
-                      fill="currentColor"
-                      d="m479.6 399.716l-81.084-81.084l-62.368-25.767A175 175 0 0 0 368 192c0-97.047-78.953-176-176-176S16 94.953 16 192s78.953 176 176 176a175.03 175.03 0 0 0 101.619-32.377l25.7 62.2l81.081 81.088a56 56 0 1 0 79.2-79.195M48 192c0-79.4 64.6-144 144-144s144 64.6 144 144s-64.6 144-144 144S48 271.4 48 192m408.971 264.284a24.03 24.03 0 0 1-33.942 0l-76.572-76.572l-23.894-57.835l57.837 23.894l76.573 76.572a24.03 24.03 0 0 1-.002 33.941"
-                      strokeWidth="6"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-                <p className="px-4 font-medium text-stone-600">
-                  استعلام و فعالسازی گارانتی
-                </p>
-              </div>
-            </div>
-            <div className="size-72 border-b-4 border-yellow-400/60 border-dotted rounded-full text-center relative">
-              <div className="p-8 relative text-center">
-                <strong className="text-2xl xl:text-4xl block text-yellow-500/60">
-                  قدم دوم
-                </strong>
-                <span className="size-12 xl:size-16 my-4 inline-block">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-full text-[#cc8e3550]"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect width="24" height="24" fill="none" />
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M18.644 4a2.7 2.7 0 0 0-.626-.975C16.984 2 15.322 2 12 2S7.015 2 5.982 3.025A2.7 2.7 0 0 0 5.356 4M5 18c.087 1.42.326 2.323.982 2.975C7.015 22 8.677 22 12 22s4.985 0 6.017-1.025c.657-.652.896-1.556.983-2.975M6 10l2 2m0-2l-2 2m5-2l2 2m0-2l-2 2m5-2l2 2m0-2l-2 2m1-5H7c-1.886 0-2.828 0-3.414.586S3 9.114 3 11s0 2.828.586 3.414S5.114 15 7 15h10c1.886 0 2.828 0 3.414-.586S21 12.886 21 11s0-2.828-.586-3.414S18.886 7 17 7m-5 12v.01"
-                      color="currentColor"
-                    />
-                  </svg>
-                </span>
-                <p className="px-4 font-medium text-stone-600">
-                  دریافت کد قرعه کشی بصورت پیامک
-                </p>
-              </div>
-            </div>
-            <div className="size-72 border-t-4 border-yellow-400/60 border-dotted rounded-full text-center relative">
-              <div className="p-8 relative text-center">
-                <strong className="text-2xl xl:text-4xl block text-yellow-500/60">
-                  قدم سوم
-                </strong>
-                <span className="size-12 xl:size-16 my-4 inline-block">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-[#cc8e3550]"
-                    viewBox="0 0 16 16"
-                  >
-                    <rect width="16" height="16" fill="none" />
-                    <path
-                      fill="currentColor"
-                      d="M5 10c2.585 0 4.778 1.923 4.998 4.457a.5.5 0 0 1-.996.086C8.827 12.536 7.076 11 5 11c-2.035 0-3.825 1.597-4.002 3.545a.5.5 0 1 1-.996-.09C.226 11.986 2.452 10 5 10m0-7a3 3 0 1 1 0 6a3 3 0 0 1 0-6m0 1a2 2 0 1 0 0 4a2 2 0 0 0 0-4M12.41.008L12.5 0a.5.5 0 0 1 .492.41L13 .5V3h2.5a.5.5 0 0 1 .09.992L15.5 4H13v2.5a.5.5 0 0 1-.41.492L12.5 7a.5.5 0 0 1-.492-.41L12 6.5V4H9.5a.5.5 0 0 1-.09-.992L9.5 3H12V.5a.5.5 0 0 1 .41-.492L12.5 0z"
-                      strokeWidth="0.4"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-                <p className="p-4 font-medium text-stone-600">
-                  دنبال کردن صفحه اینستاگرام گروه بامداد
-                </p>
-              </div>
-            </div>
-            <div className="size-72 border-b-4 border-yellow-400/60 border-dotted rounded-full text-center relative">
-              <div className="p-8 relative text-center">
-                <strong className="text-2xl xl:text-4xl block text-yellow-500/60">
-                  قدم چهارم
-                </strong>
-                <span className="size-12 xl:size-16 my-4 inline-block">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-[#cc8e3550]"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect width="24" height="24" fill="none" />
-                    <path
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M14.76 12H6.832m0 0c0-.275-.057-.55-.17-.808L4.285 5.814c-.76-1.72 1.058-3.442 2.734-2.591L20.8 10.217c1.46.74 1.46 2.826 0 3.566L7.02 20.777c-1.677.851-3.495-.872-2.735-2.591l2.375-5.378A2 2 0 0 0 6.83 12"
-                    />
-                  </svg>
-                </span>
-                <p className="p-4 font-medium text-stone-600">
-                  ارسال کد قرعه کشی خود به دایرکت صفحه اینستاگرام بامداد
-                </p>
-              </div>
-            </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-4 w-full">
+            <input
+              type="text"
+              placeholder="نام و نام خانوادگی"
+              value={fullName}
+              onChange={e => setFullName(e.target.value)}
+              className="w-64 outline-none rounded-md px-3 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all"
+            />
+            <input
+              type="text"
+              placeholder="شماره موبایل"
+              value={phoneNumber}
+              onChange={e => setPhoneNumber(e.target.value)}
+              className="w-64 outline-none rounded-md px-3 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all"
+            />
+            <input
+              type="text"
+              placeholder="شماره گارانتی"
+              value={serialNumber}
+              onChange={e => setSerialNumber(e.target.value)}
+              className="w-64 outline-none rounded-md px-3 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all"
+            />
+            <button
+              onClick={onActivation}
+              className="bg-yellow-300 w-64 lg:w-auto hover:bg-yellow-400 transition-all duration-200 text-stone-800 py-2.5 px-6 rounded-md"
+            >
+              استعلام و فعالسازی گارانتی
+            </button>
           </div>
         </div>
       </div>
