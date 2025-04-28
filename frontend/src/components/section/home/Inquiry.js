@@ -17,17 +17,11 @@ export default function Inquiry() {
 
     try {
       const response = await axios.post(
-        'https://seller.bamdadgp.com/api/warranty/verify',
+        '/api/warranty', 
         {
           serialNumber,
           fullName,
           phoneNumber,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
         }
       )
 
@@ -39,7 +33,7 @@ export default function Inquiry() {
       }
     } catch (error) {
       console.error(error)
-      toast.error(error?.response?.data?.message || 'خطا در ارتباط با سرور')
+      toast.error(error?.response?.data?.error || 'خطا در ارتباط با سرور')
     }
   }
 
