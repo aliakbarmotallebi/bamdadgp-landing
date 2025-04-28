@@ -37,7 +37,7 @@ export default function Inquiry() {
       } else {
         toast.error(response?.data?.message || 'مشکلی پیش آمده است!')
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error(error)
       toast.error(error?.response?.data?.message || 'خطا در ارتباط با سرور')
     }
