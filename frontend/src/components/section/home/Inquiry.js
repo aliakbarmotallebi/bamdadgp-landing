@@ -8,12 +8,15 @@ export default function Inquiry() {
   const [fullName, setFullName] = React.useState('')
   const [phoneNumber, setPhoneNumber] = React.useState('')
   const [serialNumber, setSerialNumber] = React.useState('')
+  const [loading, setLoading] = React.useState(false)
 
   const onActivation = async () => {
     if (!fullName || !phoneNumber || !serialNumber) {
       toast.error('لطفاً همه‌ی فیلدها را پر کنید.')
       return
     }
+
+    setLoading(true) 
 
     try {
       const response = await axios.post(
@@ -34,6 +37,8 @@ export default function Inquiry() {
     } catch (error) {
       console.error(error)
       toast.error(error?.response?.data?.error || 'خطا در ارتباط با سرور')
+    }finally {
+      setLoading(false) 
     }
   }
 
@@ -48,7 +53,7 @@ export default function Inquiry() {
         <div className="relative flex flex-col items-center lg:items-start px-4 py-16 lg:p-16 mb-4 bg-white border border-gray-200 overflow-hidden rounded-3xl shadow-sm">
           <div className="flex items-center flex-col gap-6">
             <div className="py-2">
-              <p className="text-sm my-2 text-right lg:text-base text-stone-700 max-w-7xl mx-auto">
+              <p className="text-sm my-2 text-right lg:text-base text-stone-700 leading-relaxed max-w-5xl mx-auto">
                 با استفاده از این بخش می‌توانید گارانتی کالای خود را به‌راحتی
                 استعلام کرده و فعال‌سازی آن را انجام دهید. تنها کافیست فرم زیر
                 را تکمیل نمایید تا اطلاعات دقیق و تاریخ فعالسازی برای شما نمایش
@@ -82,12 +87,34 @@ export default function Inquiry() {
               onChange={e => setSerialNumber(e.target.value)}
               className="w-64 outline-none rounded-md px-3 py-2 bg-white border-2 text-stone-800 border-gray-200 focus:border-gray-500 transition-all"
             />
-            <button
-              onClick={onActivation}
-              className="bg-yellow-300 w-64 lg:w-auto hover:bg-yellow-400 transition-all duration-200 text-stone-800 py-2.5 px-6 rounded-md"
+        <button
+          onClick={onActivation}
+          disabled={loading}
+          className="bg-yellow-300 w-64 lg:w-auto hover:bg-yellow-400 transition-all duration-200 text-stone-800 py-2.5 px-6 rounded-md flex justify-center items-center"
+        >
+          {loading ? (
+            <svg
+              className="animate-spin h-5 w-5 mr-3"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              استعلام و فعالسازی گارانتی
-            </button>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+              <path
+                d="M4 12a8 8 0 0 1 16 0"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="currentColor"
+                strokeWidth="4"
+                fill="none"
+              />
+            </svg>
+          ) : (
+            'استعلام و فعالسازی گارانتی'
+          )}
+        </button>
           </div>
         </div>
         <div className="bg-white p-6 rounded-3xl border-2 border-[#cc8e3520] ">
