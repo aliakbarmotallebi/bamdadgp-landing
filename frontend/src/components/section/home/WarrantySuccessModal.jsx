@@ -1,7 +1,7 @@
 import React from "react"
 
 const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
-  if (!isOpen || !data) return null
+//   if (!isOpen || !data) return null
   const renderStatus = (status) => {
     switch (status) {
       case 'STATUS_CONFIRMED':

@@ -33,7 +33,7 @@ export default function Inquiry() {
 
       if (response?.data?.success) {
         toast.success('گارانتی با موفقیت فعال شد!')
-        setWarrantyData(response.data.result) 
+        setWarrantyData(response.data?.data) 
         setShowModal(true)
         console.log('Response:', response.data)
       } else {
