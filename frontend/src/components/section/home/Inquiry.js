@@ -3,12 +3,15 @@
 import axios from 'axios'
 import React from 'react'
 import toast, { Toaster } from 'react-hot-toast'
+import WarrantySuccessModal from './WarrantySuccessModal'
 
 export default function Inquiry() {
   const [fullName, setFullName] = React.useState('')
   const [phoneNumber, setPhoneNumber] = React.useState('')
   const [serialNumber, setSerialNumber] = React.useState('')
   const [loading, setLoading] = React.useState(false)
+  const [showModal, setShowModal] = React.useState(false)
+  const [warrantyData, setWarrantyData] = React.useState(null)
 
   const onActivation = async () => {
     if (!fullName || !phoneNumber || !serialNumber) {
@@ -30,6 +33,8 @@ export default function Inquiry() {
 
       if (response?.data?.success) {
         toast.success('گارانتی با موفقیت فعال شد!')
+        setWarrantyData(response.data.result) 
+        setShowModal(true)
         console.log('Response:', response.data)
       } else {
         toast.error(response?.data?.message || 'مشکلی پیش آمده است!')
@@ -48,102 +53,13 @@ export default function Inquiry() {
       className="services-section scroll-mt-28 px-4 sm:px-8 md:px-16"
     >
       <Toaster position="top-center" reverseOrder={false} />
-
+      <WarrantySuccessModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        data={warrantyData}
+      />
       <div className="relative mx-auto max-w-7xl my-16">
     <div className="relative flex flex-col items-center lg:items-start px-4 py-12 lg:p-12 mb-4 bg-white border border-gray-200 overflow-hidden rounded-3xl shadow-sm">
-    <div
-      class="absolute right-0 top-0 flex items-center justify-center bg-gray-900/50 backdrop-blur-lg w-full h-full z-20">
-      <div class="rounded-lg bg-gray-50">
-        <div class="flex justify-center px-4 py-2">
-          <div class="rounded-full bg-green-200 p-4">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-500 p-1">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="h-4 w-4 text-white">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="relative sm:rounded-lg print:no-print bg-white overflow-x-auto">
-          <div class="w-full text-sm text-left text-gray-500">
-            <div class="grid grid-cols-1 lg:grid-cols-4">
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  وضعیت:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-                    فعال
-                  </span>
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  نام دستگاه:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  بخارگر
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  دسته بندی:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  DT8250
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  نام و نام خانوادگی:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  TEFAL
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  شماره سریال کارت:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  6531783348
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  تاریخ صدور کارت:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  1404-02-10
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  تاریخ اتمام گارانتی:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  1405-08-08
-                </div>
-              </div>
-              <div class="border-b border-gray-200 ">
-                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
-                  شماره قرارداد:
-                </div>
-                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
-                  786110103010
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="py-3">
-            <button type="button"
-              class="mx-auto block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
-              خروج متوجه شدم!
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
       <div className="flex items-center flex-col gap-6 w-full">
         <div className="py-2 max-w-5xl mx-auto">
           <p className="text-base my-2 text-center lg:text-xl text-stone-700 leading-relaxed">
