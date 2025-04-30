@@ -51,6 +51,95 @@ export default function Inquiry() {
 
       <div className="relative mx-auto max-w-7xl my-16">
         <div className="relative flex flex-col items-center lg:items-start px-4 py-12 lg:p-12 mb-4 bg-white border border-gray-200 overflow-hidden rounded-3xl shadow-sm">
+        <div class="z-50 flex min-h-screen items-center justify-center bg-gray-900/50 backdrop-blur-lg absolute h-full w-full right-0 top-0">
+        <div class="rounded-lg bg-gray-50">
+          <div class="flex justify-center px-16 py-5">
+            <div class="rounded-full bg-green-200 p-6">
+              <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-500 p-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-white">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+<div class="relative overflow-x-auto  sm:rounded-lg print:no-print">
+                        <table class="w-full text-sm text-left text-gray-500">
+                            <tbody>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                        وضعیت:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                                                                    <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                                                فعال
+                                            </span>
+                                                                            </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                        نام دستگاه:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        بخارگر
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                         دسته بندی:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        DT8250
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                      نام و نام خانوادگی:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        TEFAL
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                        شماره سریال کارت:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        6531783348
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                        تاریخ صدور کارت:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        1404-02-10
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                        تاریخ اتمام گارانتی:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        1405-08-08
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200 ">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                                        شماره قرارداد:
+                                    </th>
+                                    <td class="px-6 py-4 text-right whitespace-nowrap">
+                                        786110103010
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="py-3">
+                                           <button type="button" class="mx-auto block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                        خروج متوجه شدم!
+                        </button>     
+                        </div>
+        </div>
+      </div>
           <div className="flex items-center flex-col gap-6 w-full">
             <div className="py-2 max-w-5xl mx-auto">
               <p className="text-base my-2 text-center lg:text-xl text-stone-700 leading-relaxed">
@@ -64,7 +153,6 @@ export default function Inquiry() {
               لطفاً مشخصات خواسته شده را وارد نمایید
             </h3>
           </div>
-
           <div className="mt-8 flex flex-wrap justify-center gap-4 w-full">
             <input
               type="text"
