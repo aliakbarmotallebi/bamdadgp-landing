@@ -26,7 +26,7 @@ const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 text-sm text-right">
+        <div className="grid grid-cols-2 text-sm text-right">
             <Info label="وضعیت">
                 {renderStatus(data.status)}
             </Info>
@@ -43,7 +43,7 @@ const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
         <div className="mt-6 text-center">
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-gray-100 border border-gray-300 rounded-full text-sm hover:bg-gray-200">
+            className="mx-auto block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
             خروج، متوجه شدم!
           </button>
         </div>
@@ -53,9 +53,9 @@ const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
 }
 
 const Info = ({ label, children }) => (
-  <div>
-    <div className="font-semibold text-gray-700 bg-gray-100 px-2 py-1 rounded">{label}</div>
-    <div className="px-2 py-1">{children}</div>
+  <div class="border-b border-gray-200 flex items-center">
+    <div className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">{label}</div>
+    <div className="px-6 py-4 text-right whitespace-nowrap">{children}</div>
   </div>
 )
 
