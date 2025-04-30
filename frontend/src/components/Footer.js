@@ -197,12 +197,12 @@ export default function Footer() {
       <div className="mx-auto border border-neutral-50 my-4"></div>
       <section className="w-full max-w-screen-xl mx-auto">
         <div className="flex flex-col md:flex-row flex-wrap p-5 gap-2">
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
             <Link href={Routes.home} className="text-primary font-weight-bold">
               صفحه اصلی
             </Link>
           </div>
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
             <Link
               href={Routes.survey}
               className="text-primary font-weight-bold"
@@ -210,7 +210,7 @@ export default function Footer() {
               نظرسنجی
             </Link>
           </div>
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
             <Link
               href={Routes.feedback}
               className="text-primary font-weight-bold"
@@ -218,7 +218,7 @@ export default function Footer() {
               انتقادات و پیشنهادات
             </Link>
           </div>
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
             <Link
               href={Routes.representatives}
               className="text-primary font-weight-bold"
@@ -226,17 +226,17 @@ export default function Footer() {
               مراکز خدمات بامداد سرویس
             </Link>
           </div>
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
-            <Link href={Routes.rule} className="text-primary font-weight-bold">
-              قوانین و مقررات
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
+            <Link href="/آخرین_نسخه_ضوابط_خدمات_پس_از_فروش_4.pdf" className="text-primary font-weight-bold">
+              شرایط و ضوابط اجرایی خدمات پس از فروش
             </Link>
           </div>
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
             <Link href={Routes.store} className="text-primary font-weight-bold">
               فروشگاه
             </Link>
           </div>
-          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full">
+          <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:my-1">
             <Link
               href={Routes.contact}
               className="text-primary font-weight-bold"
