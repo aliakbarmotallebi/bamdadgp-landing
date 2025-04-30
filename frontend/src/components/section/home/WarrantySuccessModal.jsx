@@ -1,7 +1,7 @@
 import React from "react"
 
 const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
-//   if (!isOpen || !data) return null
+  if (!isOpen || !data) return null
   const renderStatus = (status) => {
     switch (status) {
       case 'STATUS_CONFIRMED':
@@ -26,7 +26,7 @@ const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
           </div>
         </div>
 
-        {/* <div className="grid grid-cols-2 lg:grid-cols-4 text-sm text-right">
+        <div className="grid grid-cols-2 lg:grid-cols-4 text-sm text-right">
             <Info label="وضعیت">
                 {renderStatus(data.status)}
             </Info>
@@ -38,7 +38,7 @@ const WarrantySuccessModal = ({ isOpen, onClose, data }) => {
             <Info label="تاریخ صدور کارت">{data.startDate}</Info>
             <Info label="تاریخ اتمام گارانتی">{data.expireDate}</Info>
             <Info label="شماره قرارداد">{data.contractNumber}</Info>
-        </div> */}
+        </div>
 
         <div className="mt-6 text-center">
           <button
