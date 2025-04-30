@@ -10,7 +10,7 @@ export default function Inquiry() {
   const [phoneNumber, setPhoneNumber] = React.useState('')
   const [serialNumber, setSerialNumber] = React.useState('')
   const [loading, setLoading] = React.useState(false)
-  const [showModal, setShowModal] = React.useState(false)
+  const [showModal, setShowModal] = React.useState(true)
   const [warrantyData, setWarrantyData] = React.useState(null)
 
   const onActivation = async () => {
