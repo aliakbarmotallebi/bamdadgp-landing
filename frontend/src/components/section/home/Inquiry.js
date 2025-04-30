@@ -66,70 +66,70 @@ export default function Inquiry() {
         </div>
         <div class="relative sm:rounded-lg print:no-print bg-white overflow-x-auto">
           <div class="w-full text-sm text-left text-gray-500">
-            <div class="grid grid-cols-2 lg:grid-cols-4">
+            <div class="grid grid-cols-1 lg:grid-cols-4">
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   وضعیت:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
                     فعال
                   </span>
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   نام دستگاه:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   بخارگر
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   دسته بندی:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   DT8250
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   نام و نام خانوادگی:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   TEFAL
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   شماره سریال کارت:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   6531783348
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   تاریخ صدور کارت:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   1404-02-10
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   تاریخ اتمام گارانتی:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   1405-08-08
                 </div>
               </div>
               <div class="border-b border-gray-200 ">
-                <div scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+                <div scope="row" class="lg:px-6 lg:py-4 px-2 py-1 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
                   شماره قرارداد:
                 </div>
-                <div class="px-6 py-4 text-right whitespace-nowrap">
+                <div class="lg:px-6 lg:py-4 px-2 py-1 text-right whitespace-nowrap">
                   786110103010
                 </div>
               </div>
