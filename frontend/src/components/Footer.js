@@ -227,9 +227,12 @@ export default function Footer() {
             </Link>
           </div>
           <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:mx-1">
-            <a href="/after_sales_rules_v4.pdf" className="text-primary font-weight-bold" download>
-            شرایط و ضوابط اجرایی خدمات پس از فروش
-
+            <a
+              href="/after_sales_rules_v4.pdf"
+              className="text-primary font-weight-bold"
+              download
+            >
+              شرایط و ضوابط اجرایی خدمات پس از فروش
             </a>
           </div>
           <div className="max-w-full grow before:bg-neutral-800 before:w-1 before:h-1 before:inline-block before:rounded-full before:mx-1">

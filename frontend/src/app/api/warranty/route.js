@@ -19,12 +19,14 @@ export async function POST(Request) {
         },
       }
     )
-
     return NextResponse.json(response.data, { status: 200 })
   } catch (error) {
     if (error.response) {
       return NextResponse.json(
-        { error: error.response.data.message || 'مشکلی در ارتباط با API پیش آمد' },
+        {
+          error:
+            error.response.data.message || 'مشکلی در ارتباط با API پیش آمد',
+        },
         { status: error.response.status || 500 }
       )
     } else if (error.request) {
