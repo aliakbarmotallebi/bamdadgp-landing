@@ -1,0 +1,14 @@
+@import './fonts.css';
+
+body, html {
+    direction: rtl;
+    font-family: 'yekanbakh', sans-serif;
+  }
+  
+  input, label, select, textarea {
+    text-align: right;
+  }
+  
+  .leftMenu, .mainWrapper {
+    direction: rtl !important;
+  }

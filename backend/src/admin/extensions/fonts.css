@@ -1,0 +1,49 @@
+@font-face{
+    font-display:swap;
+    font-family:yekanbakh;
+    font-weight:400;
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-04-Regular.eot?89830f57be6a7fa2aaaca848947fb023);
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-04-Regular.eot?89830f57be6a7fa2aaaca848947fb023?#iefix) format("embedded-opentype"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-04-Regular.woff?74655fa26f28d8567a7d4c102068889e) format("woff"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-04-Regular.ttf?3ee00883a9701befc8be495c4e99397f) format("truetype")
+}
+
+@font-face{
+    font-display:swap;
+    font-family:yekanbakh;
+    font-weight:500;
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-05-Medium.eot?6d3273ff71c9496c4de83b9e74645896);
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-05-Medium.eot?6d3273ff71c9496c4de83b9e74645896?#iefix) format("embedded-opentype"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-05-Medium.woff?4be8304dcd7ae154a2d32e1d022538f8) format("woff"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-05-Medium.ttf?45281cca684d63170f5a833037ba567e) format("truetype")
+}
+
+@font-face{
+    font-display:swap;
+    font-family:yekanbakh;
+    font-weight:600;
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-06-Bold.eot?6d6589a62ab2c3e62ce1484b4966931a);
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-06-Bold.eot?6d6589a62ab2c3e62ce1484b4966931a?#iefix) format("embedded-opentype"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-06-Bold.woff?6be8947dc2a9db02022a0225f82ed6c7) format("woff"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-06-Bold.ttf?4b6fd692e920dc57d7eaec8e9eba8abb) format("truetype")
+}
+
+@font-face{
+    font-display:swap;
+    font-family:yekanbakh;
+    font-weight:700;
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-07-Heavy.eot?39a2808fb7c800c9a263fc12ddaad6df);
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-07-Heavy.eot?39a2808fb7c800c9a263fc12ddaad6df?#iefix) format("embedded-opentype"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-07-Heavy.woff?eb23f8ee4a4a18db8d7e21a40d9141d8) format("woff"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-07-Heavy.ttf?bc9f9de9570a187811c70dee52bf90fe) format("truetype")
+}
+
+@font-face{
+    font-display:swap;
+    font-family:yekanbakh;
+    font-weight:800;
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-08-Fat.eot?654b3f00c8084ff458177bed10b2d9dd);
+    src:url(/fonts/yekanbakh/Yekan-Bakh-FaNum-08-Fat.eot?654b3f00c8084ff458177bed10b2d9dd?#iefix) format("embedded-opentype"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-08-Fat.woff?4ad33b69928bc8f5ec077ecc1b2167d9) format("woff"),
+    url(/fonts/yekanbakh/Yekan-Bakh-FaNum-08-Fat.ttf?0f7b20c1916c4426b6a83c1d02ff867b) format("truetype")
+}
