@@ -1,4 +1,4 @@
-import './extensions/app.css';
+import './src/extensions/app.css';
 
 export default {
   config: {

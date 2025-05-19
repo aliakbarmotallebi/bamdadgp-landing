@@ -2,7 +2,7 @@
 
 body, html {
     direction: rtl;
-    font-family: 'yekanbakh', sans-serif;
+    font-family: 'yekanbakh', sans-serif !important;
   }
   
   input, label, select, textarea {
