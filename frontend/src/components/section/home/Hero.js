@@ -122,9 +122,8 @@ export default function Hero() {
                         <Modal isOpen={modal.gallery} setIsOpen={setModal}>
                           <div className="modal-content">
                             <p>
-                              شرکت ما در زمینه توزیع زیورآلات طلا با هدف ارائه
-                              محصولات باکیفیت و طراحی‌های منحصر به فرد فعالیت
-                              می‌کند.
+                              از خرید تا پشتیبانی ، کنار شما هستیم تا با خیال
+                              راحت، بهترین ها رو انتخاب کنید.
                             </p>
                           </div>
                         </Modal>
@@ -133,7 +132,7 @@ export default function Hero() {
                   </div>
                   <div className="bg-white">
                     <img
-                      src="/assets/images/product2.png"
+                      src="/assets/images/shopping cart.webp"
                       className="mix-blend-multiply absolute bottom-4 max-w-[128px] max-h-[128px] left-4"
                       // alt
                       // srcSet=""
@@ -167,7 +166,7 @@ export default function Hero() {
                               برگزار می‌کند...
                             </p>
                             <a
-                              href="https://www.instagram.com/bamdadgpgoldgallery"
+                              href="https://www.instagram.com/bamdadgp"
                               target="_blank"
                               className="text-blue-500 underline pt-1"
                             >

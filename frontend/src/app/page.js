@@ -23,7 +23,7 @@ export default function Home() {
     {
       question: 'اطلاع‌رسانی برنده‌های قرعه‌کشی چگونه است؟',
       answer:
-        'به منظور اطلاع از برندگان قرعه‌کشی، <a style="color:blue" href="https://www.instagram.com/bamdadgoldgallery/" target="_blank" >اینستاگرام بامداد گلد گالری</a> را دنبال کنید. به‌صورت ماهانه برنده‌ها اعلام می‌شوند.',
+        'به منظور اطلاع از برندگان قرعه‌کشی، <a style="color:blue" href="https://www.instagram.com/bamdadgp" target="_blank" >اینستاگرام گروه تجاری بامداد </a> را دنبال کنید. به‌صورت ماهانه برنده‌ها اعلام می‌شوند.',
     },
   ]
 
