@@ -60,6 +60,8 @@ networks:
     driver: bridge
   database:
     external: true
+  traefik-proxy:
+    external: true
 
 volumes:
   pg_data:
