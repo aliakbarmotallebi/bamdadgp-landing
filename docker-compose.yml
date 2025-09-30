@@ -21,7 +21,6 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-    command: ['yarn', 'develop']
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`api.bamdadgp.com`)"
@@ -47,7 +46,6 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    command: ['yarn', 'dev']
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`bamdadgp.com`)"
