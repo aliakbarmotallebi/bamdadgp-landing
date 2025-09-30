@@ -1,16 +1,25 @@
 # Use Node.js base image
-FROM node:18-slim
+FROM node:18-bullseye
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY package.json ./
-RUN yarn install
+# Install build tools for native dependencies
+RUN apt-get update && apt-get install -y python3 g++ make && rm -rf /var/lib/apt/lists/*
+
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
 
 # Copy the project files
 COPY . .
+
+# Expose default Next.js port
+EXPOSE 3000
 
 # Start the Next.js server
 CMD ["yarn", "dev"]
