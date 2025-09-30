@@ -15,8 +15,7 @@ jobs:
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_PASSWORD }}
-        port: 2230
+        password: ${{ secrets.SSH_PASSWORD }}
         script: |
           cd  /opt/www/bamdad-landing
           git pull origin main
