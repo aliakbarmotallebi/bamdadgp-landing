@@ -1,44 +1,33 @@
-version: '3'
+name: 'landing'
 
 services:
-  postgres:
-    image: postgres:17
-    container_name: postgres
-    restart: always
-    environment:
-      POSTGRES_DB: bamdad_store_db
-      POSTGRES_USER: bamdad_store_db_user
-      POSTGRES_PASSWORD: :=pi.8?n>-zETn~
-    networks:
-      - app_network
-    ports:
-      - '5432:5432'
-    volumes:
-      - pg_data:/var/lib/postgresql/data
 
   backend:
     build: ./backend
     container_name: strapi
     restart: always
-    depends_on:
-      - postgres
     environment:
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: postgres
-      DATABASE_PORT: 5432
-      DATABASE_NAME: bamdad_store_db
-      DATABASE_USERNAME: bamdad_store_db_user
-      DATABASE_PASSWORD: :=pi.8?n>-zETn~
+      DATABASE_CLIENT: mysql
+      DATABASE_HOST: mariadb
+      DATABASE_PORT: 3306
+      DATABASE_NAME: landing_db
+      DATABASE_USERNAME: appuser
+      DATABASE_PASSWORD: S3cur3!Passw0rd*!
       NODE_ENV: development
     networks:
       - app_network
-    ports:
-      - '1337:1337'
-      - '5173:5173'
+      - database
+      - traefik-proxy
     volumes:
       - ./backend:/app
       - /app/node_modules
     command: ['yarn', 'develop']
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`api.bamdadgp.com`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.tls.certresolver=http"
+      - "traefik.http.services.backend.loadbalancer.server.port=1337"
 
   frontend:
     build: ./frontend
@@ -54,32 +43,23 @@ services:
       NODE_ENV: development
     networks:
       - app_network
-    ports:
-      - '3000:3000'
+      - traefik-proxy
     volumes:
       - ./frontend:/app
       - /app/node_modules
     command: ['yarn', 'dev']
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: info@bamdadgp.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    networks:
-      - app_network
-    ports:
-      - '5050:80'
-    depends_on:
-      - postgres
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`bamdadgp.com`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls.certresolver=http"
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
 
 networks:
   app_network:
     driver: bridge
+  database:
+    external: true
 
 volumes:
   pg_data:
