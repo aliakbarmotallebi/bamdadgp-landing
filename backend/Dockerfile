@@ -12,8 +12,9 @@ RUN apt-get update && apt-get install -y python3 g++ make && rm -rf /var/lib/apt
 # Copy package.json and package-lock.json
 COPY package.json package-lock.json ./
 
-# Install dependencies using npm
-RUN npm ci
+# Install dependencies including mysql2
+RUN npm install --save mysql2 && npm ci
+
 
 # Copy the project files
 COPY . .
