@@ -3,6 +3,8 @@ import react, { useState } from 'react'
 import Modal from '@/components/Modal'
 
 export default function Hero() {
+  const [activeCard, setActiveCard] = useState(null)
+
   const [modal, setModal] = useState({
     service: false,
     gallery: false,
@@ -18,7 +20,7 @@ export default function Hero() {
         <div className="group/hero relative w-full flex justify-center items-start">
           <div className="absolute top-1/4 w-[60%] h-[450px] rounded-full bg-[radial-gradient(circle,rgba(255,255,0,0.2)_0%,rgba(255,255,0,0)_90%)] group-hover/hero:bg-[radial-gradient(circle,rgba(255,255,0,0.3)_0%,rgba(255,255,0,0)_90%)] transition-all duration-500 -translate-x-1/4 z-[-1] blur-xl"></div>
           <div className="max-w-screen-xl px-8 lg:px-0 w-full bg-white/10 backdrop-blur-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-2 px-4 pt-16 pb-8 gap-8">
+            <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 px-4 pt-16 pb-8 gap-8">
               <div className="flex flex-col items-start gap-8">
                 <h2 className="text-2xl font-semibold text-neutral-800">
                   خدماتی برای فردایی بهتر
@@ -53,9 +55,15 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="hidden lg:block">
-              <div className="flex flex-col sm:flex-row py-10 ps-24 space-y-4 sm:space-y-0 space-y-reverse space-x-reverse sm:-space-x-1 xl:-space-x-20 mx-8 sm:mx-0">
-                <div className="relative flex justify-between z-20 hover:z-30 hover:scale-110 hover:rotate-0 transition-all duration-300 w-full -left-40 px-6 py-6 md:w-[380px] bg-white rounded-2xl shadow-xl -rotate-[6deg] border border-gray-100">
+            <div className="block mt-14 lg:mt-0">
+              <div className="relative h-96 lg:h-auto lg:static flex flex-col sm:flex-row py-10 ps-0 lg:ps-24 space-y-4 sm:space-y-0 space-y-reverse space-x-reverse sm:-space-x-1 xl:-space-x-20 lg:mx-8 sm:mx-0">
+                <div
+                  onClick={() =>
+                    activeCard === 1 ? setActiveCard(0) : setActiveCard(1)
+                  }
+                  className={`absolute lg:relative top-[72px] flex justify-between z-20 hover:z-30 hover:scale-110 hover:rotate-0 transition-all duration-300 w-full lg:-left-40 px-6 py-6 md:w-[380px] bg-white rounded-2xl shadow-xl lg:-rotate-[6deg] border border-gray-100
+                     ${activeCard === 1 ? 'z-30 scale-110 rotate-0' : ''}`}
+                >
                   <div className="flex flex-col h-full gap-8">
                     <div className="px-4">
                       <h2 className="my-3 text-2xl text-gray-800 font-bold">
@@ -88,7 +96,7 @@ export default function Hero() {
                       )}
                     </div>
                   </div>
-                  <div className="relative w-1/3 -left-2 -bottom-4 bg-white h-full">
+                  <div className="relative w-1/3 -left-2 -bottom-4 bg-white h-auto lg:h-full">
                     <img
                       src="/assets/images/cog.png"
                       className="mix-blend-multiply absolute bottom-0 w-[120px] left-0"
@@ -98,7 +106,13 @@ export default function Hero() {
                     <div className="absolute left-1/2 -translate-x-1/2 w-16 h-1 bg-[radial-gradient(circle,rgba(0,0,0,0.1)_0%,rgba(200,200,200,0.1)_90%)] rounded-full bottom-1"></div>
                   </div>
                 </div>
-                <div className="relative z-10 hover:z-30 hover:scale-110 hover:animate-fadeInOut animate-fadeOutIn hover:rotate-0 transition-all duration-300 w-full -left-32 px-6 py-6 md:w-[338px] bg-gradient-to-l from-yellow-300 to-yellow-100 rounded-2xl shadow-xl -rotate-[20deg] overflow-hidden">
+                <div
+                  onClick={() =>
+                    activeCard === 2 ? setActiveCard(0) : setActiveCard(2)
+                  }
+                  className={`absolute lg:relative top-[36px] z-10 hover:z-30 hover:scale-110 hover:animate-fadeInOut animate-fadeOutIn hover:rotate-0 transition-all duration-300 w-full lg:-left-32 px-6 py-6 md:w-[338px] bg-gradient-to-l from-yellow-300 to-yellow-100 rounded-2xl shadow-xl lg:-rotate-[20deg] overflow-hidden
+                    ${activeCard === 2 ? 'z-30 scale-110 rotate-0' : ''}`}
+                >
                   <div className="flex flex-col gap-8 h-full">
                     <div className="px-4">
                       <h2 className="my-3 text-2xl text-gray-800 font-bold">
@@ -139,7 +153,13 @@ export default function Hero() {
                     />
                   </div>
                 </div>
-                <div className="relative flex justify-between z-0 hover:z-30 hover:animate-fadeInOut animate-fadeOutIn hover:scale-110 hover:rotate-0 transition-all duration-300 w-full -left-32 px-6 py-6 md:w-[346px] bg-white rounded-2xl shadow-xl -rotate-[32deg] overflow-hidden">
+                <div
+                  onClick={() =>
+                    activeCard === 3 ? setActiveCard(0) : setActiveCard(3)
+                  }
+                  className={`absolute lg:relative top-0 flex justify-between z-0 hover:z-30 hover:animate-fadeInOut animate-fadeOutIn hover:scale-110 hover:rotate-0 transition-all duration-300 w-full lg:-left-32 px-6 py-6 md:w-[346px] bg-white rounded-2xl shadow-neg lg:shadow-xl lg:-rotate-[32deg] overflow-hidden
+                    ${activeCard === 3 ? 'z-30 scale-110 rotate-0' : ''}`}
+                >
                   <div className="flex flex-col h-full gap-8">
                     <div className="px-4">
                       <h2 className="my-3 text-2xl font-bold text-gray-800">
@@ -177,7 +197,7 @@ export default function Hero() {
                       )}
                     </div>
                   </div>
-                  <div className="relative w-1/3 left-0 bottom-0 bg-white h-full">
+                  <div className="relative w-1/3 left-0 bottom-0 bg-white h-auto lg:h-full">
                     <img
                       src="/assets/images/lottery.png"
                       className="mix-blend-multiply absolute bottom-0 w-[120px] left-0"

@@ -16,10 +16,20 @@
 }
 
 @layer base {
-  *{
+  * {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-white font-yekanbakh;
   }
+
+}
+
+
+@layer components {
+  .shadow-neg {
+    box-shadow: -3px -3px 8px 1px rgba(116, 116, 116, 0.15);
+  }
+
 }
