@@ -85,8 +85,8 @@ export default function Hero() {
                 className="relative h-96 lg:h-auto lg:static flex flex-col sm:flex-row py-10 ps-0 lg:ps-24 space-y-4 sm:space-y-0 space-y-reverse space-x-reverse sm:-space-x-1 xl:-space-x-20 lg:mx-8 sm:mx-0"
               >
                 <div
-                  onClick={() => handleCardClick(1)}
-                  className={`absolute lg:relative top-[72px] flex justify-between z-20 hover:z-30 hover:scale-110 hover:rotate-0 transition-all duration-300 w-full lg:-left-40 px-6 py-6 md:w-[380px] bg-white rounded-2xl shadow-xl lg:-rotate-[6deg] border border-gray-100
+                  onTouchStart={() => handleCardClick(1)}
+                  className={`absolute lg:relative top-[72px] flex justify-between z-20 lg:z-20 lg:scale-100 hover:z-30 hover:scale-110 hover:rotate-0 transition-all duration-300 w-full lg:-left-40 px-6 py-6 md:w-[380px] bg-white rounded-2xl shadow-xl lg:-rotate-[6deg] border border-gray-100
                      ${activeCard === 1 ? 'z-30 scale-110 rotate-0' : ''}`}
                 >
                   <div className="flex flex-col h-full gap-8">
@@ -132,8 +132,8 @@ export default function Hero() {
                   </div>
                 </div>
                 <div
-                  onClick={() => handleCardClick(2)}
-                  className={`absolute lg:relative top-[36px] z-10 hover:z-30 hover:scale-110 hover:animate-fadeInOut animate-fadeOutIn hover:rotate-0 transition-all duration-300 w-full lg:-left-32 px-6 py-6 md:w-[338px] bg-gradient-to-l from-yellow-300 to-yellow-100 rounded-2xl shadow-xl lg:-rotate-[20deg] overflow-hidden
+                  onTouchStart={() => handleCardClick(2)}
+                  className={`absolute lg:relative top-[36px] z-10 lg:z-10 lg:scale-100 hover:z-30 hover:scale-110 hover:animate-fadeInOut animate-fadeOutIn hover:rotate-0 transition-all duration-300 w-full lg:-left-32 px-6 py-6 md:w-[338px] bg-gradient-to-l from-yellow-300 to-yellow-100 rounded-2xl shadow-xl lg:-rotate-[20deg] overflow-hidden
                     ${activeCard === 2 ? 'z-30 scale-110 rotate-0' : ''}`}
                 >
                   <div className="flex flex-col gap-8 h-full">
@@ -177,8 +177,8 @@ export default function Hero() {
                   </div>
                 </div>
                 <div
-                  onClick={() => handleCardClick(3)}
-                  className={`absolute lg:relative top-0 flex justify-between z-0 hover:z-30 hover:animate-fadeInOut animate-fadeOutIn hover:scale-110 hover:rotate-0 transition-all duration-300 w-full lg:-left-32 px-6 py-6 md:w-[346px] bg-white rounded-2xl shadow-neg lg:shadow-xl lg:-rotate-[32deg] overflow-hidden
+                  onTouchStart={() => handleCardClick(3)}
+                  className={`absolute lg:relative top-0 flex justify-between z-0 lg:z-0 lg:scale-100 hover:z-30 hover:animate-fadeInOut animate-fadeOutIn hover:scale-110 hover:rotate-0 transition-all duration-300 w-full lg:-left-32 px-6 py-6 md:w-[346px] bg-white rounded-2xl shadow-neg lg:shadow-xl lg:-rotate-[32deg] overflow-hidden
                     ${activeCard === 3 ? 'z-30 scale-110 rotate-0' : ''}`}
                 >
                   <div className="flex flex-col h-full gap-8">
