@@ -65,8 +65,6 @@ export default function Marquee({ direction = 'ltr', speed = 1 }) {
   const marqueeRef = useRef(null)
   const scrollRef = useRef(0)
 
-  console.log(typeof speed)
-
   useEffect(() => {
     const marqueeEl = marqueeRef.current
     if (!marqueeEl) return
@@ -77,7 +75,6 @@ export default function Marquee({ direction = 'ltr', speed = 1 }) {
         marqueeEl.style.transform = `translateX(${scrollRef.current}px)`
       } else {
         marqueeEl.style.transform = `translateX(${-1 * scrollRef.current}px)`
-        console.log(`translateX(-${scrollRef.current}px)`)
       }
 
       if (Math.abs(scrollRef.current) >= marqueeEl.scrollWidth / 2) {
