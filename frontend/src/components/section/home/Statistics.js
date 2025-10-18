@@ -31,13 +31,15 @@ export default function Statistics() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:px-16 md:px-36">
               <div className="flex flex-col gap-8">
-                <div className="relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 overflow-hidden space-y-4">
+                <div className="flex flex-col gap-5 relative bg-[#fefefe] py-6 w-full rounded-3xl border border-orange-900/10 overflow-hidden space-y-4">
                   <div className="absolute inset-0 pointer-events-none flex z-20">
                     <div className="w-1/2 bg-gradient-to-l from-[#fefefe] to-transparent"></div>
                     <div className="flex-1"></div>
                     <div className="w-1/2 bg-gradient-to-r from-[#fefefe] to-transparent"></div>
                   </div>
-                  <Marquee />
+                  <Marquee direction="ltr" speed={1} />
+                  <Marquee direction="rtl" speed={1} />
+                  <Marquee direction="ltr" speed={1} />
                 </div>
 
                 <article className="bg-[#fefefe] w-full border border-orange-900/10 py-12 rounded-3xl">

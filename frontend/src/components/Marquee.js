@@ -61,17 +61,24 @@ const items = [
   'فلش',
 ]
 
-export default function Marquee() {
+export default function Marquee({ direction = 'ltr', speed = 1 }) {
   const marqueeRef = useRef(null)
   const scrollRef = useRef(0)
+
+  console.log(typeof speed)
 
   useEffect(() => {
     const marqueeEl = marqueeRef.current
     if (!marqueeEl) return
 
     const step = () => {
-      scrollRef.current += 1
-      marqueeEl.style.transform = `translateX(${scrollRef.current}px)`
+      scrollRef.current += speed
+      if (direction === 'ltr') {
+        marqueeEl.style.transform = `translateX(${scrollRef.current}px)`
+      } else {
+        marqueeEl.style.transform = `translateX(${-1 * scrollRef.current}px)`
+        console.log(`translateX(-${scrollRef.current}px)`)
+      }
 
       if (Math.abs(scrollRef.current) >= marqueeEl.scrollWidth / 2) {
         scrollRef.current = 0
@@ -87,7 +94,9 @@ export default function Marquee() {
     <div className="overflow-hidden w-full h-10 relative !m-0">
       <ul
         ref={marqueeRef}
-        className="flex gap-4 whitespace-nowrap absolute h-full"
+        className={`${
+          direction === 'ltr' ? 'right-0' : 'left-0'
+        } flex gap-4 whitespace-nowrap absolute h-full`}
       >
         {[...items, ...items].map((item, idx) => (
           <li

@@ -55,8 +55,8 @@ export default function Hero() {
                   </h1>
                 </div>
                 <p className="w-full text-justify text-lg font-medium text-neutral-800">
-                  در گروه تجاری بامداد با مجموعه‌ای از بهترین لوازم خانگی، کیفیت
-                  و نوآوری را به خانه شما می‌آوریم. علاوه بر ارائه محصولات
+                  در گروه تجاری بامداد با مجموعه‌ای از بهترین محصولات، کیفیت و
+                  نوآوری را به خانه شما می‌آوریم. علاوه بر ارائه محصولات
                   باکیفیت، خدمات پس از فروش حرفه‌ای ما تضمین‌کننده آرامش شماست.
                   از خرید تا پشتیبانی، همراهتان هستیم تا تجربه‌ای مطمئن و
                   لذت‌بخش داشته باشید!
@@ -143,7 +143,7 @@ export default function Hero() {
                       </h2>
                       <div className="flex flex-row items-center justify-between w-full mb-2">
                         <div className="text-gray-800 font-medium text-sm">
-                          فروش انواع محصولات خانگی
+                          فروش انواع محصولات
                         </div>
                       </div>
                     </div>
