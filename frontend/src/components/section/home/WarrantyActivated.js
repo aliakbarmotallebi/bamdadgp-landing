@@ -47,16 +47,21 @@ const WarrantyActivated = ({ onClose, data }) => {
       </div>
 
       <div className="grid grid-cols-2 w-full text-sm text-right">
-        <Info label="وضعیت">{renderStatus(data.status)}</Info>
-        <Info label="نام دستگاه">{data.productName}</Info>
-        <Info label="دسته بندی">{data.categoryName}</Info>
-        <Info label="نام و نام خانوادگی">{data.fullName}</Info>
-        <Info label="شماره تماس">{data.phoneNumber}</Info>
-        <Info label="شماره سریال کارت">{data.serialNumber}</Info>
-        <Info label="تاریخ صدور کارت">{data.startDate}</Info>
-        <Info label="تاریخ اتمام گارانتی">{data.expireDate}</Info>
-        <Info cStyle="col-span-2" label="شماره قرارداد">
-          {data.contractNumber}
+        <Info label="وضعیت">{renderStatus(data?.status)}</Info>
+        <Info label="نام دستگاه">{data?.productName}</Info>
+        <Info label="دسته بندی">{data?.categoryName}</Info>
+        <Info label="نام و نام خانوادگی">{data?.fullName}</Info>
+        <Info label="شماره تماس">{data?.phoneNumber}</Info>
+        <Info label="شماره سریال کارت">{data?.serialNumber}</Info>
+        <Info label="تاریخ صدور کارت">{data?.startDate}</Info>
+        <Info label="تاریخ اتمام گارانتی">{data?.expireDate}</Info>
+        <Info cStyle="col-span-2" label="توضیحات">
+          {/* {data.contractNumber} */}
+          <p>
+            محاسبه تاریخ شروع قرارداد برای فروش در مارکت پلیس ها(دیجی کالا، اسنپ
+            شاپ، باسلام، تکنولایف و...) طبق فاکتور و برای فروش متفرقه طبق تاریخ
+            درج شده روی لیبل گارانتی می باشد.
+          </p>
         </Info>
       </div>
 

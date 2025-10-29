@@ -259,10 +259,10 @@ export default function Footer() {
               rel="follow"
               className="cursor-pointer"
             >
-              کوشا الکتریک بامداد
+              گروه تجاری بامداد
             </a>
             - پلتفرم برتر تجاری © 2024. تمامی حقوق متعلق به شرکت
-            <span className="text-primary-500"> کوشا الکتریک بامداد </span>
+            <span className="text-primary-500"> گروه تجاری بامداد </span>
             است.
           </div>
           <a href="#anchor" className="lg:flex hidden items-center gap-2">
