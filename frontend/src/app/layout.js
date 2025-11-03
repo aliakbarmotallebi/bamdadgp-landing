@@ -7,6 +7,10 @@ export const metadata = {
   title: 'گروه تجاری بامداد',
   description:
     'گروه تجاری بامداد یک فروشگاه لوازم خانگی همراه با سرویس خدمات پس فروش',
+  authors: [
+    { name: 'Hamid Kamyab - hamidkamyab.ir' },
+    { name: 'Aliakbar Motallebi' },
+  ],
 }
 
 export default function RootLayout({ children }) {
