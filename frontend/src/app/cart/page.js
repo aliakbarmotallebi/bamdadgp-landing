@@ -94,13 +94,29 @@ export default function Cart() {
                             className="bg-white border-b hover:bg-gray-50 grid grid-cols-1 justify-items-center md:table-row"
                           >
                             <td className="p-4">
-                              <img
-                                src={
-                                  PUBLIC_BASE_URL + product.product_image.url
-                                }
-                                className="w-48 md:w-32 max-w-full max-h-full rounded-lg"
-                                alt=""
-                              />
+                              {product.product_image &&
+                              product.product_image.url ? (
+                                <img
+                                  src={
+                                    PUBLIC_BASE_URL + product.product_image.url
+                                  }
+                                  className="w-48 md:w-32 max-w-full max-h-full rounded-lg"
+                                  alt=""
+                                />
+                              ) : (
+                                <span className="block size-24 text-stone-400">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="size-full"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      fill="currentColor"
+                                      d="M19.937 14.218V5.564a1.5 1.5 0 0 0-1.5-1.5H7.809a.5.5 0 0 1 0-1h10.628a2.5 2.5 0 0 1 2.5 2.5v10.624a.5.5 0 0 1-1 .001v-.556l-4.583-4.584c-.456-.456.251-1.163.707-.707zm-.121 6.304a2.5 2.5 0 0 1-1.379.415H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564c0-.51.153-.984.414-1.38l-.263-.263c-.456-.456.251-1.163.707-.707l.263.263l16.339 16.338l.263.263c.455.456-.252 1.163-.707.707zM8.712 9.419L6.711 7.418a1.5 1.5 0 0 0 2.001 2.001M5.979 6.686l-1.77-1.77a1.5 1.5 0 0 0-.146.648v10.717l1.926-1.926a1.5 1.5 0 0 1 2.122 0l.555.554a.497.497 0 0 0 .706 0l2.415-2.415l-2.343-2.343a2.5 2.5 0 0 1-3.465-3.465M4.063 17.695v.741a1.5 1.5 0 0 0 1.5 1.5h12.874c.232 0 .451-.052.647-.145l-6.59-6.59l-2.414 2.415a1.5 1.5 0 0 1-2.122 0l-.554-.554a.5.5 0 0 0-.708 0z"
+                                    ></path>
+                                  </svg>
+                                </span>
+                              )}
                             </td>
                             <td className="md:pr-6 py-4 text-sm opacity-90 text-gray-900">
                               {product.product_title}

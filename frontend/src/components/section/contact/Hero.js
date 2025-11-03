@@ -11,7 +11,7 @@ export default function Hero({ data }) {
             <h6 className="text-gray-500  md:mb-12 md:text-lg mb-3 lg:mb-5 lg:text-xl">
               {data.contact_slug}
             </h6>
-            <div className="text-center mb-10 flex items-center justify-center gap-4">
+            <div className="text-center mb-10 flex flex-col md:flex-row items-center justify-center gap-4">
               <a
                 href="#"
                 className="px-10 text-white bg-primary-500 hover:bg-primary-500/90 focus:ring-4 focus:outline-none focus:ring-primary-500/50 font-medium rounded-lg text-xl py-2.5 text-center inline-flex items-center"
@@ -26,7 +26,7 @@ export default function Hero({ data }) {
                 </svg>
                 تماس با تیم پشتیبانی
               </a>
-              <span className="h-10 inline-block w-0.5 bg-primary-200"></span>
+              <span className="w-10 h-0.5 md:h-10 inline-block md:w-0.5 bg-primary-200"></span>
               <span className="text-3xl text-zinc-800 font-medium">
                 {data.contact_telephone}
               </span>
@@ -35,5 +35,5 @@ export default function Hero({ data }) {
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -19,15 +19,13 @@ export default async function Contact() {
     <>
       <Hero data={result.data} />
       <section id="plans" className="bg-primary-50 pb-16">
-        <div className="flex md:flex-row flex-col items-center mb-10 pt-10 mx-auto max-w-7xl">
-          <section>
-            <div className="content">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <Info data={result.data} />
-                <MessageForm />
-              </div>
+        <div className="flex md:flex-row flex-col items-center justify-center mb-10 pt-10 mx-auto max-w-7xl">
+          <div className="content w-full px-4 sm:px-16 md:px-6 lg:px-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Info data={result.data} />
+              <MessageForm />
             </div>
-          </section>
+          </div>
         </div>
       </section>
     </>

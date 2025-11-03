@@ -37,9 +37,9 @@ export default function Statistics() {
                     <div className="flex-1"></div>
                     <div className="w-1/2 bg-gradient-to-r from-[#fefefe] to-transparent"></div>
                   </div>
-                  <Marquee direction="ltr" speed={1} />
-                  <Marquee direction="rtl" speed={1} />
-                  <Marquee direction="ltr" speed={1} />
+                  <Marquee direction="ltr" speed={0.25} />
+                  <Marquee direction="rtl" speed={0.25} />
+                  <Marquee direction="ltr" speed={0.25} />
                 </div>
 
                 <article className="bg-[#fefefe] w-full border border-orange-900/10 py-12 rounded-3xl">

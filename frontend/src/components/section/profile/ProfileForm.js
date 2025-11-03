@@ -126,7 +126,7 @@ export default function ProfileForm({ userInfo }) {
               <select
                 type="text"
                 name="billing-state"
-                defaultValue={userInfo.province}
+                defaultValue={userInfo.province || ''}
                 value={user.province}
                 onChange={event =>
                   setUser(prev => ({
@@ -153,7 +153,7 @@ export default function ProfileForm({ userInfo }) {
               <div className="w-fit">
                 <select
                   name="جنسیت"
-                  defaultValue={userInfo.gender}
+                  defaultValue={userInfo.gender || ''}
                   onChange={e =>
                     setUser(prevState => ({
                       ...prevState,

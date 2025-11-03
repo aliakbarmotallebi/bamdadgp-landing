@@ -63,7 +63,7 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="hidden lg:flex gap-8 items-start mt-12s justify-end">
+              <div className="flex gap-8 items-start mt-4 lg:mt-12 justify-center lg:justify-end">
                 <a
                   href="#warranty-inquiry"
                   className="border border-gray-300 rounded-full py-3 px-4 hover:border-gray-800 transition-all duration-300"
