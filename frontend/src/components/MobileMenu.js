@@ -3,10 +3,17 @@ import { Routes } from '@/route/routes'
 import useAuthStore from '@/stores/auth'
 import useGeneralStore from '@/stores/general'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default function MobileMenu() {
-  const { openMenu } = useGeneralStore()
+  const { openMenu, setOpenMenu } = useGeneralStore()
   const { isAuth, auth } = useAuthStore()
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setOpenMenu(false)
+  }, [pathname])
 
   return (
     <>
@@ -18,9 +25,9 @@ export default function MobileMenu() {
       <div
         className={`${
           openMenu ? 'h-screen' : 'h-0'
-        } w-full px-4 left-1/2 -translate-x-1/2 top-[80px] z-40 absolute overflow-hidden transition-all duration-300`}
+        } w-full px-4 left-1/2 -translate-x-1/2 top-[50px] z-40 absolute overflow-hidden transition-all duration-300`}
       >
-        <div className="w-full px-4 relative left-1/2 overflow-y-auto -translate-x-1/2 py-10 bg-white/50 border-b-4 border-stone-600 backdrop-blur-md max-h-[calc(100%-80px)]">
+        <div className="w-full px-4 relative left-1/2 scroll-thin overflow-y-auto -translate-x-1/2 py-10 bg-white/50 border-b-4 mr-[1px] border-stone-600 backdrop-blur-md max-h-[calc(100%-80px)]">
           {isAuth && (
             <div className="mt-5 px-5 flex items-start text-xs gap-2 text-stone-600 bg-yellow-300 py-4 rounded-md">
               <span className="size-5 block">
