@@ -46,7 +46,7 @@ const WarrantyActivated = ({ onClose, data }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 w-full text-sm text-right">
+      <div className="lg:grid lg:grid-cols-2 w-full text-sm text-right">
         <Info label="وضعیت">{renderStatus(data?.status)}</Info>
         <Info label="نام دستگاه">{data?.productName}</Info>
         <Info label="دسته بندی">{data?.categoryName}</Info>
@@ -79,7 +79,7 @@ const WarrantyActivated = ({ onClose, data }) => {
 
 const Info = ({ cStyle = '', label, children }) => (
   <div className={`${cStyle} border-b border-gray-200 flex items-center`}>
-    <div className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
+    <div className="w-36 px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 text-right">
       {label}
     </div>
     <div className="px-6 py-4 text-right whitespace-nowrap">{children}</div>
