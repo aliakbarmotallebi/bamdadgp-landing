@@ -57,7 +57,7 @@ const WarrantyActivated = ({ onClose, data }) => {
         <Info label="تاریخ اتمام گارانتی">{data?.expireDate}</Info>
         <Info cStyle="col-span-2" label="توضیحات">
           {/* {data.contractNumber} */}
-          <p>
+          <p className="w-full text-wrap text-justify">
             محاسبه تاریخ شروع قرارداد برای فروش در مارکت پلیس ها(دیجی کالا، اسنپ
             شاپ، باسلام، تکنولایف و...) طبق فاکتور و برای فروش متفرقه طبق تاریخ
             درج شده روی لیبل گارانتی می باشد.
