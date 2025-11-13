@@ -14,7 +14,7 @@ export default function Navbar() {
       </div>
       <section className="sticky top-0 z-40 px-4 lg:px-0">
         <div className="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 -z-10"></div>
-        <header className="w-full relative top-0 z-50">
+        <header className="w-full relative top-2 z-50">
           <nav className="w-full start-0 top-0 lg:bg-white/30 bg-white/50 px-4 backdrop-blur-lg">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
               <Logo />
