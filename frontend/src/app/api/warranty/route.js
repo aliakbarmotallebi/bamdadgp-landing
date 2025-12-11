@@ -39,9 +39,9 @@ export async function POST(Request) {
     const response = await axios.post(
       `${API_URL}/warranty/verify`,
       {
-        serialNumber: data.serialNumber,
-        fullName: data.fullName,
-        phoneNumber: data.phoneNumber,
+        serialNumber: body.serialNumber,
+        fullName: body.fullName,
+        phoneNumber: body.phoneNumber,
       },
       {
         timeout: 4000,

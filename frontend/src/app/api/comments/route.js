@@ -11,9 +11,10 @@ if (!API_URL || !API_URL.startsWith('https://')) {
 
 const CommentSchema = z.object({
   data: z.object({
-    content: z.string().min(1).max(1500),
-    author: z.string().min(1).max(100),
-    product: z.string().min(1),
+    comment_full_name: z.string().min(3).max(128),
+    comment_subject: z.string().min(6).max(256),
+    comment_body: z.string().min(1).max(1500),
+    product: z.number().min(1),
   }),
 })
 
@@ -48,6 +49,7 @@ export async function POST(Request) {
         },
       }
     )
+
     return NextResponse.json(response.data, { status: 201 })
   } catch (error) {
     if (error.response) {
