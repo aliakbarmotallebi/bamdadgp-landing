@@ -1,5 +1,5 @@
 # Use Node.js base image
-FROM node:18-bullseye
+FROM node:20.9-bullseye
 
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
@@ -18,8 +18,11 @@ RUN npm ci
 # Copy the project files
 COPY . .
 
+# Build Next.js app for production
+RUN npm run build
+
 # Expose default Next.js port
 EXPOSE 3000
 
 # Start the Next.js server
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
