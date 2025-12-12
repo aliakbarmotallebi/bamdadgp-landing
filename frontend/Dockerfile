@@ -18,11 +18,8 @@ RUN npm ci
 # Copy the project files
 COPY . .
 
-# Build Next.js app for production
-RUN npm run build
-
 # Expose default Next.js port
 EXPOSE 3000
 
 # Start the Next.js server
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
