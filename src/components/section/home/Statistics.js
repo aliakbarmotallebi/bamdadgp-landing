@@ -31,7 +31,7 @@ export default function Statistics() {
           <div className="mb-8 flex max-w-3xl flex-col gap-3 lg:mb-12">
             <p className="text-sm font-medium text-amber-700">چرا بامداد؟</p>
             <h2 className="text-2xl font-bold leading-snug text-neutral-900 lg:text-3xl">
-              گروه تجاری بامداد، پیشرو در ارائه انواع محصولات برقی و قطعات
+              کوشا الکتریک بامداد، پیشرو در ارائه انواع محصولات برقی و قطعات
             </h2>
             <p className="text-base font-medium leading-8 text-neutral-600 lg:text-lg">
               همراه شماییم برای تجربه شروعی مطمئن در خرید انواع محصولات با
@@ -42,20 +42,22 @@ export default function Statistics() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {/* Column 1 */}
             <div className="flex flex-col gap-5 lg:gap-6">
-              <div className={`${card} space-y-3 py-6`}>
+              <div className={`${card} py-6`}>
                 <div className="pointer-events-none absolute inset-0 z-20 flex">
                   <div className="w-1/4 bg-gradient-to-l from-white to-transparent" />
                   <div className="flex-1" />
                   <div className="w-1/4 bg-gradient-to-r from-white to-transparent" />
                 </div>
-                <div className="relative z-10 mb-1 px-5">
+                <div className="relative z-10 mb-4 px-5">
                   <p className="text-xs font-semibold tracking-wide text-neutral-400">
                     دسته‌بندی محصولات
                   </p>
                 </div>
-                <Marquee direction="ltr" speed={0.25} />
-                <Marquee direction="rtl" speed={0.25} />
-                <Marquee direction="ltr" speed={0.25} />
+                <div className="relative z-10 flex flex-col gap-3.5">
+                  <Marquee direction="ltr" speed={0.25} />
+                  <Marquee direction="rtl" speed={0.25} />
+                  <Marquee direction="ltr" speed={0.25} />
+                </div>
               </div>
 
               <article className={`${card} px-6 py-8 sm:px-8`}>
@@ -211,7 +213,7 @@ export default function Statistics() {
                   </svg>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-neutral-900">گروه تجاری بامداد</p>
+                  <p className="font-bold text-neutral-900">کوشا الکتریک بامداد</p>
                   <p className="mt-1 text-sm text-neutral-500">
                     کیفیت، گارانتی و خدمات واقعی
                   </p>

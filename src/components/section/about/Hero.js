@@ -17,7 +17,7 @@ export default function Hero({ aboutTitle, aboutSlug }) {
         <div className="flex justify-center md:col-span-6 md:justify-end lg:col-span-5">
           <img
             src="/assets/images/about-hero.png?v=2"
-            alt="درباره گروه تجاری بامداد"
+            alt="درباره کوشا الکتریک بامداد"
             className="h-auto max-h-80 w-full max-w-md object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.08)]"
           />
         </div>

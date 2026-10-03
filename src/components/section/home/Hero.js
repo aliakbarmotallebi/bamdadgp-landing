@@ -190,10 +190,10 @@ export default function Hero() {
             خدماتی برای فردایی بهتر
           </p>
           <h1 className="mt-3 text-4xl font-extrabold leading-[1.15] tracking-tight text-neutral-900 md:text-5xl lg:text-6xl">
-            گروه تجاری بامداد
+            کوشا الکتریک بامداد
           </h1>
           <p className="mt-5 max-w-2xl text-base font-medium leading-8 text-neutral-600 md:text-lg md:leading-9">
-            در گروه تجاری بامداد با مجموعه‌ای از بهترین محصولات، کیفیت و نوآوری
+            در کوشا الکتریک بامداد با مجموعه‌ای از بهترین محصولات، کیفیت و نوآوری
             را به خانه شما می‌آوریم. از خرید تا پشتیبانی، همراهتان هستیم.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">

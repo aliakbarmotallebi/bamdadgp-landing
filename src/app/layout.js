@@ -4,9 +4,9 @@ import Footer from '@/components/Footer'
 import Fab from '@/components/Fab'
 
 export const metadata = {
-  title: 'گروه تجاری بامداد',
+  title: 'کوشا الکتریک بامداد',
   description:
-    'گروه تجاری بامداد یک فروشگاه لوازم خانگی همراه با سرویس خدمات پس فروش',
+    'کوشا الکتریک بامداد یک فروشگاه لوازم خانگی همراه با سرویس خدمات پس فروش',
   authors: [
     { name: 'Hamid Kamyab - hamidkamyab.ir' },
     { name: 'Aliakbar Motallebi' },

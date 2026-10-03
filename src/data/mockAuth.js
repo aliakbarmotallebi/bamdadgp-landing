@@ -115,7 +115,7 @@ export function mockActivateWarranty({ serialNumber, fullName, phoneNumber }) {
     message: 'گارانتی با موفقیت فعال شد',
     data: {
       status: 'STATUS_CONFIRMED',
-      productName: 'محصول گروه تجاری بامداد',
+      productName: 'محصول کوشا الکتریک بامداد',
       categoryName: 'لوازم خانگی',
       fullName,
       phoneNumber,

@@ -88,17 +88,17 @@ export default function Marquee({ direction = 'ltr', speed = 1 }) {
   }, [])
 
   return (
-    <div className="overflow-hidden w-full h-10 relative !m-0">
+    <div className="relative h-11 w-full overflow-hidden">
       <ul
         ref={marqueeRef}
         className={`${
           direction === 'ltr' ? 'right-0' : 'left-0'
-        } flex gap-4 whitespace-nowrap absolute h-full`}
+        } absolute flex h-full items-center gap-3 whitespace-nowrap`}
       >
         {[...items, ...items].map((item, idx) => (
           <li
             key={idx}
-            className="min-w-16 whitespace-nowrap rounded-full bg-neutral-50 px-3.5 py-2.5 text-center text-xs font-semibold text-neutral-700 ring-1 ring-neutral-200/80"
+            className="min-w-16 whitespace-nowrap rounded-full bg-neutral-50 px-3.5 py-2 text-center text-xs font-semibold text-neutral-700 ring-1 ring-neutral-200/80"
           >
             {item}
           </li>

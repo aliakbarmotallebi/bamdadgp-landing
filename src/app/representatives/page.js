@@ -2,9 +2,9 @@ import Hero from '@/components/section/representatives/Hero'
 import Plans from '@/components/section/representatives/Plans'
 
 export const metadata = {
-  title: 'نمایندگان | گروه تجاری بامداد',
+  title: 'مراکز خدمات | کوشا الکتریک بامداد',
   description:
-    'فهرست نمایندگان و تعمیرگاه‌های مجاز کوشا الکتریک و بامداد سرویس.',
+    'فهرست مراکز خدمات کوشا الکتریک بامداد و بامداد سرویس.',
 }
 
 export default function Representatives() {

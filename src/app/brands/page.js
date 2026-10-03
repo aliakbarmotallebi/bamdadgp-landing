@@ -2,8 +2,8 @@ import { Routes } from '@/route/routes'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'برندها | گروه تجاری بامداد',
-  description: 'برندهای همکار گروه تجاری بامداد و فروشگاه بامداد.',
+  title: 'برندها | کوشا الکتریک بامداد',
+  description: 'برندهای همکار کوشا الکتریک بامداد و فروشگاه بامداد.',
 }
 
 const brands = [
@@ -64,7 +64,7 @@ export default function Brands() {
           <div className="flex justify-center md:col-span-5 md:justify-end">
             <img
               src="/assets/images/brands-hero.png?v=2"
-              alt="برندهای گروه تجاری بامداد"
+              alt="برندهای کوشا الکتریک بامداد"
               className="h-auto max-h-80 w-full max-w-md object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.08)]"
             />
           </div>

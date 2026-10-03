@@ -1,6 +1,9 @@
 export default function Hero({ data }) {
   const phone = data?.contact_telephone || '۰۲۱-۶۶۴۲۹۵۳۵'
-  const telHref = `tel:${phone.replace(/[^\d+]/g, '')}`
+  const telDigits = phone
+    .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+    .replace(/\D/g, '')
+  const telHref = telDigits ? `tel:${telDigits}` : '#'
 
   return (
     <section className="relative mx-auto max-w-screen-xl px-4 pb-10 pt-12 lg:px-0 lg:pt-16">

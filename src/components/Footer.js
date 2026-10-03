@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import { mockContact } from '@/data/mockContent'
 import { Routes } from '@/route/routes'
 import Link from 'next/link'
@@ -21,14 +22,39 @@ const footerLinks = [
 
 function ContactIcon({ children }) {
   return (
-    <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
+    <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
       {children}
     </span>
   )
 }
 
+function ContactRow({ href, children, icon }) {
+  const content = (
+    <>
+      <ContactIcon>{icon}</ContactIcon>
+      <span className="min-w-0 pt-1 text-sm leading-7 text-neutral-700">
+        {children}
+      </span>
+    </>
+  )
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className="flex items-start gap-3 transition hover:text-amber-800"
+      >
+        {content}
+      </a>
+    )
+  }
+
+  return <div className="flex items-start gap-3">{content}</div>
+}
+
 export default function Footer() {
   const data = mockContact.data
+  const [contactOpen, setContactOpen] = useState(false)
 
   return (
     <footer className="relative mt-12 w-full border-t border-neutral-200/80 bg-gradient-to-b from-white via-amber-50/30 to-amber-50/50">
@@ -51,86 +77,120 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-4">
-          <h2 className="text-lg font-bold text-neutral-900">
-            با ما در تماس باشید
-          </h2>
-          <ul className="mt-5 space-y-4 text-sm text-neutral-700">
-            <li className="flex items-start gap-3">
-              <ContactIcon>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                >
-                  <circle cx="12" cy="10" r="3" />
-                  <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8" />
-                </svg>
-              </ContactIcon>
-              <p className="leading-7">{data.contact_address}</p>
-            </li>
-            <li className="flex items-start gap-3">
-              <ContactIcon>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                >
-                  <path d="M4 7h16v12H4zM8 7V5a4 4 0 0 1 8 0v2" />
-                </svg>
-              </ContactIcon>
-              <p className="leading-7">
-                کدپستی:
-                <span className="mr-1 font-medium">{data.contact_postal_code}</span>
-              </p>
-            </li>
-            <li className="flex items-start gap-3">
-              <ContactIcon>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </ContactIcon>
-              <a
-                href="tel:02166429535"
-                className="leading-7 transition hover:text-amber-800"
+          <div className="rounded-2xl border border-neutral-200/80 bg-white/70">
+            <button
+              type="button"
+              onClick={() => setContactOpen(open => !open)}
+              aria-expanded={contactOpen}
+              className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-start"
+            >
+              <span className="text-sm font-semibold text-neutral-800">
+                با ما در تماس باشید
+              </span>
+              <svg
+                viewBox="0 0 24 24"
+                className={`size-4 shrink-0 text-neutral-400 transition-transform duration-200 ${
+                  contactOpen ? 'rotate-180' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden
               >
-                {data.contact_telephone}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <ContactIcon>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                >
-                  <path d="M4 6h16v12H4z" />
-                  <path d="m4 7 8 6 8-6" />
-                </svg>
-              </ContactIcon>
-              <a
-                href={`mailto:${data.contact_email}`}
-                className="leading-7 transition hover:text-amber-800"
-              >
-                {data.contact_email}
-              </a>
-            </li>
-          </ul>
+                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+
+            <div
+              className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                contactOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <ul className="space-y-3 border-t border-neutral-100 px-4 pb-4 pt-3">
+                  <li>
+                    <ContactRow
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        >
+                          <circle cx="12" cy="10" r="3" />
+                          <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8" />
+                        </svg>
+                      }
+                    >
+                      {data.contact_address}
+                    </ContactRow>
+                  </li>
+                  <li>
+                    <ContactRow
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        >
+                          <path d="M4 7h16v12H4zM8 7V5a4 4 0 0 1 8 0v2" />
+                        </svg>
+                      }
+                    >
+                      کدپستی:
+                      <span className="mr-1 font-medium">
+                        {data.contact_postal_code}
+                      </span>
+                    </ContactRow>
+                  </li>
+                  <li>
+                    <ContactRow
+                      href="tel:02166429535"
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        >
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                      }
+                    >
+                      {data.contact_telephone}
+                    </ContactRow>
+                  </li>
+                  <li>
+                    <ContactRow
+                      href={`mailto:${data.contact_email}`}
+                      icon={
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="size-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        >
+                          <path d="M4 6h16v12H4z" />
+                          <path d="m4 7 8 6 8-6" />
+                        </svg>
+                      }
+                    >
+                      {data.contact_email}
+                    </ContactRow>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="lg:col-span-4">
@@ -201,11 +261,11 @@ export default function Footer() {
         <div className="mx-auto flex max-w-screen-xl flex-col items-start justify-between gap-3 px-5 py-4 text-xs text-neutral-500 sm:flex-row sm:items-center lg:px-4 lg:text-sm">
           <p>
             <Link href={Routes.home} className="font-medium text-neutral-700">
-              گروه تجاری بامداد
+              کوشا الکتریک بامداد
             </Link>
             {' '}
-            - پلتفرم برتر تجاری © ۲۰۲۴. تمامی حقوق متعلق به شرکت
-            <span className="text-primary-500"> کوشا الکتریک </span>
+            - پلتفرم برتر تجاری © ۲۰۲۴. تمامی حقوق متعلق به
+            <span className="text-primary-500"> کوشا الکتریک بامداد </span>
             است.
           </p>
           <a

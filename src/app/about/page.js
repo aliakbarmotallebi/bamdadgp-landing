@@ -3,8 +3,8 @@ import Hero from '@/components/section/about/Hero'
 import { mockAbout } from '@/data/mockContent'
 
 export const metadata = {
-  title: 'درباره ما | گروه تجاری بامداد',
-  description: 'درباره گروه تجاری بامداد و تاریخچه و خدمات آن.',
+  title: 'درباره ما | کوشا الکتریک بامداد',
+  description: 'درباره کوشا الکتریک بامداد و تاریخچه و خدمات آن.',
 }
 
 export default function About() {

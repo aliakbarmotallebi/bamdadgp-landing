@@ -1,10 +1,10 @@
 export const representatives = [
   {
-    name: 'فروشگاه کوشا مرکز خدمات',
+    name: 'مرکز خدمات (فروشگاه کوشا)',
     province: 'تهران',
     city: 'تهران',
     mobile: '',
-    phone: '02166414136',
+    phone: '021-66414136',
     manager: 'رضا عبدالهی',
     address:
       'خیابان جمهوری، مابین خیابان فلسطین و ولیعصر، پلاک ۹۶۲، فروشگاه کوشا',
@@ -24,7 +24,7 @@ export const representatives = [
     province: 'البرز',
     city: 'کرج',
     mobile: '09352123015',
-    phone: '3134984558',
+    phone: '031-34984558',
     manager: 'علی محمد حسن زاده',
     address:
       'کرج، خیابان فاطمیه، خیابان شهید دکتر بهشتی، ساختمان امیری، طبقه یک، واحد ۶۰',
@@ -34,7 +34,7 @@ export const representatives = [
     province: 'گیلان',
     city: 'رشت',
     mobile: '09111320596',
-    phone: '4153678789',
+    phone: '041-53678789',
     manager: 'محمد یوسفی',
     address: 'رشت، خیابان سعدی، بازار روز، پلاک ۴۷، خدمات فنی دارا',
   },
@@ -43,7 +43,7 @@ export const representatives = [
     province: 'لرستان',
     city: 'دورود',
     mobile: '09124801564',
-    phone: '6881887639',
+    phone: '068-81887639',
     manager: 'عقیل نیک آبادی',
     address: 'دورود، ۴۵ متری، فروشگاه نیک',
   },
