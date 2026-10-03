@@ -1,8 +1,8 @@
 # BamdadGP Web — Deploy & Runner CLI
 
 Repo: `https://github.com/aliakbarmotallebi/bamdadgp-landing.git`  
-Server deploy path: `/opt/www/bamdadgp-landing`  
-Runner host: `server3` (self-hosted Linux x64)
+Runner host: `server3` (self-hosted Linux x64)  
+Persistent env (outside runner workspace): `/opt/www/bamdadgp-landing/.env`
 
 ---
 
@@ -65,27 +65,28 @@ GitHub → **Settings → Actions → Runners** should show `server3` as **Idle*
 
 ---
 
-## 2) One-time server prep before first deploy
+## 2) One-time: persistent `.env` on the server
 
-Stop the old landing stack if it is still running (frees ports 80/443):
+Runner workspace (`_work/...`) is cleaned every job. Keep secrets **outside** it.
+
+Stop the old stack if needed (frees ports 80/443):
 
 ```bash
 cd /opt/www/bamdadgp-landing
 docker compose down || true
-
-# if an older external Traefik still owns 80/443:
 docker ps --format '{{.Names}}\t{{.Ports}}' | grep -E '80|443' || true
 ```
 
-Create deploy dir + `.env` (never commit this file):
+Create the persistent env file once:
 
 ```bash
 mkdir -p /opt/www/bamdadgp-landing
-cp /path/to/.env.docker.example /opt/www/bamdadgp-landing/.env
 nano /opt/www/bamdadgp-landing/.env
+chown runner:runner /opt/www/bamdadgp-landing/.env
+chmod 600 /opt/www/bamdadgp-landing/.env
 ```
 
-Minimum keys:
+Minimum keys (see also `.env.docker.example`):
 
 ```env
 APP_HOST=www.bamdadgp.com
@@ -96,60 +97,52 @@ API_BASE_URL=
 SELLER_URL=
 ```
 
-Give the runner user write access:
-
-```bash
-chown -R runner:runner /opt/www/bamdadgp-landing
-```
-
 DNS for `bamdadgp.com` and `www.bamdadgp.com` must point to this server. Port **80** must be open for Let's Encrypt HTTP challenge.
 
 ---
 
-## 3) Push this project to the old GitHub repo (local)
+## 3) How deploy works (no rsync)
 
-From the `bamdadgp-web` project root:
+On every push to `main`, the self-hosted runner:
 
-```bash
-cd /Users/aliakbarmotallebi/Desktop/Projects/bamdadgp-web
+1. checks out the repo into its workspace  
+2. copies `/opt/www/bamdadgp-landing/.env` → `.env` in that workspace  
+3. runs `docker compose up -d --build` **in the workspace**
 
-git init
-git add .
-git commit -m "Replace landing stack with bamdadgp-web (Next.js + Traefik SSL)"
-
-git branch -M main
-git remote add origin https://github.com/aliakbarmotallebi/bamdadgp-landing.git
-# if remote already exists:
-# git remote set-url origin https://github.com/aliakbarmotallebi/bamdadgp-landing.git
-
-# Replaces previous landing history/files on main
-git push -u origin main --force
-```
-
-After push, workflow `.github/workflows/deploy.yml` runs on the **self-hosted** runner and:
-
-1. checks out the repo  
-2. rsyncs into `/opt/www/bamdadgp-landing` (keeps existing `.env`)  
-3. runs `docker compose up -d --build`
+The persistent `.env` is never deleted or overwritten by git/checkout.
 
 Manual re-run: GitHub → **Actions → Deploy → Run workflow**.
 
 ---
 
-## 4) Useful server commands after deploy
+## 4) Push from local
 
 ```bash
-cd /opt/www/bamdadgp-landing
-docker compose ps
-docker compose logs -f --tail=200 web
-docker compose logs -f --tail=200 traefik
+cd /Users/aliakbarmotallebi/Desktop/Projects/bamdadgp-web
+
+git add .
+git commit -m "Your message"
+git push origin main
 ```
 
-Rebuild manually:
+---
+
+## 5) Useful server commands
+
+Logs (container names from compose):
 
 ```bash
-cd /opt/www/bamdadgp-landing
-docker compose up -d --build --remove-orphans
+docker compose -f /opt/actions-runner/_work/bamdadgp-landing/bamdadgp-landing/docker-compose.yml ps
+# easier: find running containers
+docker ps --filter name=bamdadgp
+docker logs -f --tail=200 bamdadgp-web
+docker logs -f --tail=200 bamdadgp-traefik
+```
+
+Edit env anytime (then re-run the workflow or compose again):
+
+```bash
+nano /opt/www/bamdadgp-landing/.env
 ```
 
 ---
@@ -158,4 +151,4 @@ docker compose up -d --build --remove-orphans
 
 - Traefik has **no dashboard subdomain**; it only terminates SSL for `APP_HOST` / `APP_HOST_ALT`.
 - Old Strapi (`api.bamdadgp.com`) is not part of this stack.
-- `.env` stays only on the server; workflow never overwrites it.
+- Never commit `.env`. Only `/opt/www/bamdadgp-landing/.env` is the source of truth on the server.

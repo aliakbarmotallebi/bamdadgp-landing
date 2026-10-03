@@ -10,35 +10,26 @@ jobs:
     runs-on: self-hosted
 
     env:
-      PROJECT_DIR: /opt/www/bamdadgp-landing
+      # Persistent on the server — never overwritten by checkout
+      ENV_FILE: /opt/www/bamdadgp-landing/.env
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Sync code to project dir
+      - name: Load persistent .env
         run: |
           set -euo pipefail
-          mkdir -p "$PROJECT_DIR"
-          rsync -a --delete \
-            --exclude '.git' \
-            --exclude '.env' \
-            --exclude 'node_modules' \
-            --exclude '.next' \
-            ./ "$PROJECT_DIR/"
-
-      - name: Ensure .env exists
-        run: |
-          set -euo pipefail
-          if [ ! -f "$PROJECT_DIR/.env" ]; then
-            echo "::error::Missing $PROJECT_DIR/.env — create it once on the server (see .env.docker.example)"
+          if [ ! -f "$ENV_FILE" ]; then
+            echo "::error::Missing $ENV_FILE — create it once on the server (see .env.docker.example)"
             exit 1
           fi
+          cp "$ENV_FILE" .env
+          chmod 600 .env
 
       - name: Docker Compose up
         run: |
           set -euo pipefail
-          cd "$PROJECT_DIR"
 
           if docker compose version &>/dev/null; then
             COMPOSE="docker compose"
