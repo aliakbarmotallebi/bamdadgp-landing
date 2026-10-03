@@ -86,15 +86,12 @@ chown runner:runner /opt/www/bamdadgp-landing/.env
 chmod 600 /opt/www/bamdadgp-landing/.env
 ```
 
-Minimum keys (see also `.env.docker.example`):
+Minimum keys (see also `.env.docker.example`) — mock site, no API vars:
 
 ```env
 APP_HOST=www.bamdadgp.com
 APP_HOST_ALT=bamdadgp.com
 ACME_EMAIL=info@bamdadgp.com
-NEXT_PUBLIC_BASE_URL=
-API_BASE_URL=
-SELLER_URL=
 ```
 
 DNS for `bamdadgp.com` and `www.bamdadgp.com` must point to this server. Port **80** must be open for Let's Encrypt HTTP challenge.
