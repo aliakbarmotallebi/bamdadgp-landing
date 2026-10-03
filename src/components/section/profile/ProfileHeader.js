@@ -8,7 +8,7 @@ export default function ProfileHeader({
   return (
     <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <p className="text-sm font-medium text-amber-700">کوشا الکتریک بامداد</p>
+        <p className="text-sm font-medium text-amber-700">گروه تجاری بامداد</p>
         <h1 className="mt-1 text-2xl font-extrabold text-neutral-900 md:text-3xl">
           {title}
         </h1>

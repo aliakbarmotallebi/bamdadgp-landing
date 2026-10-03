@@ -4,8 +4,8 @@ import MessageForm from '@/components/section/contact/MessageForm'
 import { mockContact } from '@/data/mockContent'
 
 export const metadata = {
-  title: 'تماس با ما | کوشا الکتریک بامداد',
-  description: 'راه‌های ارتباط با کوشا الکتریک بامداد.',
+  title: 'تماس با ما | گروه تجاری بامداد',
+  description: 'راه‌های ارتباط با گروه تجاری بامداد.',
 }
 
 export default function Contact() {

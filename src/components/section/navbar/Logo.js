@@ -6,7 +6,7 @@ export default function Logo() {
     <Link
       href={Routes.home}
       className="inline-flex shrink-0 items-center transition hover:opacity-80"
-      aria-label="کوشا الکتریک بامداد"
+      aria-label="گروه تجاری بامداد"
     >
       <svg
         viewBox="0 0 14 16"

@@ -8,7 +8,9 @@ export default function Hero(){
                 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl"
               >
                 فرم انتقادات و پیشنهادات
-                <div>کوشا الکتریک بامداد</div>
+                <div className="mt-2 text-xl font-medium text-neutral-400 md:text-2xl">
+                  گروه تجاری بامداد
+                </div>
               </h1>
               <h6
                 className="text-gray-500 md:mb-12 md:text-lg mb-3 lg:mb-5 lg:text-xl"

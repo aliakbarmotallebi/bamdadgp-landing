@@ -5,9 +5,9 @@ import { getProducts } from '@/lib/products'
 import { paginationHandler } from '@/utils/paginationHandler'
 
 export const metadata = {
-  title: 'فروشگاه | کوشا الکتریک بامداد',
+  title: 'فروشگاه | گروه تجاری بامداد',
   description:
-    'خرید لوازم خانگی با گارانتی معتبر از فروشگاه کوشا الکتریک بامداد.',
+    'خرید لوازم خانگی با گارانتی معتبر از فروشگاه گروه تجاری بامداد.',
 }
 
 export default async function Store({ searchParams }) {

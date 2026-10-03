@@ -23,7 +23,8 @@ export function buildMockUser({ identifier, username, email } = {}) {
     mobile: '09121234567',
     telephone: '02166429535',
     gender: 'male',
-    address: 'تهران، خیابان ولیعصر',
+    address:
+      'خیابان جمهوری، مابین خیابان فلسطین و ولیعصر، پلاک ۹۶۲، فروشگاه کوشا',
     zip_code: '1435678910',
     province: 'تهران',
     national_code: '0012345678',

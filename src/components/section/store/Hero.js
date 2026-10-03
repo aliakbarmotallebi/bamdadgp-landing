@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="relative grid items-center gap-8 rounded-3xl border border-orange-900/10 bg-gradient-to-l from-amber-50 via-white to-orange-50/60 px-6 py-10 md:grid-cols-12 md:px-10 md:py-14">
         <div className="md:col-span-7">
           <p className="mb-3 text-sm font-medium text-amber-700">
-            فروشگاه رسمی کوشا الکتریک بامداد
+            فروشگاه رسمی گروه تجاری بامداد
           </p>
           <h1 className="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-neutral-900 md:text-5xl">
             خرید مطمئن لوازم خانگی

@@ -7,7 +7,7 @@ export default function Content({ aboutUs, whyUs }) {
       <div className="mx-auto max-w-7xl space-y-8 px-4 text-justify text-lg">
         <div className="rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm md:p-10">
           <h3 className="mb-5 text-2xl font-bold text-neutral-900 md:text-3xl">
-            درباره کوشا الکتریک بامداد
+            درباره گروه تجاری بامداد
           </h3>
           <div className="prose prose-neutral max-w-none leading-loose text-neutral-700">
             <ReactMarkdown>{aboutUs}</ReactMarkdown>

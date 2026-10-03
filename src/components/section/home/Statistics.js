@@ -29,9 +29,14 @@ export default function Statistics() {
 
         <div className="mx-auto w-full max-w-screen-xl">
           <div className="mb-8 flex max-w-3xl flex-col gap-3 lg:mb-12">
-            <p className="text-sm font-medium text-amber-700">چرا بامداد؟</p>
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="text-sm font-medium text-amber-700">چرا بامداد؟</p>
+              <span className="text-[11px] font-normal text-neutral-300">
+                کوشا الکتریک بامداد
+              </span>
+            </div>
             <h2 className="text-2xl font-bold leading-snug text-neutral-900 lg:text-3xl">
-              کوشا الکتریک بامداد، پیشرو در ارائه انواع محصولات برقی و قطعات
+              گروه تجاری بامداد، پیشرو در ارائه انواع محصولات برقی و قطعات
             </h2>
             <p className="text-base font-medium leading-8 text-neutral-600 lg:text-lg">
               همراه شماییم برای تجربه شروعی مطمئن در خرید انواع محصولات با
@@ -213,7 +218,7 @@ export default function Statistics() {
                   </svg>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-neutral-900">کوشا الکتریک بامداد</p>
+                  <p className="font-bold text-neutral-900">گروه تجاری بامداد</p>
                   <p className="mt-1 text-sm text-neutral-500">
                     کیفیت، گارانتی و خدمات واقعی
                   </p>

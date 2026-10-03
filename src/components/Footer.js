@@ -259,14 +259,16 @@ export default function Footer() {
 
       <div className="border-t border-neutral-200/80 bg-white/60">
         <div className="mx-auto flex max-w-screen-xl flex-col items-start justify-between gap-3 px-5 py-4 text-xs text-neutral-500 sm:flex-row sm:items-center lg:px-4 lg:text-sm">
-          <p>
+          <p className="text-neutral-500">
             <Link href={Routes.home} className="font-medium text-neutral-700">
-              کوشا الکتریک بامداد
+              گروه تجاری بامداد
             </Link>
             {' '}
-            - پلتفرم برتر تجاری © ۲۰۲۴. تمامی حقوق متعلق به
-            <span className="text-primary-500"> کوشا الکتریک بامداد </span>
-            است.
+            - پلتفرم برتر تجاری © ۲۰۲۴.
+            <span className="text-neutral-400">
+              {' '}
+              تمامی حقوق متعلق به کوشا الکتریک بامداد است.
+            </span>
           </p>
           <a
             href="#anchor"

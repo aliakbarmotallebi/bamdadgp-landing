@@ -186,14 +186,19 @@ export default function Hero() {
 
       <div className="relative mx-auto w-full max-w-screen-xl px-4 pb-12 pt-12 sm:px-8 md:pt-16 lg:px-0 lg:pb-24 lg:pt-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <p className="text-base font-medium text-amber-700 md:text-lg">
-            خدماتی برای فردایی بهتر
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <p className="text-base font-medium text-amber-700 md:text-lg">
+              خدماتی برای فردایی بهتر
+            </p>
+            <span className="text-[11px] font-normal text-neutral-300">
+              کوشا الکتریک بامداد
+            </span>
+          </div>
           <h1 className="mt-3 text-4xl font-extrabold leading-[1.15] tracking-tight text-neutral-900 md:text-5xl lg:text-6xl">
-            کوشا الکتریک بامداد
+            گروه تجاری بامداد
           </h1>
           <p className="mt-5 max-w-2xl text-base font-medium leading-8 text-neutral-600 md:text-lg md:leading-9">
-            در کوشا الکتریک بامداد با مجموعه‌ای از بهترین محصولات، کیفیت و نوآوری
+            در گروه تجاری بامداد با مجموعه‌ای از بهترین محصولات، کیفیت و نوآوری
             را به خانه شما می‌آوریم. از خرید تا پشتیبانی، همراهتان هستیم.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">

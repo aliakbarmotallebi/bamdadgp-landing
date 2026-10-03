@@ -71,7 +71,7 @@ export default function Info({ data }) {
   return (
     <div className="overflow-hidden rounded-3xl border border-neutral-200/80 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
       <div className="border-b border-neutral-100 px-5 py-5 md:px-6">
-        <p className="text-sm font-medium text-amber-700">کوشا الکتریک بامداد</p>
+        <p className="text-sm font-medium text-amber-700">گروه تجاری بامداد</p>
         <h2 className="mt-1 text-xl font-bold text-neutral-900">اطلاعات تماس</h2>
       </div>
 
