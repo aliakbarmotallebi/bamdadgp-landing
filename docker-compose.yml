@@ -1,0 +1,59 @@
+name: bamdadgp-web
+
+services:
+  traefik:
+    image: traefik:v2.11
+    container_name: bamdadgp-traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=traefik-proxy"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--certificatesresolvers.http.acme.email=${ACME_EMAIL:-info@bamdadgp.com}"
+      - "--certificatesresolvers.http.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.http.acme.httpchallenge.entrypoint=web"
+      - "--log.level=INFO"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    networks:
+      - traefik-proxy
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bamdadgp-web
+    restart: unless-stopped
+    depends_on:
+      - traefik
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+      NEXT_TELEMETRY_DISABLED: 1
+    networks:
+      - traefik-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-proxy"
+      - "traefik.http.routers.bamdadgp-web.rule=Host(`${APP_HOST:-www.bamdadgp.com}`) || Host(`${APP_HOST_ALT:-bamdadgp.com}`)"
+      - "traefik.http.routers.bamdadgp-web.entrypoints=websecure"
+      - "traefik.http.routers.bamdadgp-web.tls.certresolver=http"
+      - "traefik.http.services.bamdadgp-web.loadbalancer.server.port=3000"
+
+networks:
+  traefik-proxy:
+    name: traefik-proxy
+
+volumes:
+  traefik_letsencrypt:

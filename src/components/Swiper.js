@@ -1,0 +1,182 @@
+'use client'
+import { Routes } from '@/route/routes'
+import { imageUrl } from '@/utils/imageUrl'
+import Link from 'next/link'
+import React from 'react'
+
+export default function Swiper({ title, data }) {
+  const [w, setW] = React.useState(0)
+  const [swip, setSwip] = React.useState(1)
+  const [left, setLeft] = React.useState(0)
+  const wrapper = React.useRef(null)
+  const articles = React.useRef(null)
+
+  React.useEffect(() => {
+    setW(wrapper.current.clientWidth / 4)
+  }, [])
+
+  const handleNextSwip = () => {
+    const swipPage = Math.ceil(
+      articles?.current.scrollWidth / wrapper?.current.clientWidth
+    )
+    if (swipPage > swip) {
+      setLeft(wrapper?.current.clientWidth * swip)
+      setSwip(swip + 1)
+    }
+  }
+  const handlePrevSwip = () => {
+    if (swip > 1) {
+      setLeft(
+        wrapper?.current.clientWidth * (swip - 1) - wrapper?.current.clientWidth
+      )
+      setSwip(swip - 1)
+    }
+  }
+
+  return (
+    <section className="my-4 w-full">
+      <header className="flex justify-between border-t border-gray-200 py-6">
+        <div className="font-semibold text-xl text-orange-900">{title}</div>
+        <div className="flex gap-1">
+          <button
+            onClick={handlePrevSwip}
+            className="swiper-button-prev-products text-black border bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 font-medium rounded-full text-sm w-8 h-8 justify-center text-center inline-flex items-center me-2"
+            tabIndex="0"
+            aria-label="Previous slide"
+            aria-controls="swiper-wrapper-9c3a37910e1a8554c"
+          >
+            <svg
+              width="8"
+              height="12"
+              viewBox="0 0 8 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.5 11L6.5 6L1.5 1"
+                stroke="#111827"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </svg>
+          </button>
+          <button
+            onClick={handleNextSwip}
+            className="swiper-button-next-products text-black border bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 font-medium rounded-full text-sm w-8 h-8 justify-center text-center inline-flex items-center me-2 rotate-180"
+            tabIndex="0"
+            aria-label="Next slide"
+            aria-controls="swiper-wrapper-9c3a37910e1a8554c"
+          >
+            <svg
+              width="8"
+              height="12"
+              viewBox="0 0 8 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.5 11L6.5 6L1.5 1"
+                stroke="#111827"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+      <div ref={wrapper} className="w-full flex overflow-hidden">
+        {w && w > 0 ? (
+          <div
+            ref={articles}
+            style={{ left: left + 'px' }}
+            className="flex relative items-center transition-[left] duration-500 ease-in"
+          >
+            {data &&
+              data.map((item, index) => (
+                <article
+                  key={index}
+                  style={{ width: w && w > 0 ? w + 'px' : '50%' }}
+                  className="relative p-3 h-[400px]"
+                >
+                  <div className="flex h-full flex-col justify-around gap-3 rounded-2xl border border-gray-200 bg-white p-3 transition-all delay-200 hover:border-amber-300/50 hover:shadow-md">
+                    <div className="relative w-full">
+                      <figure className="flex h-44 w-full items-center justify-center overflow-hidden rounded-xl bg-stone-50">
+                        {item.product_image ? (
+                          <img
+                            className="h-full w-full object-contain p-2"
+                            src={imageUrl(item.product_image?.url)}
+                            alt={item.product_title}
+                          />
+                        ) : (
+                          <span className="block size-24 text-stone-400">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="size-full"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M19.937 14.218V5.564a1.5 1.5 0 0 0-1.5-1.5H7.809a.5.5 0 0 1 0-1h10.628a2.5 2.5 0 0 1 2.5 2.5v10.624a.5.5 0 0 1-1 .001v-.556l-4.583-4.584c-.456-.456.251-1.163.707-.707zm-.121 6.304a2.5 2.5 0 0 1-1.379.415H5.563a2.5 2.5 0 0 1-2.5-2.5V5.564c0-.51.153-.984.414-1.38l-.263-.263c-.456-.456.251-1.163.707-.707l.263.263l16.339 16.338l.263.263c.455.456-.252 1.163-.707.707zM8.712 9.419L6.711 7.418a1.5 1.5 0 0 0 2.001 2.001M5.979 6.686l-1.77-1.77a1.5 1.5 0 0 0-.146.648v10.717l1.926-1.926a1.5 1.5 0 0 1 2.122 0l.555.554a.497.497 0 0 0 .706 0l2.415-2.415l-2.343-2.343a2.5 2.5 0 0 1-3.465-3.465M4.063 17.695v.741a1.5 1.5 0 0 0 1.5 1.5h12.874c.232 0 .451-.052.647-.145l-6.59-6.59l-2.414 2.415a1.5 1.5 0 0 1-2.122 0l-.554-.554a.5.5 0 0 0-.708 0z"
+                              />
+                            </svg>
+                          </span>
+                        )}
+                      </figure>
+                    </div>
+                    <div className="text-sm font-medium text-gray-500 text-justify">
+                      <Link href={Routes.product + '/' + item.product_slug}>
+                        <h3>{item.product_title}</h3>
+                      </Link>
+                    </div>
+                    <div>
+                      <h3 className="w-full pt-4 text-right text-base font-semibold">
+                        {Number(item.product_price).toLocaleString('fa-IR')}{' '}
+                        تومان
+                      </h3>
+                    </div>
+                    <Link
+                      href={Routes.product + '/' + item.product_slug}
+                      className="mt-4 block w-full rounded-xl bg-neutral-900 py-2.5 text-center text-sm font-semibold text-white hover:opacity-90"
+                    >
+                      مشاهده محصول
+                    </Link>
+                  </div>
+                </article>
+              ))}
+          </div>
+        ) : (
+          <div className="grid min-h-[140px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
+            <div className="flex items-end gap-8">
+              <svg
+                className="w-12 h-12 text-gray-200 animate-spin"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+              >
+                <path
+                  d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                  stroke="currentColor"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+                <path
+                  d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                  stroke="currentColor"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-yellow-500"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

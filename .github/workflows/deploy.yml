@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    env:
+      PROJECT_DIR: /opt/www/bamdadgp-landing
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync code to project dir
+        run: |
+          set -euo pipefail
+          mkdir -p "$PROJECT_DIR"
+          rsync -a --delete \
+            --exclude '.git' \
+            --exclude '.env' \
+            --exclude 'node_modules' \
+            --exclude '.next' \
+            ./ "$PROJECT_DIR/"
+
+      - name: Ensure .env exists
+        run: |
+          set -euo pipefail
+          if [ ! -f "$PROJECT_DIR/.env" ]; then
+            echo "::error::Missing $PROJECT_DIR/.env — create it once on the server (see .env.docker.example)"
+            exit 1
+          fi
+
+      - name: Docker Compose up
+        run: |
+          set -euo pipefail
+          cd "$PROJECT_DIR"
+
+          if docker compose version &>/dev/null; then
+            COMPOSE="docker compose"
+          elif command -v docker-compose &>/dev/null; then
+            COMPOSE="docker-compose"
+          else
+            echo "::error::Docker Compose is not installed"
+            exit 1
+          fi
+
+          $COMPOSE -f docker-compose.yml up -d --build --remove-orphans

@@ -1,0 +1,24 @@
+import { NextResponse } from 'next/server'
+import { Routes } from '@/route/routes'
+
+const protectedRoutes = [Routes.checkout]
+
+const authRoutes = [Routes.login, Routes.register]
+
+export async function middleware(request) {
+  const path = request.nextUrl.pathname
+  const isProtectedRoute = protectedRoutes.includes(path)
+  const isAuthRoute = authRoutes.includes(path)
+
+  const cookie = request.cookies.has('token')
+
+  if (isProtectedRoute && !cookie) {
+    return NextResponse.redirect(new URL(Routes.login, request.nextUrl))
+  }
+
+  if (isAuthRoute && cookie) {
+    return NextResponse.redirect(new URL(Routes.home, request.nextUrl))
+  }
+
+  return NextResponse.next()
+}

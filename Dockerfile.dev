@@ -1,0 +1,19 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=development
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
+
+RUN apk add --no-cache libc6-compat
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev", "--", "-H", "0.0.0.0", "-p", "3000"]
