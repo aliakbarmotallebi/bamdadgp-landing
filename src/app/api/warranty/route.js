@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 
@@ -37,44 +36,39 @@ export async function POST(Request) {
       )
     }
 
-    const response = await axios.post(
-      `${API_URL}/warranty/verify`,
-      {
-        serialNumber: body.serialNumber,
-        fullName: body.fullName,
-        phoneNumber: body.phoneNumber,
+    const response = await fetch(`${API_URL}/warranty/verify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
-      {
-        timeout: 8000,
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      }
-    )
-    return NextResponse.json(response.data, { status: 200 })
-  } catch (error) {
-    if (error.response) {
+      body: JSON.stringify({
+        serialNumber: data.data.serialNumber,
+        fullName: data.data.fullName,
+        phoneNumber: data.data.phoneNumber,
+      }),
+      signal: AbortSignal.timeout(8000),
+      cache: 'no-store',
+    })
+
+    const payload = await response.json().catch(() => null)
+
+    if (!response.ok) {
       return NextResponse.json(
         {
           error:
-            error.response.data?.message ||
-            error.response.data?.error ||
+            payload?.message ||
+            payload?.error ||
             'مشکلی در ارتباط با API پیش آمد',
         },
-        { status: error.response.status || 500 }
+        { status: response.status || 500 }
       )
     }
 
-    if (error.request) {
-      return NextResponse.json(
-        { error: 'درخواست به سرور ارسال نشد. لطفاً اتصال خود را بررسی کنید.' },
-        { status: 500 }
-      )
-    }
-
+    return NextResponse.json(payload, { status: 200 })
+  } catch (error) {
     return NextResponse.json(
-      { error: 'خطای غیرمنتظره‌ای پیش آمد. لطفاً دوباره تلاش کنید.' },
+      { error: 'درخواست به سرور ارسال نشد. لطفاً اتصال خود را بررسی کنید.' },
       { status: 500 }
     )
   }

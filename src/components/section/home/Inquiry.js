@@ -1,6 +1,5 @@
 'use client'
 
-import axios from 'axios'
 import React from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import WarrantyActivated from './WarrantyActivated'
@@ -75,22 +74,29 @@ export default function Inquiry() {
     setLoading(true)
 
     try {
-      const response = await axios.post('/api/warranty', {
-        serialNumber: serialNumber.trim(),
-        fullName: fullName.trim(),
-        phoneNumber: phoneNumber.trim(),
+      const response = await fetch('/api/warranty', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          serialNumber: serialNumber.trim(),
+          fullName: fullName.trim(),
+          phoneNumber: phoneNumber.trim(),
+        }),
       })
+      const result = await response.json().catch(() => null)
 
-      if (response?.data?.success) {
+      if (!response.ok) {
+        toast.error(result?.error || 'خطا در ارتباط با سرور')
+      } else if (result?.success) {
         toast.success('گارانتی با موفقیت فعال شد!')
-        setWarrantyData(response.data?.data)
+        setWarrantyData(result.data)
         setIsShow(true)
       } else {
-        toast.error(response?.data?.message || 'مشکلی پیش آمده است!')
+        toast.error(result?.message || 'مشکلی پیش آمده است!')
       }
     } catch (error) {
       console.error(error)
-      toast.error(error?.response?.data?.error || 'خطا در ارتباط با سرور')
+      toast.error('خطا در ارتباط با سرور')
     } finally {
       setLoading(false)
     }
