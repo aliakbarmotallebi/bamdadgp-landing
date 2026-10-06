@@ -103,30 +103,6 @@ export function mockUpdateProfile(updates) {
   return updated
 }
 
-export function mockActivateWarranty({ serialNumber, fullName, phoneNumber }) {
-  const start = new Date()
-  const expire = new Date()
-  expire.setFullYear(expire.getFullYear() + 1)
-
-  const formatFaDate = date =>
-    new Intl.DateTimeFormat('fa-IR').format(date)
-
-  return {
-    success: true,
-    message: 'گارانتی با موفقیت فعال شد',
-    data: {
-      status: 'STATUS_CONFIRMED',
-      productName: 'محصول کوشا الکتریک بامداد',
-      categoryName: 'لوازم خانگی',
-      fullName,
-      phoneNumber,
-      serialNumber,
-      startDate: formatFaDate(start),
-      expireDate: formatFaDate(expire),
-    },
-  }
-}
-
 export function mockSubmitComment(data) {
   return {
     data: {

@@ -1,47 +1,107 @@
 'use client'
 
-import { mockActivateWarranty } from '@/data/mockAuth'
+import axios from 'axios'
 import React from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import WarrantyActivated from './WarrantyActivated'
+
+const persianNameRegex = /^[\u0600-\u06FF\s‌]+$/
+const iranMobileRegex = /^09\d{9}$/
+
+const emptyErrors = {
+  fullName: '',
+  phoneNumber: '',
+  serialNumber: '',
+}
+
+function validateWarrantyForm({ fullName, phoneNumber, serialNumber }) {
+  const errors = { ...emptyErrors }
+  const name = fullName.trim()
+  const phone = phoneNumber.trim()
+  const serial = serialNumber.trim()
+
+  if (!name) {
+    errors.fullName = 'نام و نام خانوادگی الزامی است.'
+  } else if (name.length <= 3) {
+    errors.fullName = 'نام باید بیشتر از ۳ حرف باشد.'
+  } else if (!persianNameRegex.test(name)) {
+    errors.fullName = 'نام باید فقط با حروف فارسی وارد شود.'
+  }
+
+  if (!phone) {
+    errors.phoneNumber = 'شماره موبایل الزامی است.'
+  } else if (!iranMobileRegex.test(phone)) {
+    errors.phoneNumber = 'شماره موبایل معتبر نیست. مثال: ۰۹۱۲xxxxxxx'
+  }
+
+  if (!serial) {
+    errors.serialNumber = 'شماره گارانتی الزامی است.'
+  } else if (serial.length < 3) {
+    errors.serialNumber = 'شماره گارانتی معتبر نیست.'
+  }
+
+  return errors
+}
 
 export default function Inquiry() {
   const [fullName, setFullName] = React.useState('')
   const [phoneNumber, setPhoneNumber] = React.useState('')
   const [serialNumber, setSerialNumber] = React.useState('')
+  const [errors, setErrors] = React.useState(emptyErrors)
   const [loading, setLoading] = React.useState(false)
   const [isShow, setIsShow] = React.useState(false)
   const [warrantyData, setWarrantyData] = React.useState(null)
 
+  const closeResult = React.useCallback(() => {
+    setIsShow(false)
+  }, [])
+
+  const clearError = field => {
+    setErrors(prev => (prev[field] ? { ...prev, [field]: '' } : prev))
+  }
+
   const onActivation = async () => {
-    if (!fullName || !phoneNumber || !serialNumber) {
-      toast.error('لطفاً همه‌ی فیلدها را پر کنید.')
+    const nextErrors = validateWarrantyForm({
+      fullName,
+      phoneNumber,
+      serialNumber,
+    })
+    setErrors(nextErrors)
+
+    if (Object.values(nextErrors).some(Boolean)) {
       return
     }
 
     setLoading(true)
 
     try {
-      const response = mockActivateWarranty({
-        serialNumber,
-        fullName,
-        phoneNumber,
+      const response = await axios.post('/api/warranty', {
+        serialNumber: serialNumber.trim(),
+        fullName: fullName.trim(),
+        phoneNumber: phoneNumber.trim(),
       })
 
-      if (response?.success) {
+      if (response?.data?.success) {
         toast.success('گارانتی با موفقیت فعال شد!')
-        setWarrantyData(response.data)
+        setWarrantyData(response.data?.data)
         setIsShow(true)
       } else {
-        toast.error(response?.message || 'مشکلی پیش آمده است!')
+        toast.error(response?.data?.message || 'مشکلی پیش آمده است!')
       }
     } catch (error) {
       console.error(error)
-      toast.error('خطا در فعال‌سازی گارانتی')
+      toast.error(error?.response?.data?.error || 'خطا در ارتباط با سرور')
     } finally {
       setLoading(false)
     }
   }
+
+  const inputClass = hasError =>
+    `w-full rounded-xl border bg-white px-4 py-3 text-sm text-neutral-800 outline-none transition focus:ring-2 ${
+      hasError
+        ? 'border-red-300 focus:border-red-400 focus:ring-red-100'
+        : 'border-neutral-200 focus:border-amber-400 focus:ring-amber-100'
+    }`
 
   return (
     <section
@@ -56,109 +116,139 @@ export default function Inquiry() {
           <div className="pointer-events-none absolute -right-16 bottom-0 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(253,68,25,0.08)_0%,transparent_70%)] blur-2xl" />
 
           <div className="relative px-4 py-10 sm:px-8 lg:p-12">
-            {!isShow ? (
-              <div className="mx-auto max-w-3xl">
-                <div className="mb-8 text-center">
-                  <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">
-                    استعلام و فعال‌سازی گارانتی
-                  </h2>
-                  <p className="mx-auto mt-3 max-w-2xl text-sm leading-8 text-neutral-500 md:text-base">
-                    مشخصات زیر را وارد کنید تا وضعیت گارانتی کالا نمایش داده شود
-                    و در صورت نیاز فعال‌سازی انجام شود.
-                  </p>
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-8 text-center">
+                <h2 className="text-2xl font-bold text-neutral-900 md:text-3xl">
+                  استعلام و فعال‌سازی گارانتی
+                </h2>
+                <p className="mx-auto mt-3 max-w-2xl text-sm leading-8 text-neutral-500 md:text-base">
+                  مشخصات زیر را وارد کنید تا وضعیت گارانتی کالا نمایش داده شود
+                  و در صورت نیاز فعال‌سازی انجام شود.
+                </p>
+              </div>
+
+              <form
+                onSubmit={e => {
+                  e.preventDefault()
+                  onActivation()
+                }}
+                noValidate
+                className="rounded-2xl border border-neutral-100 bg-stone-50/80 p-5 md:p-7"
+              >
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                  <label className="block">
+                    <span className="mb-2 block text-sm font-medium text-neutral-700">
+                      نام و نام خانوادگی
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="مثلاً علی احمدی"
+                      value={fullName}
+                      onChange={e => {
+                        setFullName(e.target.value)
+                        clearError('fullName')
+                      }}
+                      className={inputClass(Boolean(errors.fullName))}
+                      aria-invalid={Boolean(errors.fullName)}
+                    />
+                    {errors.fullName ? (
+                      <small className="mt-1.5 block text-xs text-red-500">
+                        {errors.fullName}
+                      </small>
+                    ) : null}
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-sm font-medium text-neutral-700">
+                      شماره موبایل
+                    </span>
+                    <input
+                      type="tel"
+                      inputMode="numeric"
+                      placeholder="0912xxxxxxx"
+                      value={phoneNumber}
+                      onChange={e => {
+                        const value = e.target.value.replace(/\D/g, '').slice(0, 11)
+                        setPhoneNumber(value)
+                        clearError('phoneNumber')
+                      }}
+                      className={inputClass(Boolean(errors.phoneNumber))}
+                      aria-invalid={Boolean(errors.phoneNumber)}
+                      dir="ltr"
+                    />
+                    {errors.phoneNumber ? (
+                      <small className="mt-1.5 block text-xs text-red-500">
+                        {errors.phoneNumber}
+                      </small>
+                    ) : null}
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-sm font-medium text-neutral-700">
+                      شماره گارانتی
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="کد روی کارت گارانتی"
+                      value={serialNumber}
+                      onChange={e => {
+                        setSerialNumber(e.target.value)
+                        clearError('serialNumber')
+                      }}
+                      className={inputClass(Boolean(errors.serialNumber))}
+                      aria-invalid={Boolean(errors.serialNumber)}
+                    />
+                    {errors.serialNumber ? (
+                      <small className="mt-1.5 block text-xs text-red-500">
+                        {errors.serialNumber}
+                      </small>
+                    ) : null}
+                  </label>
                 </div>
 
-                <form
-                  onSubmit={e => {
-                    e.preventDefault()
-                    onActivation()
-                  }}
-                  className="rounded-2xl border border-neutral-100 bg-stone-50/80 p-5 md:p-7"
-                >
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-                    <label className="block">
-                      <span className="mb-2 block text-sm font-medium text-neutral-700">
-                        نام و نام خانوادگی
-                      </span>
-                      <input
-                        type="text"
-                        placeholder="مثلاً علی احمدی"
-                        value={fullName}
-                        onChange={e => setFullName(e.target.value)}
-                        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-800 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-100"
-                      />
-                    </label>
-                    <label className="block">
-                      <span className="mb-2 block text-sm font-medium text-neutral-700">
-                        شماره موبایل
-                      </span>
-                      <input
-                        type="tel"
-                        inputMode="numeric"
-                        placeholder="0912xxxxxxx"
-                        value={phoneNumber}
-                        onChange={e => setPhoneNumber(e.target.value)}
-                        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-800 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-100"
-                      />
-                    </label>
-                    <label className="block">
-                      <span className="mb-2 block text-sm font-medium text-neutral-700">
-                        شماره گارانتی
-                      </span>
-                      <input
-                        type="text"
-                        placeholder="کد روی کارت گارانتی"
-                        value={serialNumber}
-                        onChange={e => setSerialNumber(e.target.value)}
-                        className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-800 outline-none transition focus:border-amber-400 focus:ring-2 focus:ring-amber-100"
-                      />
-                    </label>
-                  </div>
+                <div className="mt-5 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-xs leading-6 text-neutral-400">
+                    اطلاعات شما فقط برای استعلام و فعال‌سازی گارانتی استفاده
+                    می‌شود.
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="inline-flex min-w-48 items-center justify-center gap-2 rounded-xl bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {loading ? (
+                      <>
+                        <svg
+                          className="size-4 animate-spin"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                        در حال بررسی...
+                      </>
+                    ) : (
+                      'استعلام و فعال‌سازی'
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
 
-                  <div className="mt-5 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs leading-6 text-neutral-400">
-                      اطلاعات شما فقط برای استعلام و فعال‌سازی گارانتی استفاده
-                      می‌شود.
-                    </p>
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="inline-flex min-w-48 items-center justify-center gap-2 rounded-xl bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {loading ? (
-                        <>
-                          <svg
-                            className="size-4 animate-spin"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            />
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            />
-                          </svg>
-                          در حال بررسی...
-                        </>
-                      ) : (
-                        'استعلام و فعال‌سازی'
-                      )}
-                    </button>
-                  </div>
-                </form>
-              </div>
-            ) : (
+            {isShow && (
               <WarrantyActivated
-                onClose={() => setIsShow(false)}
+                onClose={closeResult}
                 data={warrantyData}
               />
             )}
